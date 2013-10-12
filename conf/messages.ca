@@ -1,0 +1,13 @@
+home.title=App JosepIA (CA)
+
+##Menu information:
+menu.about=Sobre
+menu.contact=Contacte
+menu.home=Inici
+menu.sign=Entra
+menu.plholder.mail=Email
+menu.plholder.pwd=Contrasenya
+menu.register=Registra't
+
+##Main container information:
+main.container.txt=Aquesta és una aplicació (en construcció) que es correspon amb el Treball Final de Grau de la UOC. App basada en Play! (Java) + Bootstrap + Hibernate + MySQL + Heroku (Netty server).

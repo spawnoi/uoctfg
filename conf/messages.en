@@ -1,0 +1,12 @@
+home.title=App Title (EN)
+menu.about=About
+menu.contact=Contact
+menu.home=Home
+menu.sign=Sign in
+menu.plholder.mail=Email
+menu.plholder.pwd=Password
+menu.register=Sing up
+
+
+##Main container information:
+main.container.txt=What you are seeing is an App (under construcction) that belongs to the 'Treball Final de Grau de la UOC'. App based on Play! (Java) + Bootstrap + Hibernate + MySQL + Heroku (Netty server).
