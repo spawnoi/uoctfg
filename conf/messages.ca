@@ -7,7 +7,22 @@ menu.home=Inici
 menu.sign=Entra
 menu.plholder.mail=Email
 menu.plholder.pwd=Contrasenya
-menu.register=Registra't
+menu.register=Registra''t
 
 ##Main container information:
 main.container.txt=Aquesta és una aplicació (en construcció) que es correspon amb el Treball Final de Grau de la UOC. App basada en Play! (Java) + Bootstrap + Hibernate + MySQL + Heroku (Netty server).
+
+##Left box
+leftbox.title=Buscant feina?
+leftbox.msg=Estas buscant feina? Necessites una oportunitat? Registra''t i podras accedir a numeroses ofertes de feina en les quals hi pots encaixar.
+leftbox.button=Dona''t d''alta
+
+##Central box
+centralbox.title=Cercant treballadors?
+centralbox.msg=Necessites personal per la teva empresa? Registra''t, publica les teves ofertes i troba el candidat ideal que necessites.
+centralbox.button=Dona''t d''alta
+
+##Right box 
+rightbox.title=Busques feina?
+rightbox.msg=Estas buscant feina? Necessites una oportunitat? Registra''t i podras accedir a numeroses ofertes de feina en les quals hi pots encaixar.
+rightbox.button=Dona''t d''alta

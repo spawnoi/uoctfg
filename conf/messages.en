@@ -10,3 +10,19 @@ menu.register=Sing up
 
 ##Main container information:
 main.container.txt=What you are seeing is an App (under construcction) that belongs to the 'Treball Final de Grau de la UOC'. App based on Play! (Java) + Bootstrap + Hibernate + MySQL + Heroku (Netty server).
+
+##Left box
+leftbox.title=Looking for a job?
+leftbox.msg=Do you need a job? A new opportunity? Sign in and acces to lots of job offers suitable for you.
+leftbox.button=Sign up
+
+##Central box
+centralbox.title=Are you hiring?
+centralbox.msg=Do you need workers for your enterprise? Sign in, publish your offers and find the most suitable aspirant.
+centralbox.button=Sign up
+
+
+##Right box 
+rightbox.title=Busques feina?
+rightbox.msg=Estas buscant feina? Necessites una oportunitat? Registra't i podras accedir a numeroses ofertes de feina en les quals hi pots encaixar.
+rightbox.button=Dona't d'alta

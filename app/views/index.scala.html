@@ -1,43 +1,6 @@
-@(message: String)
+@(message: String, menu: Html)
 
-@main("Josep IA (TFG)") {
-
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="#">@Messages("home.title")</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="active"><a href="#">@Messages("menu.home")</a></li>
-              <li><a href="#about">@Messages("menu.about")</a></li>
-              <li><a href="#contact">@Messages("menu.contact")</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li class="nav-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </li>
-            </ul>
-            <form class="navbar-form pull-right">
-              <input class="span2" type="text" placeholder='@Messages("menu.plholder.mail")'>
-              <input class="span2" type="password" placeholder='@Messages("menu.plholder.pwd")'>
-              <button type="submit" class="btn">@Messages("menu.sign")</button>
-            </form>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
+@main(message, menu) {
 
     <div class="container">
 
@@ -45,20 +8,20 @@
       <div class="hero-unit">
         <h1>@Messages("home.title")!</h1>
         <p>@Messages("main.container.txt")</p>
-        <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+        <p><a href=@routes.Application.login() class="btn btn-primary btn-large">Log In &raquo;</a></p>
       </div>
 
       <!-- Example row of columns -->
       <div class="row">
         <div class="span4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
+          <h2>@Messages("leftbox.title")</h2>
+          <p>@Messages("leftbox.msg") </p>
+          <p><a class="btn" href=@routes.Application.newUser()>@Messages("leftbox.button") &raquo;</a></p>
         </div>
         <div class="span4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
+          <h2>@Messages("centralbox.title")</h2>
+          <p>@Messages("centralbox.msg") </p>
+          <p><a class="btn" href="#">@Messages("centralbox.button") &raquo;</a></p>
        </div>
         <div class="span4">
           <h2>Heading</h2>

@@ -1,0 +1,22 @@
+@(message: String, jobs: List[JobOffer], menu: Html)
+
+@main(message, menu) { 
+
+<li data-group="@message">
+    <span class="toggle"></span>
+    <h4 class="groupName">@message</h4>
+    <span class="loader">Loading</span>
+    <dl class="options">
+        <dt>Options</dt>
+        <dd>
+        <a class="btn" href="#">New Job Offer &raquo;</a>
+        <a class="btn" href="#">Remove &raquo;</a>
+        </dd>
+    </dl>
+     <ul>
+        @jobs.map { job =>
+            @views.html.comp.item(job)
+        }
+    </ul>
+</li>
+}
