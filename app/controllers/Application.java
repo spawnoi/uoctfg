@@ -1,7 +1,7 @@
 package controllers;
 
 import static play.data.Form.form;
-import models.User;
+import models.UserApp;
 import play.data.Form;
 import play.i18n.Messages;
 import play.mvc.Controller;
@@ -19,7 +19,7 @@ public class Application extends Controller {
 	 * Handle the 'new computer form' submission
 	 */
 	public static Result saveUser() {
-		Form<User> userAddForm = form(User.class).bindFromRequest();
+		Form<UserApp> userAddForm = form(UserApp.class).bindFromRequest();
 		if (userAddForm.hasErrors()) {
 			return badRequest(views.html.newUser.render(userAddForm,
 					mainmenu.render()));
@@ -32,7 +32,7 @@ public class Application extends Controller {
 	}
 
 	public static Result newUser() {
-		Form<User> userForm = form(User.class);
+		Form<UserApp> userForm = form(UserApp.class);
 		return ok(views.html.newUser.render(userForm, mainmenu.render()));
 	}
 
@@ -45,7 +45,7 @@ public class Application extends Controller {
 		public String password;
 
 		public String validate() {
-			if (User.authenticate(email, password) == null) {
+			if (UserApp.authenticate(email, password) == null) {
 				return "Invalid user or password";
 			}
 			return null;

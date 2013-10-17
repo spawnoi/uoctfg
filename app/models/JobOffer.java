@@ -29,7 +29,7 @@ public class JobOffer extends Model {
 	public Date expirationDate;
 
 	@ManyToOne
-	public User publisher;
+	public UserApp publisher;
 	
  // -- Queries
     
@@ -53,7 +53,7 @@ public class JobOffer extends Model {
     }
     
     public static JobOffer create(JobOffer jobOffer, String companyName) {
-    	jobOffer.publisher = User.findByEmail(companyName);
+    	jobOffer.publisher = UserApp.findByEmail(companyName);
     	jobOffer.save();
         return jobOffer;
     }
