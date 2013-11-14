@@ -25,3 +25,13 @@ centralbox.button=Regístrate
 rightbox.title=Busques feina?
 rightbox.msg=Estas buscant feina? Necessites una oportunitat? Registra't i podras accedir a numeroses ofertes de feina en les quals hi pots encaixar.
 rightbox.button=Dona't d'alta
+
+##New User
+user.email=Email
+user.name=Name
+user.secname=Surname
+user.password=Password
+user.repassword=Repeat password
+user.dni=Doc Id
+user.bdate=Birth Date
+user.type=User type

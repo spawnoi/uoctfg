@@ -1,12 +1,17 @@
 package controllers;
 
+import static play.data.Form.form;
 import models.JobOffer;
+import models.UserApp;
+import play.data.Form;
 import play.i18n.Messages;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Security;
+import views.html.mainmenu;
 import views.html.comp.company;
 import views.html.comp.companymenu;
+import views.html.comp.newJob;
 
 @Security.Authenticated(Secured.class)
 public class Company extends Controller {
@@ -18,11 +23,21 @@ public class Company extends Controller {
     }
     
     public static Result addJob(){
-    	return ok("addJob");
+    	Form<JobOffer> jobOfferForm = form(JobOffer.class);
+		return ok(newJob.render(jobOfferForm, mainmenu.render()));
     }
     
     public static Result storeJob(){
-    	return ok("storeJob");
+    	Form<JobOffer> jobStoreForm = form(JobOffer.class).bindFromRequest();
+		if (jobStoreForm.hasErrors()) {
+			return badRequest(newJob.render(jobStoreForm,
+					mainmenu.render()));
+		}
+		jobStoreForm.get().save();
+		System.out.println("userAddForm.get().name: " + jobStoreForm.get().title);
+		flash("success", "User " + jobStoreForm.get().title + " has been created");
+
+		return redirect(routes.Company.index("inventedMail"));
     }
     /*
     public static Result add() {

@@ -18,18 +18,38 @@ import play.db.ebean.Model;
 public class JobOffer extends Model {
 
 	private static final long serialVersionUID = 1L;
+	
+	enum DurationType {FREELANCE, FIXED_PERIOD, INDEFINITE}
+	enum WorkDayType {FULL_TIME, HALF_TIME}
 
 	@Id
 	public Long id;
 
 	@Constraints.Required
+	public String title;
+	
+	@Constraints.Required
 	public String description;
 
+	public Integer numVacants;
+	
+	public DurationType duration;
+	
+	public WorkDayType workType;
+	
+	public String salary;
+	
+	public String emplacement;
+	
+	public String benefits;
+	
 	@Formats.DateTime(pattern = "yyyy-MM-dd")
 	public Date expirationDate;
 
 	@ManyToOne
 	public UserApp publisher;
+	
+	
 	
  // -- Queries
     

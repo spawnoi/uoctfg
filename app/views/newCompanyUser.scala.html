@@ -1,26 +1,25 @@
-@(userForm: Form[CandidateUser], menu: Html)
+@(userForm: Form[CompanyUser], menu: Html)
 
 @import helper._
 
 @implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.render) } 
 
-@main("New Candidate", menu) {
+@main("New company", menu) {
     
-    @form(routes.Application.saveUser()) {
+    @form(routes.Application.saveCompUser()) {
         
         <fieldset>
-         <legend>New candidate account</legend>
+         <legend>New company account</legend>
          
         @inputText(userForm("name"), '_label -> Messages("user.name"))
-        @inputText(userForm("surname"), '_label -> Messages("user.secname"))
+        @inputText(userForm("description"), '_label -> "description")
         @inputText(userForm("email"), '_label -> Messages("user.email"))
         @inputPassword(userForm("password"), '_label -> Messages("user.password"))
         @inputText(userForm("docId"), '_label -> Messages("user.dni"))
-        @inputText(userForm("education"), '_label -> "education")
-        @textarea(userForm("experience"), '_label -> "experience", 'rows -> 3, 'cols -> 50)
-        @textarea(userForm("languages"), '_label -> "languages")
-        @textarea(userForm("projects"), '_label -> "projects")
-
+        @textarea(userForm("sector"), '_label -> "sector")
+        @textarea(userForm("web"), '_label -> "web")
+         
+           
         </fieldset>
         
         <div class="actions">

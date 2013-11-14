@@ -1,0 +1,30 @@
+@(userForm: Form[JobOffer], menu: Html)
+
+@import helper._
+
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.render) } 
+
+
+@main("New Job Offer", menu) {
+    
+    <h1>New Job Offer</h1>
+    
+    @form(routes.Company.storeJob()) {
+        
+        <fieldset>
+        
+            @inputText(userForm("title"), '_label -> "Title")
+            @inputText(userForm("description"), '_label -> "Description")
+            @inputText(userForm("numVacants"), '_label -> "Vacants")
+            @inputText(userForm("salary"), '_label -> "Salary")
+
+        </fieldset>
+        
+        <div class="actions">
+            <input type="submit" value="Publish Offer" class="btn primary"> or 
+            <a href="#" class="btn">Cancel</a>
+        </div>
+        
+    }
+    
+}
