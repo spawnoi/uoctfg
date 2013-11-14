@@ -41,6 +41,7 @@ public class Application extends Controller {
 
 		} else {
 			UserApp user = UserApp.makeInstance(userAddForm.get());
+			user.save();
 			flash("success", "Company account instance created/edited: " + user);
 			System.out.println("userAddForm.get().name: "
 					+ userAddForm.get().name);
@@ -70,6 +71,7 @@ public class Application extends Controller {
 
 		} else {
 			UserApp user = UserApp.makeInstance(userAddForm.get());
+			user.save();
 			flash("success", "Candidate instance created/edited: " + user);
 			System.out.println("userAddForm.get().name: "
 					+ userAddForm.get().name);
