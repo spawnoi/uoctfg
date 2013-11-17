@@ -7,13 +7,13 @@
 	<div class="row-fluid">
 		<div class="span2">
 			<!--Sidebar content -->
-			<a class="btn" href=@routes.Company.addJob()>New job offer
+			<a class="btn" href=@routes.Candidate.prepareSearchJob()>Search Jobs
 			</a> <a class="btn" href="#">Remove</a>
 		</div>
 		<div class="span10">
 			<!--Body content-->
-				<h4>List of published jobs:</h4>
-				<ul>@jobs.map { job => @views.html.comp.item(job) }
+				<h4>List of inscribed jobs:</h4>
+				<ul>@jobs.map { job => @views.html.user.inscribedjob(job) }
 				</ul>
 		</div>
 	</div>

@@ -47,8 +47,8 @@ public class Application extends Controller {
 					+ userAddForm.get().name);
 			flash("success", "Company " + userAddForm.get().name
 					+ " has been created");
-
-			return redirect(routes.Application.index());
+			
+			return redirect(routes.Company.index(userAddForm.get().getEmail()));
 		}
 	}
 
@@ -78,7 +78,7 @@ public class Application extends Controller {
 			flash("success", "Candidate " + userAddForm.get().name
 					+ " has been created");
 
-			return redirect(routes.Application.index());
+			return redirect(routes.Application.login());
 		}
 	}
 
@@ -95,11 +95,6 @@ public class Application extends Controller {
 			if (UserApp.authenticate(email, password) == null) {
 				errors.add(new ValidationError("email",
 						"Invalid user or password."));
-			} else {
-				if (UserApp.findByEmail(email) != null) {
-					errors.add(new ValidationError("email",
-							"This e-mail is already registered."));
-				}
 			}
 			return errors.isEmpty() ? null : errors;
 		}
@@ -126,7 +121,7 @@ public class Application extends Controller {
 					loginForm.get().password);
 			if (user != null) {
 				if (user.isCandidate()) {
-					return redirect(routes.Company.index(loginForm.get().email));
+					return redirect(routes.Candidate.index());
 				} else if (user.isCompany()) {
 					return redirect(routes.Company.index(loginForm.get().email));
 				} else {

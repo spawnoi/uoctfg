@@ -1,0 +1,71 @@
+package controllers;
+
+
+import static play.data.Form.form;
+
+import java.util.List;
+
+import models.JobOffer;
+import models.SearchJob;
+import play.data.Form;
+import play.i18n.Messages;
+import play.mvc.Controller;
+import play.mvc.Result;
+import play.mvc.Security;
+import views.html.user.candidate;
+import views.html.user.candidatemenu;
+import views.html.user.searchJobs;
+
+@Security.Authenticated(Secured.class)
+public class Candidate extends Controller {
+
+	/*
+	 * Retornar inscribed Jobs
+	 */
+    public static Result index() {
+    	//String titleMsg = Messages.get("home.title");
+    	String title = "Candidate Home";
+    	List<JobOffer> listJobs = JobOffer.findAll();
+    	return ok(candidate.render(title, listJobs, candidatemenu.render("userInvented")));
+    }
+   
+    public static Result prepareSearchJob(){
+    	Form<SearchJob> jobOfferForm = form(SearchJob.class);
+    	return ok(searchJobs.render(jobOfferForm, candidatemenu.render("user")));
+    }
+
+    public static Result searchJob(){
+      	Form<SearchJob> jobStoreForm = form(SearchJob.class).bindFromRequest();
+      	/*
+    		if (jobStoreForm.hasErrors()) {
+    			return badRequest(newJob.render(jobStoreForm,
+    					mainmenu.render()));
+    		}
+    		jobStoreForm.get().save();
+    		System.out.println("userAddForm.get().name: " + jobStoreForm.get().title);
+    		flash("success", "User " + jobStoreForm.get().title + " has been created");
+
+    		return redirect(routes.Company.index("inventedMail"));
+    		*/
+      	return ok("search done");
+    }
+    /*
+    public static Result addJob(){
+    	Form<JobOffer> jobOfferForm = form(JobOffer.class);
+		return ok(newJob.render(jobOfferForm, mainmenu.render()));
+    }
+    
+    public static Result storeJob(){
+    	Form<JobOffer> jobStoreForm = form(JobOffer.class).bindFromRequest();
+		if (jobStoreForm.hasErrors()) {
+			return badRequest(newJob.render(jobStoreForm,
+					mainmenu.render()));
+		}
+		jobStoreForm.get().save();
+		System.out.println("userAddForm.get().name: " + jobStoreForm.get().title);
+		flash("success", "User " + jobStoreForm.get().title + " has been created");
+
+		return redirect(routes.Company.index("inventedMail"));
+    }
+    */
+}

@@ -1,18 +1,16 @@
-@(userForm: Form[JobOffer], menu: Html)
+@(userForm: Form[SearchJob], menu: Html)
 
 @import helper._
 
 @implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.render) } 
 
 
-@main("New Job Offer", menu) {
+@main("Search Jobs", menu) {
     
-    <h1>New Job Offer</h1>
-    
-    @form(routes.Company.storeJob()) {
+    @form(routes.Candidate.searchJob()) {
         
         <fieldset>
-        
+        	<legend>Search jobs</legend>
             @inputText(userForm("title"), '_label -> "Title")
             @inputText(userForm("description"), '_label -> "Description")
             @inputText(userForm("numVacants"), '_label -> "Vacants")
@@ -21,8 +19,8 @@
         </fieldset>
         
         <div class="actions">
-            <input type="submit" value="Publish Offer" class="btn primary"> or 
-            <a href=@routes.Company.index("from new Job") class="btn">Cancel</a>
+            <input type="submit" value="Search" class="btn primary"> or 
+            <a href=@routes.Candidate.index() class="btn">Cancel</a>
         </div>
         
     }

@@ -1,8 +1,10 @@
 package controllers;
 
 import static play.data.Form.form;
+
+import java.util.List;
+
 import models.JobOffer;
-import models.UserApp;
 import play.data.Form;
 import play.i18n.Messages;
 import play.mvc.Controller;
@@ -19,7 +21,8 @@ public class Company extends Controller {
 	
     public static Result index(String emailUser) {
     	String titleMsg = Messages.get("home.title");
-    	return ok(company.render(titleMsg, JobOffer.findAll(), companymenu.render(emailUser)));
+    	List<JobOffer> listJobs = JobOffer.findAll();
+    	return ok(company.render(titleMsg, listJobs, companymenu.render(emailUser)));
     }
     
     public static Result addJob(){

@@ -19,5 +19,10 @@ GET    	/company                    controllers.Company.index(emailUser: String)
 GET    	/company/jobs               controllers.Company.addJob()
 POST   	/company/jobs               controllers.Company.storeJob()
 
+# Candidate
+GET		/user						controllers.Candidate.index()
+GET		/user/search				controllers.Candidate.prepareSearchJob()
+POST	/user/search				controllers.Candidate.searchJob()
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
