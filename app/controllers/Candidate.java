@@ -8,7 +8,6 @@ import java.util.List;
 import models.JobOffer;
 import models.SearchJob;
 import play.data.Form;
-import play.i18n.Messages;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Security;

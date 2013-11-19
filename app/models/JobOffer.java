@@ -1,15 +1,20 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 
 import play.data.format.Formats;
 import play.data.validation.Constraints;
 import play.db.ebean.Model;
+
+import com.avaje.ebean.Ebean;
 
 /**
  * Computer entity managed by Ebean
@@ -46,8 +51,11 @@ public class JobOffer extends Model {
 	@Formats.DateTime(pattern = "yyyy-MM-dd")
 	public Date expirationDate;
 
-	@ManyToOne
+	@OneToOne(fetch = FetchType.EAGER)
 	public UserApp publisher;
+	
+	@ManyToMany(fetch = FetchType.EAGER)
+    public List<UserApp> inscribed = new ArrayList<UserApp>();
 	
 	
 	
@@ -62,7 +70,13 @@ public class JobOffer extends Model {
      * Retrieve all JobOffers.
      */
     public static List<JobOffer> findAll() {
-        return find.all();
+    	/* return find.fetch("project")
+    	           .where()
+    	                .eq("done", false)
+    	                .eq("project.members.email", user)
+    	           .findList();*/
+    	 return Ebean.find(JobOffer.class).fetch("publisher").fetch("inscribed").findList();
+        //return find.all();
     }
 
     /**

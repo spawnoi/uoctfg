@@ -1,0 +1,97 @@
+
+# Users
+
+users:
+
+    - !!models.UserApp
+        id:         1
+        email:      josep.itarte@gmail.com
+        name:       Josep
+        secName:    adad 
+        password:   password
+        docId:      431314324-X
+        birthDate:  1985-03-20
+        type:       CANDIDATE
+        education:  University
+        experience: Hard work during years
+        languages:  Catalan, Spanish and English
+        projects:   http://github.com/spawnoi
+        web:        http://josepdev.bl.ee
+    
+    - !!models.UserApp
+        id:         2
+        email:      josep@sample.com
+        name:       Josep Inc
+        password:   password
+        type:       ENTERPRISE
+    
+    - !!models.UserApp
+        id:         3
+        email:      sadek@sample.com
+        name:       Sadek Drobi
+        password:   secret
+        type:       CANDIDATE
+    
+    - !!models.UserApp
+        id:         4
+        email:      erwan@sample.com
+        name:       Erwan Loisant
+        password:   secret
+        type:       CANDIDATE
+
+#JobOffers
+
+jobs:
+
+    - !!models.JobOffer
+        title:       Job num1 
+        description: Description of job 1
+        numVacants:  2
+        duration:    FREELANCE
+        workType:    FULL_TIME
+        salary:      100€
+        emplacement: Barcelona
+        benefits:    free gym
+        expirationDate: 2013-11-30
+        publisher:   !!models.UserApp
+                         id: 2
+        inscribed:   !!models.UserApp
+                         id: 3
+                     !!models.UserApp
+                         id: 4
+        
+    - !!models.JobOffer
+        title:       Job num2
+        description: Description of job 2
+        numVacants:  2
+        duration:    FIXED_PERIOD
+        workType:    FULL_TIME
+        salary:      10000€
+        emplacement: Granollers
+        benefits:    library free
+        expirationDate: 2014-11-30
+        publisher:   !!models.UserApp
+                          id: 2
+        inscribed:   !!models.UserApp
+                         id: 3
+                     !!models.UserApp
+                         id: 4
+            
+    - !!models.JobOffer
+        title:       Job num3
+        description: Description of job 3
+        numVacants:  2
+        duration:    INDEFINITE
+        workType:    HALF_TIME
+        salary:      1000€
+        emplacement: Granollers
+        benefits:    nothing
+        expirationDate: 2014-11-30
+        publisher:   !!models.UserApp
+                         id: 2
+        inscribed:   !!models.UserApp
+                         id: 3
+                     !!models.UserApp
+                         id: 4
+        
+      

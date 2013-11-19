@@ -40,6 +40,12 @@ create table user_app (
   constraint pk_user_app primary key (id))
 ;
 
+
+create table job_offer_user_app (
+  job_offer_id                   bigint not null,
+  user_app_id                    bigint not null,
+  constraint pk_job_offer_user_app primary key (job_offer_id, user_app_id))
+;
 create sequence job_offer_seq;
 
 create sequence user_app_seq;
@@ -49,11 +55,17 @@ create index ix_job_offer_publisher_1 on job_offer (publisher_id);
 
 
 
+alter table job_offer_user_app add constraint fk_job_offer_user_app_job_off_01 foreign key (job_offer_id) references job_offer (id) on delete restrict on update restrict;
+
+alter table job_offer_user_app add constraint fk_job_offer_user_app_user_ap_02 foreign key (user_app_id) references user_app (id) on delete restrict on update restrict;
+
 # --- !Downs
 
 SET REFERENTIAL_INTEGRITY FALSE;
 
 drop table if exists job_offer;
+
+drop table if exists job_offer_user_app;
 
 drop table if exists user_app;
 
