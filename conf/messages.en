@@ -35,3 +35,6 @@ user.repassword=Repite contraseña
 user.dni=DNI
 user.bdate=Fecha nacimiento
 user.type=Tipo usuario
+
+
+userlist.title=Users

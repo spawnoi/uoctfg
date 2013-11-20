@@ -124,6 +124,9 @@ public class Application extends Controller {
 					return redirect(routes.Candidate.index());
 				} else if (user.isCompany()) {
 					return redirect(routes.Company.index(loginForm.get().email));
+				
+				} else if(user.isAdmin()){
+					return redirect(routes.Admin.list(0, "name", "asc", ""));
 				} else {
 					return redirect(routes.Application.index());
 				}

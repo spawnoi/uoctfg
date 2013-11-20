@@ -28,6 +28,11 @@ public class Global extends GlobalSettings {
                 
                 // Insert jobs
                 Ebean.save(all.get("jobs"));
+                for(Object job: all.get("jobs")) {
+                    // Insert the project/user relation
+                    Ebean.saveManyToManyAssociations(job, "inscribed");
+                }
+                
                 /*
                 for(Object project: all.get("projects")) {
                     // Insert the project/user relation

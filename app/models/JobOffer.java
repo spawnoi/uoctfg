@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -54,7 +55,7 @@ public class JobOffer extends Model {
 	@OneToOne(fetch = FetchType.EAGER)
 	public UserApp publisher;
 	
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.REMOVE)
     public List<UserApp> inscribed = new ArrayList<UserApp>();
 	
 	

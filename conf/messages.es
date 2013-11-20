@@ -35,3 +35,7 @@ user.repassword=Repeat password
 user.dni=Doc Id
 user.bdate=Birth Date
 user.type=User type
+
+
+##userlist
+userlist.title=Usuarios

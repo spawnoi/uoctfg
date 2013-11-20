@@ -3,7 +3,7 @@
 
 users:
 
-    - !!models.UserApp
+    - &user1 !!models.UserApp
         id:         1
         email:      josep.itarte@gmail.com
         name:       Josep
@@ -18,26 +18,36 @@ users:
         projects:   http://github.com/spawnoi
         web:        http://josepdev.bl.ee
     
-    - !!models.UserApp
+    - &user2 !!models.UserApp
         id:         2
         email:      josep@sample.com
         name:       Josep Inc
         password:   password
         type:       ENTERPRISE
     
-    - !!models.UserApp
+    - &user3 !!models.UserApp
         id:         3
         email:      sadek@sample.com
         name:       Sadek Drobi
         password:   secret
+        birthDate:  1985-04-22
         type:       CANDIDATE
     
-    - !!models.UserApp
+    - &user4 !!models.UserApp
         id:         4
         email:      erwan@sample.com
         name:       Erwan Loisant
         password:   secret
+        birthDate:  1990-06-07
         type:       CANDIDATE
+        
+    - &user5 !!models.UserApp
+        id:         5
+        email:      josep@admin.com
+        name:       Josep Inc
+        password:   password
+        birthDate:  1985-07-08
+        type:       ADMINISTRATOR
 
 #JobOffers
 
@@ -53,12 +63,10 @@ jobs:
         emplacement: Barcelona
         benefits:    free gym
         expirationDate: 2013-11-30
-        publisher:   !!models.UserApp
-                         id: 2
-        inscribed:   !!models.UserApp
-                         id: 3
-                     !!models.UserApp
-                         id: 4
+        publisher:   *user2
+        inscribed:   
+            - *user3
+            - *user4
         
     - !!models.JobOffer
         title:       Job num2
@@ -70,13 +78,11 @@ jobs:
         emplacement: Granollers
         benefits:    library free
         expirationDate: 2014-11-30
-        publisher:   !!models.UserApp
-                          id: 2
-        inscribed:   !!models.UserApp
-                         id: 3
-                     !!models.UserApp
-                         id: 4
-            
+        publisher:   *user2
+        inscribed:   
+            - *user3
+            - *user4
+                                
     - !!models.JobOffer
         title:       Job num3
         description: Description of job 3
@@ -87,11 +93,10 @@ jobs:
         emplacement: Granollers
         benefits:    nothing
         expirationDate: 2014-11-30
-        publisher:   !!models.UserApp
-                         id: 2
-        inscribed:   !!models.UserApp
-                         id: 3
-                     !!models.UserApp
-                         id: 4
+        publisher:   *user2
+        inscribed:   
+            - *user3
+            - *user4
+                     
         
       

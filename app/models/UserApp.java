@@ -1,15 +1,13 @@
 package models;
 
-import java.util.Date;
-import java.util.List;
+import java.util.*;
+import javax.persistence.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import play.db.ebean.*;
+import play.data.format.*;
+import play.data.validation.*;
 
-import play.data.format.Formats;
-import play.data.validation.Constraints;
-import play.data.validation.Constraints.Required;
-import play.db.ebean.Model;
+import com.avaje.ebean.*;
 
 /**
  * Computer entity managed by Ebean
@@ -65,7 +63,9 @@ public class UserApp extends Model {
 		return type == UserType.ENTERPRISE;
 	}
 	
-	
+	public boolean isAdmin(){
+		return type == UserType.ADMINISTRATOR;
+	}
 
 	
 // -- Parsing
@@ -109,6 +109,7 @@ public class UserApp extends Model {
 		    return user;
 		  }
 	
+	 
  // -- Queries
     
 	/**
@@ -128,6 +129,17 @@ public class UserApp extends Model {
      */
     public static UserApp findByEmail(String email) {
         return find.where().eq("email", email).findUnique();
+    }
+    
+    public static Page<UserApp> page(int page, int pageSize, String sortBy, String order, String filter) {
+        return 
+            find.where()
+                .ilike("name", "%" + filter + "%")
+                .orderBy(sortBy + " " + order)
+                //.fetch("company")
+                .findPagingList(pageSize)
+                .setFetchAhead(false)
+                .getPage(page);
     }
     
     /**
