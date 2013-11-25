@@ -4,6 +4,8 @@ import static play.data.Form.form;
 
 import java.util.List;
 
+import controllers.Application.Login;
+
 import models.JobOffer;
 import play.data.Form;
 import play.i18n.Messages;
@@ -27,14 +29,14 @@ public class Company extends Controller {
     
     public static Result addJob(){
     	Form<JobOffer> jobOfferForm = form(JobOffer.class);
-		return ok(newJob.render(jobOfferForm, mainmenu.render()));
+		return ok(newJob.render(jobOfferForm, companymenu.render("email")));
     }
     
     public static Result storeJob(){
     	Form<JobOffer> jobStoreForm = form(JobOffer.class).bindFromRequest();
 		if (jobStoreForm.hasErrors()) {
 			return badRequest(newJob.render(jobStoreForm,
-					mainmenu.render()));
+					companymenu.render("email")));
 		}
 		jobStoreForm.get().save();
 		System.out.println("userAddForm.get().name: " + jobStoreForm.get().title);

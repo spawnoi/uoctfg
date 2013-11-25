@@ -25,11 +25,17 @@
                 </ul>
               </li>
             </ul>
-            <form class="navbar-form pull-right" action=@routes.Application.authenticate()>
-              <input class="span2" type="text" placeholder='@Messages("menu.plholder.mail")'>
-              <input class="span2" type="password" placeholder='@Messages("menu.plholder.pwd")'>
-              <button type="submit" class="btn">@Messages("menu.sign")</button>
-            </form>
+            @if(session.get("connected") == null) {
+              <ul class="nav" align="right">
+              	<li><a href=@routes.Application.login()>@Messages("menu.sign")</a></li>
+         		<li><a href=@routes.Application.newUser()>@Messages("leftbox.button")</a></li>
+              </ul>
+         		
+            } else {
+            	<a href="#account">Logged as: @session.get("email")</a>
+            	<a href=@routes.Application.logout() class="btn pull-right btn-info" id="logout">Logout</a>
+                <a href="" class="btn pull-right btn-info">My Account</a>
+            }
           </div><!--/.nav-collapse -->
         </div>
       </div>

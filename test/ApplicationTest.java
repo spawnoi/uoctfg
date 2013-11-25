@@ -1,8 +1,12 @@
 import static org.fest.assertions.Assertions.assertThat;
+import static play.data.Form.form;
 import static play.test.Helpers.contentAsString;
 import static play.test.Helpers.contentType;
 
 import org.junit.Test;
+
+import controllers.Application.Login;
+import controllers.Candidate;
 
 import play.mvc.Content;
 import views.html.mainmenu;
@@ -24,7 +28,8 @@ public class ApplicationTest {
 
     @Test
     public void renderTemplate() {
-        Content html = views.html.index.render("Your new application is ready.", mainmenu.render());
+    	
+        Content html = views.html.index.render("Your new application is ready.",mainmenu.render());
         assertThat(contentType(html)).isEqualTo("text/html");
         assertThat(contentAsString(html)).contains("Your new application is ready.");
     }

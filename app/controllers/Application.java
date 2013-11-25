@@ -116,10 +116,14 @@ public class Application extends Controller {
 			return badRequest(views.html.login.render(loginForm,
 					mainmenu.render()));
 		} else {
-			session("email", loginForm.get().email);
+			
+			
 			UserApp user = UserApp.authenticate(loginForm.get().email,
 					loginForm.get().password);
 			if (user != null) {
+				session("email", user.getEmail());
+			    session("connected", ""+user.id);
+				
 				if (user.isCandidate()) {
 					return redirect(routes.Candidate.index());
 				} else if (user.isCompany()) {
@@ -143,6 +147,6 @@ public class Application extends Controller {
 	public static Result logout() {
 		session().clear();
 		flash("success", "You've been logged out");
-		return redirect(routes.Application.login());
+		return redirect(routes.Application.index());
 	}
 }
