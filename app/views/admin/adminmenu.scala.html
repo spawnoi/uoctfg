@@ -17,7 +17,6 @@
              @if(session.get("connected") == null) {
             	<a href=@routes.Application.login() class="btn pull-right btn-info">@Messages("menu.sign")</a>
          	 	<a href=@routes.Application.newUser() class="btn pull-right btn-info">@Messages("leftbox.button")</a>
-         	  
             } else {
             	<p class="nav navbar-text">Logged in as @session.get("email")</p>
             	<a href=@routes.Application.logout() class="btn pull-right btn-info" id="logout">Logout</a>
