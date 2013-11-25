@@ -48,7 +48,7 @@ public class Application extends Controller {
 			flash("success", "Company " + userAddForm.get().name
 					+ " has been created");
 			
-			return redirect(routes.Company.index(userAddForm.get().getEmail()));
+			return redirect(routes.Company.index());
 		}
 	}
 
@@ -123,11 +123,12 @@ public class Application extends Controller {
 			if (user != null) {
 				session("email", user.getEmail());
 			    session("connected", ""+user.id);
+			    session("type", ""+user.getType());
 				
 				if (user.isCandidate()) {
 					return redirect(routes.Candidate.index());
 				} else if (user.isCompany()) {
-					return redirect(routes.Company.index(loginForm.get().email));
+					return redirect(routes.Company.index());
 				
 				} else if(user.isAdmin()){
 					return redirect(routes.Admin.list(0, "name", "asc", ""));

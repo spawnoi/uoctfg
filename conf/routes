@@ -15,7 +15,7 @@ POST    /login                      controllers.Application.authenticate()
 GET     /logout                     controllers.Application.logout()
 
 # Company (JobOffers)
-GET    	/company                    controllers.Company.index(emailUser: String)
+GET    	/company                    controllers.Company.index()
 GET    	/company/jobs               controllers.Company.addJob()
 POST   	/company/jobs               controllers.Company.storeJob()
 

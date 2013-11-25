@@ -3,6 +3,7 @@ package controllers;
 import models.UserApp;
 import play.mvc.Controller;
 import play.mvc.Result;
+import views.html.admin.adminmenu;
 import views.html.admin.userlist;
 import views.html.user.candidatemenu;
 
@@ -22,7 +23,7 @@ public class Admin extends Controller {
         return ok(
             userlist.render(
                 UserApp.page(page, 10, sortBy, order, filter),
-                sortBy, order, filter, "UsersList", candidatemenu.render("admin mail")
+                sortBy, order, filter, "UsersList", adminmenu.render()
             )
         );
         

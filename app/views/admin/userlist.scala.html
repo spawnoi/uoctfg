@@ -36,8 +36,16 @@
 }
 
 @main(message, menu) {
-    <div class="container">
       
+   <div class="row">
+    <div class="span2">
+      <ul class="nav nav-list">
+		  <li class="nav-header">Options</li>
+		  <li class="active"><a href=@routes.Admin.list(0,"name", "asc","")>Manage users</a></li>
+		  <li><a href="#">Manage jobs</a></li>
+		</ul>
+    </div>
+    <div class="span10">
     <h1 id="homeTitle">@Messages("userlist.title", currentPage.getTotalRowCount)</h1>
 
     @if(flash.containsKey("success")) {
@@ -127,6 +135,7 @@
         </div>
         
     }
+    </div>
         </div>
 }
 

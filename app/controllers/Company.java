@@ -21,28 +21,27 @@ import views.html.comp.newJob;
 public class Company extends Controller {
 
 	
-    public static Result index(String emailUser) {
+    public static Result index() {
     	String titleMsg = Messages.get("home.title");
     	List<JobOffer> listJobs = JobOffer.findAll();
-    	return ok(company.render(titleMsg, listJobs, companymenu.render(emailUser)));
+    	return ok(company.render(titleMsg, listJobs, companymenu.render()));
     }
     
     public static Result addJob(){
     	Form<JobOffer> jobOfferForm = form(JobOffer.class);
-		return ok(newJob.render(jobOfferForm, companymenu.render("email")));
+		return ok(newJob.render(jobOfferForm, companymenu.render()));
     }
     
     public static Result storeJob(){
     	Form<JobOffer> jobStoreForm = form(JobOffer.class).bindFromRequest();
 		if (jobStoreForm.hasErrors()) {
-			return badRequest(newJob.render(jobStoreForm,
-					companymenu.render("email")));
+			return badRequest(newJob.render(jobStoreForm, companymenu.render()));
 		}
 		jobStoreForm.get().save();
 		System.out.println("userAddForm.get().name: " + jobStoreForm.get().title);
 		flash("success", "User " + jobStoreForm.get().title + " has been created");
 
-		return redirect(routes.Company.index("inventedMail"));
+		return redirect(routes.Company.index());
     }
     /*
     public static Result add() {

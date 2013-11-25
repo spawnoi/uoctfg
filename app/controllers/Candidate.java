@@ -25,12 +25,12 @@ public class Candidate extends Controller {
     	//String titleMsg = Messages.get("home.title");
     	String title = "Candidate Home";
     	List<JobOffer> listJobs = JobOffer.findAll();
-    	return ok(candidate.render(title, listJobs, candidatemenu.render("userInvented")));
+    	return ok(candidate.render(title, listJobs, candidatemenu.render()));
     }
    
     public static Result prepareSearchJob(){
     	Form<SearchJob> jobOfferForm = form(SearchJob.class);
-    	return ok(searchJobs.render(jobOfferForm, candidatemenu.render("user")));
+    	return ok(searchJobs.render(jobOfferForm, candidatemenu.render()));
     }
 
     public static Result searchJob(){
@@ -44,7 +44,7 @@ public class Candidate extends Controller {
     		System.out.println("userAddForm.get().name: " + jobStoreForm.get().title);
     		flash("success", "User " + jobStoreForm.get().title + " has been created");
 
-    		return redirect(routes.Company.index("inventedMail"));
+    		return redirect(routes.Company.index();
     		*/
       	return ok("search done");
     }
@@ -64,7 +64,7 @@ public class Candidate extends Controller {
 		System.out.println("userAddForm.get().name: " + jobStoreForm.get().title);
 		flash("success", "User " + jobStoreForm.get().title + " has been created");
 
-		return redirect(routes.Company.index("inventedMail"));
+		return redirect(routes.Company.index();
     }
     */
 }

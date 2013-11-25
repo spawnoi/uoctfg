@@ -10,31 +10,28 @@
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="active"><a href=@routes.Application.index()>@Messages("menu.home")</a></li>
-              <li><a href="#about">@Messages("menu.about")</a></li>
+              <!-- li><a href="#about">@Messages("menu.about")</a></li-->
               <li><a href="#contact">@Messages("menu.contact")</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li class="nav-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </li>
+
             </ul>
             @if(session.get("connected") == null) {
-              <ul class="nav" align="right">
-              	<li><a href=@routes.Application.login()>@Messages("menu.sign")</a></li>
-         		<li><a href=@routes.Application.newUser()>@Messages("leftbox.button")</a></li>
-              </ul>
-         		
+          	  <a href=@routes.Application.login() class="btn pull-right btn-info">@Messages("menu.sign")</a>
+         	  <a href=@routes.Application.newUser() class="btn pull-right btn-info">@Messages("leftbox.button")</a>
             } else {
-            	<a href="#account">Logged as: @session.get("email")</a>
+            	<p class="nav navbar-text">Logged in as @session.get("email")</p>
+            	   	
             	<a href=@routes.Application.logout() class="btn pull-right btn-info" id="logout">Logout</a>
                 <a href="" class="btn pull-right btn-info">My Account</a>
+            	@if(session.get("type") == "CANDIDATE"){
+            	<a href=@routes.Candidate.index() class="btn pull-right btn-info">Candidate Area</a>
+            	}
+            	@if(session.get("type") == "ENTERPRISE"){
+            	<a href=@routes.Company.index() class="btn pull-right btn-info">Company Area</a>
+            	}
+            	@if(session.get("type") == "ADMINISTRATOR"){
+            	<a href=@routes.Admin.list(0,"name", "asc","") class="btn pull-right btn-info">Administratort Area</a>
+            	}
+         
             }
           </div><!--/.nav-collapse -->
         </div>
