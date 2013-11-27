@@ -16,21 +16,37 @@
             </ul>
             @if(session.get("connected") == null) {
           	  <a href=@routes.Application.login() class="btn pull-right btn-info">@Messages("menu.sign")</a>
-         	  <a href=@routes.Application.newUser() class="btn pull-right btn-info">@Messages("leftbox.button")</a>
+         	  <div class="btn-group pull-right">
+			  <a class="btn dropdown-toggle pull-right btn-info" data-toggle="dropdown" href="#">
+			    @Messages("leftbox.button")
+			    <span class="caret"></span>
+			  </a>
+			  <ul class="dropdown-menu">
+			     <li><a href=@routes.Application.newUser()>New candidate</a></li>
+			     <li><a href=@routes.Application.newCompUser()>New enterprise</a></li>
+			  </ul>
+			</div>
             } else {
-            	<p class="nav navbar-text">Logged in as @session.get("email")</p>
-            	   	
-            	<a href=@routes.Application.logout() class="btn pull-right btn-info" id="logout">Logout</a>
-                <a href="" class="btn pull-right btn-info">My Account</a>
-            	@if(session.get("type") == "CANDIDATE"){
-            	<a href=@routes.Candidate.index() class="btn pull-right btn-info">Candidate Area</a>
-            	}
-            	@if(session.get("type") == "ENTERPRISE"){
-            	<a href=@routes.Company.index() class="btn pull-right btn-info">Company Area</a>
-            	}
-            	@if(session.get("type") == "ADMINISTRATOR"){
-            	<a href=@routes.Admin.list(0,"name", "asc","") class="btn pull-right btn-info">Administratort Area</a>
-            	}
+            	<!-- p class="nav navbar-text">Logged in as @session.get("email")</p-->
+            	  <div class="btn-group pull-right">
+				  <a class="btn dropdown-toggle pull-right btn-info" data-toggle="dropdown" href="#">
+				    @session.get("email")
+				    <span class="caret"></span>
+				  </a>
+				  <ul class="dropdown-menu">
+				   <li><a href=#>My Account</a></li>
+				     @if(session.get("type") == "CANDIDATE"){
+	            	<li><a href=@routes.Candidate.index()>My candidate area</a></li>
+	            	}
+	            	@if(session.get("type") == "ENTERPRISE"){
+	            	<li><a href=@routes.Company.index()>My company area</a></li>
+	            	}
+	            	@if(session.get("type") == "ADMINISTRATOR"){
+	            	<li><a href=@routes.Admin.list(0,"name", "asc","")>My administrator area</a></li>
+	            	}
+	            	<li><a href=@routes.Application.logout() id="logout">Logout</a></li>
+				  </ul>
+            	</div>
          
             }
           </div><!--/.nav-collapse -->

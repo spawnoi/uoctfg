@@ -1,0 +1,29 @@
+@(message: String, menu: Html, id: Long, jobForm: Form[JobOffer])
+
+@import helper._
+
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.render) } 
+
+@main(message, menu) {
+    
+    
+    @form(routes.Application.index()) {
+        
+        <fieldset>
+        	<legend>View job details</legend>
+        	
+            @inputText(jobForm("name"), '_label -> "name", 'readonly -> "readonly")
+            @inputText(jobForm("description"), '_label -> "Description", 'readonly -> "readonly")
+            @inputText(jobForm("salary"), '_label -> "Salary", 'readonly -> "readonly")
+            
+            
+        
+        </fieldset>
+        
+       
+        
+    }
+    
+   
+    
+}

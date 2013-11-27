@@ -5,21 +5,32 @@
 @implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.render) } 
 
 @main("New Candidate", menu) {
-    
+    <div class="container">
+    <div class="row">
+   
     @form(routes.Application.saveUser()) {
         
         <fieldset>
          <legend>New candidate account</legend>
          
-        @inputText(userForm("name"), '_label -> Messages("user.name"))
-        @inputText(userForm("surname"), '_label -> Messages("user.secname"))
-        @inputText(userForm("email"), '_label -> Messages("user.email"))
-        @inputPassword(userForm("password"), '_label -> Messages("user.password"))
-        @inputText(userForm("docId"), '_label -> Messages("user.dni"))
-        @inputText(userForm("education"), '_label -> "education")
-        @textarea(userForm("experience"), '_label -> "experience", 'rows -> 3, 'cols -> 50)
-        @textarea(userForm("languages"), '_label -> "languages")
-        @textarea(userForm("projects"), '_label -> "projects")
+            <div class="span6"> <!-- FIRST COLUMN -->
+		        @inputText(userForm("name"), '_label -> Messages("user.name"))
+		        @inputText(userForm("surname"), '_label -> Messages("user.secname"))
+		        @inputText(userForm("email"), '_label -> Messages("user.email"))
+		        @inputPassword(userForm("password"), '_label -> Messages("user.password"))
+			</div>
+			
+			<div class="span6"> <!-- SECOND COLUMN -->
+				@inputText(userForm("docId"), '_label -> Messages("user.dni"))
+		        @inputText(userForm("education"), '_label -> "education")
+		        @textarea(userForm("experience"), '_label -> "experience", 'rows -> 3, 'cols -> 50)
+		        @textarea(userForm("languages"), '_label -> "languages")
+		        @textarea(userForm("projects"), '_label -> "projects")
+			</div>
+			  
+  
+
+        
 
         </fieldset>
         
@@ -29,5 +40,7 @@
         </div>
         
     }
+    </div>
+    </div>
     
 }

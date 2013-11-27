@@ -14,6 +14,7 @@ import play.mvc.Security;
 import views.html.user.candidate;
 import views.html.user.candidatemenu;
 import views.html.user.searchJobs;
+import views.html.user.viewjob;
 
 @Security.Authenticated(Secured.class)
 public class Candidate extends Controller {
@@ -47,6 +48,13 @@ public class Candidate extends Controller {
     		return redirect(routes.Company.index();
     		*/
       	return ok("search done");
+    }
+    
+    public static Result viewJob(Long id){
+    	 Form<JobOffer> jobForm = form(JobOffer.class).fill(
+    			 JobOffer.findById(id)
+    	        );
+    	return ok(viewjob.render("View Job details", candidatemenu.render(), id, jobForm));
     }
     /*
     public static Result addJob(){
