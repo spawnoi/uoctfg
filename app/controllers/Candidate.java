@@ -3,6 +3,7 @@ package controllers;
 
 import static play.data.Form.form;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import models.JobOffer;
@@ -31,23 +32,19 @@ public class Candidate extends Controller {
    
     public static Result prepareSearchJob(){
     	Form<SearchJob> jobOfferForm = form(SearchJob.class);
-    	return ok(searchJobs.render(jobOfferForm, candidatemenu.render()));
+    	List<JobOffer> filtered = JobOffer.findAll();
+    	return ok(searchJobs.render(jobOfferForm, candidatemenu.render(), filtered));
     }
 
     public static Result searchJob(){
       	Form<SearchJob> jobStoreForm = form(SearchJob.class).bindFromRequest();
-      	/*
-    		if (jobStoreForm.hasErrors()) {
-    			return badRequest(newJob.render(jobStoreForm,
-    					mainmenu.render()));
-    		}
-    		jobStoreForm.get().save();
-    		System.out.println("userAddForm.get().name: " + jobStoreForm.get().title);
-    		flash("success", "User " + jobStoreForm.get().title + " has been created");
-
-    		return redirect(routes.Company.index();
-    		*/
-      	return ok("search done");
+      	List<JobOffer> list = new ArrayList<JobOffer>();
+      	SearchJob job = jobStoreForm.get();
+      	for (String nameWord : job.title.split(" ")) {
+      		list.addAll(JobOffer.find().where().contains("title", nameWord).findList());
+          }
+      
+        return ok(searchJobs.render(jobStoreForm, candidatemenu.render(), list));
     }
     
     public static Result viewJob(Long id){

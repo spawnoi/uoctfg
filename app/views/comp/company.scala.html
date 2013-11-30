@@ -11,12 +11,17 @@
 		</div>
       }
       
+  <ul class="breadcrumb">
+  <li><a href="#">Company Area</a> <span class="divider">/</span></li>
+  <li class="active">Published jobs</li>
+ </ul>
+      
 <div class="row">
     <div class="span2">
     
     <ul class="nav nav-list">
 		  <li class="nav-header">Options</li>
-		  <li class="active"><a href="#">Published jobs</a></li>
+		  <li class="active"><a href=@routes.Company.index()>Published jobs</a></li>
 		  <li><a href=@routes.Company.addJob()>Add new job</a></li>
 		</ul>
         

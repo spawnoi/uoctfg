@@ -14,7 +14,12 @@
 		</div>
   		 }
     
-    <div class="container-fluid">
+  <ul class="breadcrumb">
+  <li><a href="#">Company Area</a> <span class="divider">/</span></li>
+  <li class="active">New job</li>
+ </ul>
+ 
+    <!-- div class="container-fluid"-->
   	<div class="row-fluid">
   	
     <div class="span2">
@@ -25,6 +30,7 @@
 		</ul>
     </div>
     <div class="span10">
+    <div class="well well-small">
     <fieldset>
     	<legend>New Job</legend>
 	    @form(routes.Company.storeJob()) {
@@ -69,6 +75,8 @@
 	        
 	            </fieldset>
 	            
+	            <br/>
+	            <br/>
 		 		<div class="row-fluid">
 		 			<div class="span10">
 		 			 <div class="actions">
@@ -81,6 +89,7 @@
 	            
 	    }
 	    </div>
+	    </div>
     </div>
-    </div>
+    <!-- /div-->
 }

@@ -3,12 +3,17 @@
 
 @main(message, menu) {
 
+<ul class="breadcrumb">
+  <li><a href="#">Candidate Area</a> <span class="divider">/</span></li>
+  <li class="active">Applied jobs</li>
+</ul>
+
 <div class="row">
     <div class="span2">
 	    <ul class="nav nav-list">
 		  <li class="nav-header">Options</li>
-		  <li class="active"><a href="#">Applied jobs</a></li>
-		  <li><a href="#">Search Jobs</a></li>
+		  <li class="active"><a href=@routes.Candidate.index()>Applied jobs</a></li>
+		  <li><a href=@routes.Candidate.prepareSearchJob()>Search Jobs</a></li>
 		</ul>
         <!-- form action="" method="post" class="well well-small" id="details-form">
             <label>Filter Books</label> 
