@@ -2,33 +2,48 @@
 
 @main("Login", menu) {
         
-        @helper.form(routes.Application.authenticate()) {
-            
-            <h1>Sign in</h1>
-            
-            @if(form.hasGlobalErrors) { 
-                <p class="error">
-                    @form.globalError.message
-                </p>
-            }
+      	  @if(flash.contains("error")) {
+     			<div class="alert alert-error">
+  					<button type="button" class="close" data-dismiss="alert">&times;</button>
+  					<strong>Error!</strong> @flash.get("error")
+				</div>
+     		 }
             
             @if(flash.contains("success")) {
-                <p class="success">
-                    @flash.get("success")
-                </p>
+               <div class="alert alert-success">
+  				<button type="button" class="close" data-dismiss="alert">&times;</button>
+  				<strong>Info!</strong> @flash.get("success")		
+  				</div>
             }
             
-            <p>	
-                <input type="email" name="email" placeholder="Email" value="@form("email").value">
-            </p>
-            <p>
-                <input type="password" name="password" placeholder="Password">
-            </p>
-            <p>
-                <button type="submit" class="btn">Login</button>
-            </p>
-            
-        }
+        <div class="container fill">
+        
+         <div class="row">
+         
+         <div class="span5 offset4">
+         
+         <fieldset>
+           <legend>Sign in</legend>
+		       @helper.form(routes.Application.authenticate()) {
+		            <p>	
+		                <input type="email" name="email" placeholder="Email" value="@form("email").value">
+		            </p>
+		            <p>
+		                <input type="password" name="password" placeholder="Password">
+		            </p>
+		            <p>
+		                <button type="submit" class="btn btn-primary">Login</button>
+		            </p>
+		            
+		        }
+       
+       </fieldset>
+       
+       </div>
+        </div>
+        
+        <br/>
+        <br/>
         
         <p class="note">
             Try <em>josep@@sample.com</em> (Enterprise mode), with <em>password</em> as password or 
@@ -39,6 +54,8 @@
          <p class="note">
             try <em>josep@@admin.com</em> (Administrator mode), with <em>password</em> as password.
         </p>
+        
+         </div>
             
 }
     

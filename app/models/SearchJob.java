@@ -1,7 +1,5 @@
 package models;
 
-import models.JobOffer.DurationType;
-import models.JobOffer.WorkDayType;
 
 public class SearchJob {
 
@@ -11,9 +9,9 @@ public class SearchJob {
 
 	public Integer numVacants;
 	
-	public DurationType duration;
+	public Duration duration;
 	
-	public WorkDayType workType;
+	public WorkType workType;
 	
 	public String salary;
 	

@@ -49,6 +49,26 @@ users:
         birthDate:  1985-07-08
         type:       ADMINISTRATOR
 
+#Duration
+
+durations:
+
+    - &dur1 !!models.Duration
+        id:    1
+        name:  Freelance
+        
+    - &dur2 !!models.Duration
+        id:    2
+        name:  Fixed period
+        
+    - &dur3 !!models.Duration
+        id:    3
+        name:  Indefinite
+        
+    - &dur4 !!models.Duration
+        id:    4
+        name:  Other
+
 #JobOffers
 
 jobs:
@@ -57,10 +77,9 @@ jobs:
         title:       Job num1 
         description: Description of job 1
         numVacants:  2
-        duration:    FREELANCE
-        workType:    FULL_TIME
+        duration:    *dur1
         salary:      100€
-        emplacement: Barcelona
+        emplacement: Girona
         benefits:    free gym
         expirationDate: 2013-11-30
         publisher:   *user2
@@ -72,8 +91,7 @@ jobs:
         title:       Job num2
         description: Description of job 2
         numVacants:  2
-        duration:    FIXED_PERIOD
-        workType:    FULL_TIME
+        duration:    *dur2
         salary:      10000€
         emplacement: Granollers
         benefits:    library free
@@ -87,10 +105,9 @@ jobs:
         title:       Job num3
         description: Description of job 3
         numVacants:  2
-        duration:    INDEFINITE
-        workType:    HALF_TIME
+        duration:    *dur3
         salary:      1000€
-        emplacement: Granollers
+        emplacement: Sant Cugat
         benefits:    nothing
         expirationDate: 2014-11-30
         publisher:   *user2

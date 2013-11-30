@@ -7,24 +7,80 @@
 
 @main("New Job Offer", menu) {
     
-    <h1>New Job Offer</h1>
+     @if(flash.contains("error")) {
+  		<div class="alert alert-error">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<strong>Error!</strong> @flash.get("error")
+		</div>
+  		 }
     
-    @form(routes.Company.storeJob()) {
-        
-        <fieldset>
-        
-            @inputText(userForm("title"), '_label -> "Title")
-            @inputText(userForm("description"), '_label -> "Description")
-            @inputText(userForm("numVacants"), '_label -> "Vacants")
-            @inputText(userForm("salary"), '_label -> "Salary")
-
-        </fieldset>
-        
-        <div class="actions">
-            <input type="submit" value="Publish Offer" class="btn primary"> or 
-            <a href=@routes.Company.index() class="btn">Cancel</a>
-        </div>
-        
-    }
-    
+    <div class="container-fluid">
+  	<div class="row-fluid">
+  	
+    <div class="span2">
+	   	 <ul class="nav nav-list">
+			  <li class="nav-header">Options</li>
+			  <li><a href=@routes.Company.index()>Published jobs</a></li>
+			  <li class="active"><a href=@routes.Company.addJob()>Add new job</a></li>
+		</ul>
+    </div>
+    <div class="span10">
+    <fieldset>
+    	<legend>New Job</legend>
+	    @form(routes.Company.storeJob()) {
+	        
+	         	<div class="span5"> <!-- FIRST COLUMN -->
+				    @inputText(userForm("title"), '_label -> "Title")
+		            @textarea(
+                		userForm("description"), 
+                		'_label -> "Description", 'cols -> 50
+            		)
+		            @inputText(userForm("numVacants"), '_label -> "Vacants")
+		            @inputText(userForm("salary"), '_label -> "Salary")
+		            @select(
+		                userForm("sector.id"), 
+		                options(Sector.options), 
+		                '_label -> "Sector", '_default -> "-- Choose a sector --",
+		                '_showConstraints -> false
+		            )
+				</div>
+					
+				<div class="span5"> <!-- SECOND COLUMN -->
+					 @select(
+		                userForm("province.id"), 
+		                options(Province.options), 
+		                '_label -> "Province", '_default -> "-- Choose a province --",
+		                '_showConstraints -> false
+		             )
+					 @inputText(userForm("emplacement"), '_label -> "emplacement desc.")
+					 @select(
+		                userForm("duration.id"), 
+		                options(Duration.options), 
+		                '_label -> "Duration", '_default -> "-- Choose a duration --",
+		                '_showConstraints -> false
+		             )
+		             @select(
+		                userForm("work_type.id"), 
+		                options(WorkType.options), 
+		                '_label -> "Work Type", '_default -> "-- Choose a work type --",
+		                '_showConstraints -> false
+		             )
+				</div>
+	        
+	            </fieldset>
+	            
+		 		<div class="row-fluid">
+		 			<div class="span10">
+		 			 <div class="actions">
+		           		 <input type="submit" value="Publish Offer" class="btn primary"> or 
+		           		 <a href=@routes.Company.index() class="btn btn-primary">Cancel</a>
+		        	</div>
+	 			</div>
+	 		</div>
+	       
+	            
+	    }
+	    </div>
+    </div>
+    </div>
 }

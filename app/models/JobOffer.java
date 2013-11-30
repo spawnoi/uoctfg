@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import play.data.format.Formats;
@@ -25,9 +26,6 @@ public class JobOffer extends Model {
 
 	private static final long serialVersionUID = 1L;
 	
-	enum DurationType {FREELANCE, FIXED_PERIOD, INDEFINITE}
-	enum WorkDayType {FULL_TIME, HALF_TIME}
-
 	@Id
 	public Long id;
 
@@ -39,15 +37,27 @@ public class JobOffer extends Model {
 
 	public Integer numVacants;
 	
-	public DurationType duration;
+	@ManyToOne
+	public Duration duration;
 	
-	public WorkDayType workType;
+	@ManyToOne
+	public WorkType workType;
 	
 	public String salary;
+	
+	@ManyToOne
+	public Province province;
 	
 	public String emplacement;
 	
 	public String benefits;
+	
+	@ManyToOne
+	public Sector sector;
+
+	@Formats.DateTime(pattern = "yyyy-MM-dd")
+	public Date publicationDate;
+
 	
 	@Formats.DateTime(pattern = "yyyy-MM-dd")
 	public Date expirationDate;
@@ -87,10 +97,15 @@ public class JobOffer extends Model {
         return find.where().eq("id", id).findUnique();
     }
     
-    public static JobOffer create(JobOffer jobOffer, String companyName) {
+    public static JobOffer createByMail(JobOffer jobOffer, String companyName) {
     	jobOffer.publisher = UserApp.findByEmail(companyName);
     	jobOffer.save();
         return jobOffer;
     }
     
+    public static JobOffer create(JobOffer jobOffer, Long companyId) {
+    	jobOffer.publisher = UserApp.findById(companyId);
+    	jobOffer.save();
+        return jobOffer;
+    }
 }

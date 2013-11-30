@@ -25,6 +25,8 @@ public class Global extends GlobalSettings {
                 // Insert users first
                 Ebean.save(all.get("users"));
 
+                // Insert durations
+                Ebean.save(all.get("durations"));
                 
                 // Insert jobs
                 Ebean.save(all.get("jobs"));

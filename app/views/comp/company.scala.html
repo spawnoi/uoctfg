@@ -3,6 +3,14 @@
 
 @main(message, menu) {
 
+
+  @if(flash.contains("success")) {
+     	<div class="alert alert-success">
+  			<button type="button" class="close" data-dismiss="alert">&times;</button>
+  			<strong>Info!</strong> @flash.get("success")
+		</div>
+      }
+      
 <div class="row">
     <div class="span2">
     
@@ -11,40 +19,7 @@
 		  <li class="active"><a href="#">Published jobs</a></li>
 		  <li><a href=@routes.Company.addJob()>Add new job</a></li>
 		</ul>
-		
-		
-        <!--  form action="" method="post" class="well well-small" id="details-form">
-            <label>Filter Books</label> 
-            <input type="text" class="input-large" name="name" placeholder="Title">
-            <input type="text" class="input-large" placeholder="Edition"> <input type="text"
-                class="input-large" placeholder="ISBN">
-            <div class="input-prepend input-append">
-                <span class="add-on">$</span> <input type="text" class="input-medium"
-                    placeholder="Target Price"> <span class="add-on">.00</span>
-            </div>
-            <div class="control-group" id="conditionWell">
-                <label class="control-label">Condition</label>
-                <div class="controls">
-                    <label class="checkbox inline" for="checkbox"> <input type="checkbox"
-                        value="true" id="checkbox" name="checkbox"> <span>Good</span>
-                    </label> <label class="checkbox inline" for="checkbox"> <input type="checkbox"
-                        value="true" id="checkbox" name="checkbox"> <span>Fair</span>
-                    </label> <label class="checkbox inline" for="checkbox"> <input type="checkbox"
-                        value="true" id="checkbox" name="checkbox"> <span>Poor</span>
-                    </label>
-                </div>
-            </div>
-            <select>
-                <option>Offers and Requests</option>
-                <option>Offers</option>
-                <option>Requests</option>
-            </select>
-            <div class="control-group">
-                <div class="controls" id="form-buttons">             
-                    <input id="filter" type="submit" value="Filter" class="btn btn-primary pull-right">  
-                </div>
-            </div>
-        </form-->
+        
     </div>
     <div class="span10 scrolling-table">
         <table class="table table-striped table-bordered">
@@ -65,7 +40,12 @@
                 @for(job <- jobs) {
                     <tr>
                         <td class="cover">
-                            "Creation date"
+                       		 @if(job.publicationDate != null) {
+                                 @job.publicationDate.format("dd/MM/yyyy hh:mm")
+                          		  } else {
+                                 --
+                            	}
+                            
                         </td>
                         <td>
                             @if(job.inscribed != null) {
@@ -78,21 +58,59 @@
                                 <dd>@job.title</dd>
                                 <dt>Description</dt>
                                 <dd>@job.description</dd>
+                                
                                 <dt>Vacants</dt>
-                                <dd>@job.numVacants</dd>
+                                 @if(job.numVacants != null) {
+                                 <dd>@job.numVacants</dd>
+                          		  } else {
+                                 <dd>-</dd>
+                            	}
+                            	
+                                
                                 <dt>Duration</dt>
-                                <dd>@job.duration</dd>
+                                 @if(job.duration != null) {
+                                  <dd>@job.duration.name</dd>
+                          		  } else {
+                                 <dd>-</dd>
+                            	}
+                               
+                                
                                 <dt>Work type</dt>
-                                <dd>@job.workType</dd>
+                                @if(job.workType != null) {
+                                 <dd>@job.workType.name</dd>
+                          		  } else {
+                                 <dd>-</dd>
+                            	}
+                                
+                                
+                                
+                                <dt>Sector</dt>
+                                @if(job.sector != null) {
+                                 <dd>@job.sector.name</dd>
+                          		  } else {
+                                 <dd>--</dd>
+                            	}
+                               
                               
                             </dl>
                         </td>
                            <td>
-                        	<div class="btn-group">
+                            <div class="btn-group">
+							  <a class="btn dropdown-toggle btn" data-toggle="dropdown" href="#">
+							    Manage Offer
+							    <span class="caret"></span>
+							  </a>
+							  <ul class="dropdown-menu">
+							     <li><a href=#>View details</a></li>
+							     <li><a href=#>View inscribed</a></li>
+							     <li><a href=#>Delete offer</a></li>
+							  </ul>
+							  </div>
+                        	<!-- div class="btn-group btn-group-vertical">
 							  <button class="btn">View details</button>
 							  <button class="btn">View inscribed</button>
 							  <button class="btn">Delete offer</button>
-							</div>
+							</div-->
                         </td>
                     </tr>
                 }

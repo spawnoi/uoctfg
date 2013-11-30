@@ -104,6 +104,8 @@ public class Application extends Controller {
 	 * Login page.
 	 */
 	public static Result login() {
+		flash("success", "Please, Sign in");
+		//ready to login
 		return ok(views.html.login.render(form(Login.class), mainmenu.render()));
 	}
 
@@ -113,6 +115,7 @@ public class Application extends Controller {
 	public static Result authenticate() {
 		Form<Login> loginForm = form(Login.class).bindFromRequest();
 		if (loginForm.hasErrors()) {
+			flash("error", "Invalid user or password.");
 			return badRequest(views.html.login.render(loginForm,
 					mainmenu.render()));
 		} else {

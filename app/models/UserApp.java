@@ -131,6 +131,10 @@ public class UserApp extends Model {
         return find.where().eq("email", email).findUnique();
     }
     
+    public static UserApp findById(Long id) {
+        return find.where().eq("id", id).findUnique();
+    }
+    
     public static Page<UserApp> page(int page, int pageSize, String sortBy, String order, String filter) {
         return 
             find.where()
