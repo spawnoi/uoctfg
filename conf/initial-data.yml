@@ -112,7 +112,7 @@ jobs:
         expirationDate: 2014-11-30
         publisher:   *user2
         inscribed:   
-            - *user3
+            - *user1
             - *user4
 
 

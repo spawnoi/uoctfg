@@ -68,4 +68,7 @@ table.computers .header a {
     color: #666;
 }
 
+#left { float:left }
+#right { float:right }
+
 

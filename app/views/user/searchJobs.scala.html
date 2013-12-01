@@ -85,7 +85,7 @@
     	<div class="span2">
     	</div>
     	<div class="span10 scrolling-table">
-        <table class="table table-striped table-bordered">
+        <table class="table table-bordered table-hover">
             <thead>
                 <tr>
                     <th>Inscription date</th>
@@ -96,40 +96,104 @@
             <tbody>
                 @if(jobs.size() == 0 || jobs == null) {
                     <tr>
-                        <td>No Jobs to show</td>
+                        <td>No Results</td>
                         <td></td>
                     </tr>
                 }
                 @for(job <- jobs) {
                     <tr>
-                        <td class="cover">
-                            "Inscription date"
+                        <td>
+                            @if(job.publicationDate != null) {
+                                 @job.publicationDate.format("dd/MM/yyyy hh:mm")
+                          		  } else {
+                                 --
+                            	}
                         </td>
                         <td>
-                            @if(job.inscribed != null) {
-                                <span class="label pull-left label-success">@job.inscribed.size Inscribed!</span>
+                        	@if(job.inscribed != null){
+								  @if(job.inscribed.exists(x => x.email == session.get("email"))){
+								  	<span class="label pull-right label-success">Already inscribed</span>
+								  }else{
+								 	 <span class="label pull-right label-info">inscribed: @job.inscribed.size</span>
+								  }
                             } else {
-                                <span class="label pull-left label-warning">0 inscribed</span>
+                                <span class="label pull-right label-info">0 inscribed</span>
                             }
-                            <dl class="dl-horizontal">
-                                <dt>Title</dt>
-                                <dd>@job.title</dd>
-                                <dt>Description</dt>
-                                <dd>@job.description</dd>
-                                <dt>Vacants</dt>
-                                <dd>@job.numVacants</dd>
-                                <dt>Duration</dt>
-                                <dd>@job.duration</dd>
-                                <dt>Work type</dt>
-                                <dd>@job.workType</dd>
-                              
-                            </dl>
+                            
+                            <blockquote>
+							  <p>@job.description</p>
+							  <small>@job.publisher.name</small>
+							</blockquote>
+							
+							<table class="table table-condensed table-bordered">
+							  <tbody>
+							  	<tr>
+							      <td width="25%"><strong>Title</strong></td>
+							      <td width="25%">@job.title</td>
+							      <td width="25%"><strong>Vacants</strong></td>
+							      <td width="25%">@job.numVacants</td>
+							    </tr>
+							    <tr>
+							      <td><strong>Duration</strong></td>
+							      @if(job.duration != null){
+							      	<td>@job.duration.name</td>
+							      }else{
+							      	 <td>--</td>
+							      }
+							      <td><strong>Work type</strong></td>
+							      @if(job.workType != null){
+							      	<td>@job.workType.name</td>
+							      }else{
+							      	 <td>--</td>
+							      }
+							    </tr>
+							    <tr>
+							     <td><strong>Province</strong></td>
+							     @if(job.province != null){
+							      	<td>@job.province.name</td>
+							      }else{
+							      	 <td>--</td>
+							      }
+							     <td><strong>Emplacement</strong></td>
+							      <td>@job.emplacement</td>
+							    </tr>
+							    <tr>
+							     <td><strong>Salary</strong></td>
+							     @if(job.salary != null){
+							      	<td>@job.salary</td>
+							      }else{
+							      	 <td>--</td>
+							      }
+							     <td><strong>Benefits</strong></td>
+							     <td>@job.benefits</td>
+							    </tr>
+							    <tr>
+							     <td><strong>Sector</strong></td>
+							     @if(job.sector != null){
+							      	<td>@job.sector.name</td>
+							      }else{
+							      	 <td>--</td>
+							      }
+							     <td></td>
+							     <td></td>
+							    </tr>
+							  </tbody>
+							</table>
+	
+						
                         </td>
                         <td>
-                        	<div class="btn-group">
-                        	  <a href=@routes.Candidate.viewJob(job.id) class="btn pull-right btn-info">View details</a>
-							  <a href=@routes.Application.newUser() class="btn pull-right btn-info">Unsbscribe</a>
-							</div>
+                        	<!-- div class="btn-group"-->
+                        	@if(job.inscribed != null){
+								  @if(job.inscribed.exists(x => x.email == session.get("email"))){
+								  <a href=@routes.Application.newUser() class="btn pull-right btn-danger">Unsubscribe</a>
+								  }else{
+								  <a href=@routes.Application.newUser() class="btn pull-right btn-primary">Subscribe!</a>
+								  }
+							}
+                        	  <!-- a href=@routes.Candidate.viewJob(job.id) class="btn pull-right btn-info">View details</a-->
+							  
+							<!-- /div-->
                         </td>
                      
                     </tr>

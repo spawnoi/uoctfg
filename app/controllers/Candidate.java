@@ -17,6 +17,8 @@ import views.html.user.candidatemenu;
 import views.html.user.searchJobs;
 import views.html.user.viewjob;
 
+import com.avaje.ebean.Expr;
+
 @Security.Authenticated(Secured.class)
 public class Candidate extends Controller {
 
@@ -26,26 +28,60 @@ public class Candidate extends Controller {
     public static Result index() {
     	//String titleMsg = Messages.get("home.title");
     	String title = "Candidate Home";
-    	List<JobOffer> listJobs = JobOffer.findAll();
+    	List<JobOffer> listJobs = new ArrayList<JobOffer>();
+    	//Load just the ones that the candidate is inscribed on.
+    	listJobs.addAll(JobOffer.find().fetch("publisher").fetch("inscribed")
+    	      	.where()
+    	        .eq("inscribed.email", session().get("email"))
+    	        .findList());
+    	
     	return ok(candidate.render(title, listJobs, candidatemenu.render()));
     }
    
     public static Result prepareSearchJob(){
     	Form<SearchJob> jobOfferForm = form(SearchJob.class);
-    	List<JobOffer> filtered = JobOffer.findAll();
-    	return ok(searchJobs.render(jobOfferForm, candidatemenu.render(), filtered));
+    	List<JobOffer> list = new ArrayList<JobOffer>();
+    	list.addAll(JobOffer.find().fetch("publisher").fetch("inscribed")
+    	      	.where()
+    	        .ne("inscribed.email", session().get("email")).findList());
+    	        
+    	return ok(searchJobs.render(jobOfferForm, candidatemenu.render(), list));
     }
 
     public static Result searchJob(){
       	Form<SearchJob> jobStoreForm = form(SearchJob.class).bindFromRequest();
       	List<JobOffer> list = new ArrayList<JobOffer>();
       	SearchJob job = jobStoreForm.get();
-      	for (String nameWord : job.title.split(" ")) {
-      		list.addAll(JobOffer.find().where().contains("title", nameWord).findList());
-          }
+      	
+      	list.addAll(JobOffer.find().fetch("publisher").fetch("inscribed")
+      			.fetch("duration").fetch("work_type").fetch("province").fetch("sector")
+      	.where()
+        .ilike("title", "%"+job.title+"%")
+        //.eq("inscribed.email", session().get("email"))
+        .findList());
+      	
+      
+      	
+      	
+      	//for (String nameWord : job.title.split(" ")) {
+      	//	list.addAll(JobOffer.find().where().contains("title", nameWord).findList());
+        //}
       
         return ok(searchJobs.render(jobStoreForm, candidatemenu.render(), list));
     }
+    
+    /*
+     * Simple Query example
+     * 
+     List<Order> list = Ebean.find(Order.class)
+                        .join("customer")
+                        .where()
+                                .gt("id", 0)
+                                .eq("status", Order.Status.NEW)
+                                .ilike("customer.name", "Ro%")
+                        .findList();
+
+     */
     
     public static Result viewJob(Long id){
     	 Form<JobOffer> jobForm = form(JobOffer.class).fill(

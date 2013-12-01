@@ -88,7 +88,7 @@ public class JobOffer extends Model {
 		 * return find.fetch("project") .where() .eq("done", false)
 		 * .eq("project.members.email", user) .findList();
 		 */
-		return Ebean.find(JobOffer.class).fetch("publisher").fetch("inscribed")
+		return Ebean.find(JobOffer.class).fetch("publisher").fetch("inscribed").fetch("duration").fetch("work_type").fetch("province").fetch("sector")
 				.findList();
 		// return find.all();
 	}
