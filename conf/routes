@@ -23,10 +23,13 @@ POST   	/company/jobs               controllers.Company.storeJob()
 GET		/user						controllers.Candidate.index()
 GET		/user/search				controllers.Candidate.prepareSearchJob()
 POST	/user/search				controllers.Candidate.searchJob()
+GET		/user/search/:id/subs		controllers.Candidate.subscribe(id: Long)
+GET		/user/search/:id/revoke		controllers.Candidate.revoke(id: Long)
 GET     /user/:id              		controllers.Candidate.viewJob(id:Long)
+
 #Admin
 GET     /admin                      controllers.Admin.list(p:Int ?= 0, s ?= "name", o ?= "asc", f ?= "")
-POST    /user/:id/delete       controllers.Admin.delete(id:Long)
+POST    /user/:id/delete       		controllers.Admin.delete(id:Long)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

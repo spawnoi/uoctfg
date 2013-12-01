@@ -88,7 +88,6 @@
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>
-                    <th>Inscription date</th>
                     <th>Job details</th>
                     <th>Options</th>
                 </tr>
@@ -102,17 +101,11 @@
                 }
                 @for(job <- jobs) {
                     <tr>
-                        <td>
-                            @if(job.publicationDate != null) {
-                                 @job.publicationDate.format("dd/MM/yyyy hh:mm")
-                          		  } else {
-                                 --
-                            	}
-                        </td>
+                        
                         <td>
                         	@if(job.inscribed != null){
 								  @if(job.inscribed.exists(x => x.email == session.get("email"))){
-								  	<span class="label pull-right label-success">Already inscribed</span>
+								  	<span class="label pull-right">Already inscribed! Total: @job.inscribed.size</span>
 								  }else{
 								 	 <span class="label pull-right label-info">inscribed: @job.inscribed.size</span>
 								  }
@@ -174,8 +167,14 @@
 							      }else{
 							      	 <td>--</td>
 							      }
-							     <td></td>
-							     <td></td>
+							     <td><strong>Inscription date</strong></td>
+							     <td>
+                          		  @if(job.publicationDate != null) {
+                          	       @job.publicationDate.format("dd/MM/yyyy hh:mm")
+                          			  } else {
+                                	 --
+                            		}
+                        		</td>		
 							    </tr>
 							  </tbody>
 							</table>
@@ -186,9 +185,9 @@
                         	<!-- div class="btn-group"-->
                         	@if(job.inscribed != null){
 								  @if(job.inscribed.exists(x => x.email == session.get("email"))){
-								  <a href=@routes.Application.newUser() class="btn pull-right btn-danger">Unsubscribe</a>
+								  <a href=@routes.Candidate.revoke(job.id) class="btn pull-right">Unsubscribe</a>
 								  }else{
-								  <a href=@routes.Application.newUser() class="btn pull-right btn-primary">Subscribe!</a>
+								  <a href=@routes.Candidate.subscribe(job.id) class="btn pull-right btn-primary">Subscribe!</a>
 								  }
 							}
                         	  <!-- a href=@routes.Candidate.viewJob(job.id) class="btn pull-right btn-info">View details</a-->
