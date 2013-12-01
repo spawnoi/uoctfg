@@ -66,7 +66,7 @@ public class Candidate extends Controller {
 			province = Expr.eq("province.id", job.province.id);
 		
 		list.addAll(JobOffer.find().fetch("publisher").fetch("inscribed")
-				.fetch("duration").fetch("province").fetch("sector").where()
+				.fetch("duration").fetch("worktype").fetch("province").fetch("sector").where()
 				.ilike("title", "%" + job.title + "%")
 				.add(duration)
 				.add(sector)

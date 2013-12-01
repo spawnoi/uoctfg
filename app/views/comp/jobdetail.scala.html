@@ -1,4 +1,4 @@
-@(message: String, jobs: List[JobOffer], menu: Html) 
+@(message: String, job: JobOffer, menu: Html) 
 
 
 @main(message, menu) {
@@ -13,7 +13,8 @@
       
   <ul class="breadcrumb">
   <li><a href="#">Company Area</a> <span class="divider">/</span></li>
-  <li class="active">Published jobs</li>
+  <li><a href=@routes.Company.index()>Published jobs</a> <span class="divider">/</span></li>
+  <li class="active">Job details</li>
  </ul>
       
 <div class="row">
@@ -21,7 +22,7 @@
     
     <ul class="nav nav-list">
 		  <li class="nav-header">Options</li>
-		  <li class="active"><a href=@routes.Company.index()>Published jobs</a></li>
+		  <li><a href=@routes.Company.index()>Published jobs</a></li>
 		  <li><a href=@routes.Company.addJob()>Add new job</a></li>
 		</ul>
         
@@ -30,18 +31,10 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Job details</th>
-                    <th>Options</th>
+                    <th>Job resume</th>
                 </tr>
             </thead>
             <tbody>
-                @if(jobs.size() == 0 || jobs == null) {
-                    <tr>
-                        <td>No Jobs</td>
-                        <td></td>
-                    </tr>
-                }
-                @for(job <- jobs) {
                     <tr>
                         
                         <td>
@@ -122,6 +115,87 @@
 							</table>
 	
 						
+                        
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="span2"></div>
+    <div class="span10 scrolling-table">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Candidates information</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if(job.inscribed.size() == 0 || job.inscribed == null) {
+                    <tr>
+                        <td>No candidates</td>
+                        <td></td>
+                    </tr>
+                }
+                @for(cand <- job.inscribed) {
+                    <tr>
+                        
+                        <td>
+                        	
+                            <blockquote>
+							  <p>@cand.name</p>
+							  <small>@cand.secName</small>
+							</blockquote>
+							
+							<table class="table table-condensed table-striped table-bordered">
+							  <tbody>
+							  	<tr>
+							      <td width="25%"><strong>Name</strong></td>
+							      <td width="25%">@cand.name</td>
+							      <td width="25%"><strong>Email</strong></td>
+							      <td width="25%">@cand.email</td>
+							    </tr>
+							    <tr>
+							      <td><strong>Education</strong></td>
+							      @if(cand.education != null){
+							      	<td>@cand.education</td>
+							      }else{
+							      	 <td>--</td>
+							      }
+							      <td><strong>Experience</strong></td>
+							      @if(cand.experience != null){
+							      	<td>@cand.experience</td>
+							      }else{
+							      	 <td>--</td>
+							      }
+							    </tr>
+							    <tr>
+							     <td><strong>Languages</strong></td>
+							     @if(cand.languages != null){
+							      	<td>@cand.languages</td>
+							      }else{
+							      	 <td>--</td>
+							      }
+							     <td><strong>Projects</strong></td>
+							      <td>@cand.projects</td>
+							    </tr>
+							    <tr>
+							     <td><strong>Web</strong></td>
+							     @if(cand.web != null){
+							      	<td>@cand.web</td>
+							      }else{
+							      	 <td>--</td>
+							      }
+							     <td></td>
+							     <td></td>
+							    </tr>
+							  </tbody>
+							</table>
+	
+						
                         </td>
                            <td>
                             <div class="btn-group">
@@ -135,11 +209,6 @@
 							     <li><a href=#>Delete offer</a></li>
 							  </ul>
 							  </div>
-                        	<!-- div class="btn-group btn-group-vertical">
-							  <button class="btn">View details</button>
-							  <button class="btn">View inscribed</button>
-							  <button class="btn">Delete offer</button>
-							</div-->
                         </td>
                     </tr>
                 }

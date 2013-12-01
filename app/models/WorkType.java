@@ -8,7 +8,7 @@ import play.data.validation.*;
 
 
 @Entity
-public class WorkType extends Model{
+public class Worktype extends Model{
 	
 	private static final long serialVersionUID = 1L;
 
@@ -21,11 +21,11 @@ public class WorkType extends Model{
     /**
      * Generic query helper for entity Company with id Long
      */
-    public static Model.Finder<Long,WorkType> find = new Model.Finder<Long,WorkType>(Long.class, WorkType.class);
+    public static Model.Finder<Long,Worktype> find = new Model.Finder<Long,Worktype>(Long.class, Worktype.class);
 
     public static Map<String,String> options() {
         LinkedHashMap<String,String> options = new LinkedHashMap<String,String>();
-        for(WorkType c: WorkType.find.orderBy("name").findList()) {
+        for(Worktype c: Worktype.find.orderBy("name").findList()) {
             options.put(c.id.toString(), c.name);
         }
         return options;

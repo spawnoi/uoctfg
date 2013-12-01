@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 import models.JobOffer;
+import models.UserApp;
 import play.data.Form;
 import play.i18n.Messages;
 import play.mvc.Controller;
@@ -13,6 +14,7 @@ import play.mvc.Result;
 import play.mvc.Security;
 import views.html.comp.company;
 import views.html.comp.companymenu;
+import views.html.comp.jobdetail;
 import views.html.comp.newJob;
 
 @Security.Authenticated(Secured.class)
@@ -46,6 +48,11 @@ public class Company extends Controller {
 		flash("success", "Job Offer " + jobStoreForm.get().title + " has been created");
 
 		return redirect(routes.Company.index());
+    }
+    
+    public static Result details(Long id){
+    	JobOffer job = JobOffer.findById(id);
+    	return ok(jobdetail.render("Job detail", job, companymenu.render()));
     }
     /*
     public static Result add() {

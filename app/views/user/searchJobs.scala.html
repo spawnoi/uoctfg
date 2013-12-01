@@ -58,8 +58,8 @@
 	                '_showConstraints -> false
 	             )
             @select(
-		                userForm("work_type.id"), 
-		                options(WorkType.options), 
+		                userForm("worktype.id"), 
+		                options(Worktype.options), 
 		                '_label -> "Work Type", '_default -> "-- Choose a work type --",
 		                '_showConstraints -> false
 		             )
@@ -134,8 +134,8 @@
 							      	 <td>--</td>
 							      }
 							      <td><strong>Work type</strong></td>
-							      @if(job.workType != null){
-							      	<td>@job.workType.name</td>
+							      @if(job.worktype != null){
+							      	<td>@job.worktype.name</td>
 							      }else{
 							      	 <td>--</td>
 							      }

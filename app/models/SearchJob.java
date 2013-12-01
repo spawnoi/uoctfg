@@ -17,7 +17,7 @@ public class SearchJob {
 	public Duration duration;
 
 	@ManyToOne
-	public WorkType workType;
+	public Worktype worktype;
 
 	public String salary;
 

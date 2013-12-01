@@ -21,7 +21,7 @@ create table job_offer (
   description               varchar(255),
   num_vacants               integer,
   duration_id               bigint,
-  work_type_id              bigint,
+  worktype_id               bigint,
   salary                    varchar(255),
   province_id               bigint,
   emplacement               varchar(255),
@@ -71,10 +71,10 @@ create table user_app (
   constraint pk_user_app primary key (id))
 ;
 
-create table work_type (
+create table worktype (
   id                        bigint not null,
   name                      varchar(255),
-  constraint pk_work_type primary key (id))
+  constraint pk_worktype primary key (id))
 ;
 
 
@@ -97,12 +97,12 @@ create sequence studies_level_seq;
 
 create sequence user_app_seq;
 
-create sequence work_type_seq;
+create sequence worktype_seq;
 
 alter table job_offer add constraint fk_job_offer_duration_1 foreign key (duration_id) references duration (id) on delete restrict on update restrict;
 create index ix_job_offer_duration_1 on job_offer (duration_id);
-alter table job_offer add constraint fk_job_offer_workType_2 foreign key (work_type_id) references work_type (id) on delete restrict on update restrict;
-create index ix_job_offer_workType_2 on job_offer (work_type_id);
+alter table job_offer add constraint fk_job_offer_worktype_2 foreign key (worktype_id) references worktype (id) on delete restrict on update restrict;
+create index ix_job_offer_worktype_2 on job_offer (worktype_id);
 alter table job_offer add constraint fk_job_offer_province_3 foreign key (province_id) references province (id) on delete restrict on update restrict;
 create index ix_job_offer_province_3 on job_offer (province_id);
 alter table job_offer add constraint fk_job_offer_sector_4 foreign key (sector_id) references sector (id) on delete restrict on update restrict;
@@ -136,7 +136,7 @@ drop table if exists studies_level;
 
 drop table if exists user_app;
 
-drop table if exists work_type;
+drop table if exists worktype;
 
 SET REFERENTIAL_INTEGRITY TRUE;
 
@@ -154,5 +154,5 @@ drop sequence if exists studies_level_seq;
 
 drop sequence if exists user_app_seq;
 
-drop sequence if exists work_type_seq;
+drop sequence if exists worktype_seq;
 
