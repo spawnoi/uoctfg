@@ -9,7 +9,6 @@ import javax.persistence.Id;
 import play.data.validation.Constraints;
 import play.db.ebean.Model;
 
-
 @Entity
 public class Worktype extends Model{
 	
