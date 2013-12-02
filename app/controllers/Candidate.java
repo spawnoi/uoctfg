@@ -31,6 +31,7 @@ public class Candidate extends Controller {
 		String title = "Candidate Home";
 		List<JobOffer> listJobs = new ArrayList<JobOffer>();
 		// Load just the ones that the candidate is inscribed on.
+		
 		listJobs.addAll(JobOffer.find().fetch("publisher").fetch("inscribed")
 				.where().eq("inscribed.email", session().get("email"))
 				.findList());

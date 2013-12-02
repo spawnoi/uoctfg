@@ -1,3 +1,121 @@
+#worktype
+
+worktypes:
+
+    - &wt1 !!models.Worktype
+        id:    1
+        name:  Full time
+    - &wt2 !!models.Worktype
+        id:    2
+        name:  Half time
+    - &wt3 !!models.Worktype
+        id:    3
+        name:  Other
+
+
+#ExperienceLevel
+
+experiences:
+
+    - &exp1 !!models.ExperienceLevel
+        id:    1
+        name:  No experience
+    - &exp2 !!models.ExperienceLevel
+        id:    2
+        name:  More than 2 years
+    - &exp3 !!models.ExperienceLevel
+        id:    3
+        name:  More than 5 years
+    - &exp4 !!models.ExperienceLevel
+        id:    4
+        name:  More than 10 years
+
+
+#StudiesLevel
+
+studieslevels:
+
+    - &stud1 !!models.StudiesLevel
+        id:    1
+        name:  No studies
+    - &stud2 !!models.StudiesLevel
+        id:    2
+        name:  Basic studies
+    - &stud3 !!models.StudiesLevel
+        id:    3
+        name:  Medium studies
+    - &stud4 !!models.StudiesLevel
+        id:    4
+        name:  Graduated
+    - &stud5 !!models.StudiesLevel
+        id:    5
+        name:  Master degree
+
+#sector
+
+sectors:
+
+    - &sec1 !!models.Sector
+        id:    1
+        name:  Administración Pública
+    - &sec2 !!models.Sector
+        id:    2
+        name:  Administración de empresas
+    - &sec3 !!models.Sector
+        id:    3
+        name:  Atención a clientes
+    - &sec4 !!models.Sector
+        id:    4
+        name:  Calidad, producción e I+D
+    - &sec5 !!models.Sector
+        id:    5
+        name:  Comercial y ventas
+    - &sec6 !!models.Sector
+        id:    6
+        name:  Compras, logística y almacén
+    - &sec7 !!models.Sector
+        id:    7
+        name:  Diseño y artes gráficas
+    - &sec8 !!models.Sector
+        id:    8
+        name:  Educación y formación   
+    - &sec9 !!models.Sector
+        id:    9
+        name:  Finanzas y banca 
+    - &sec10 !!models.Sector
+        id:    10
+        name:  Informática y telecomunicaciones         
+    - &sec11 !!models.Sector
+        id:    11
+        name:  Ingenieros y técnicos
+    - &sec12 !!models.Sector
+        id:    12
+        name:  Inmobiliario y construcción
+    - &sec13 !!models.Sector
+        id:    13
+        name:  Legal
+    - &sec14 !!models.Sector
+        id:    14
+        name:  Marketing y comunicación
+    - &sec15 !!models.Sector
+        id:    15
+        name:  Profesiones, artes y oficios
+    - &sec16 !!models.Sector
+        id:    16
+        name:  Recursos humanos
+    - &sec17 !!models.Sector
+        id:    17
+        name:  Sanidad y salud
+    - &sec18 !!models.Sector
+        id:    18
+        name:  Turismo y restauración   
+    - &sec19 !!models.Sector
+        id:    19
+        name:  Ventas al detalle 
+    - &sec20 !!models.Sector
+        id:    20
+        name:  Otros  
+
 
 # Users
 
@@ -7,13 +125,13 @@ users:
         id:         1
         email:      josep.itarte@gmail.com
         name:       Josep
-        secName:    adad 
+        secName:    IA 
         password:   password
         docId:      431314324-X
         birthDate:  1985-03-20
         type:       CANDIDATE
-        education:  University
-        experience: Hard work during years
+        education:  education...
+        experience: Some years having fun with Java
         languages:  Catalan, Spanish and English
         projects:   http://github.com/spawnoi
         web:        http://josepdev.bl.ee
@@ -21,33 +139,48 @@ users:
     - &user2 !!models.UserApp
         id:         2
         email:      josep@sample.com
-        name:       Josep Inc
+        description: Company focused on software development. 
+        name:       Josep IA softmakers
         password:   password
         type:       ENTERPRISE
+        web:        http://www.great-inc.com
+        projects:   We have lots of projects
     
     - &user3 !!models.UserApp
         id:         3
-        email:      sadek@sample.com
-        name:       Sadek Drobi
+        email:      martinsmith@gmail-fk.com
+        name:       Martin Smith
         password:   secret
         birthDate:  1985-04-22
         type:       CANDIDATE
+        education:  education....
+        experience: no experience
+        languages:  Catalan, Spanish
+        projects:   no projects published
+        web:        http://www.google.com
     
     - &user4 !!models.UserApp
         id:         4
-        email:      erwan@sample.com
-        name:       Erwan Loisant
+        email:      johnv@testers.com
+        name:       John Valvick
         password:   secret
         birthDate:  1990-06-07
         type:       CANDIDATE
+        education:  educ
+        experience: Professional videgames tester
+        languages:  English
+        projects:   FIFA 98 QA expert
+        web:        http://www.google.com
         
     - &user5 !!models.UserApp
         id:         5
         email:      josep@admin.com
-        name:       Josep Inc
+        name:       Josep Administrator
+        secName:    Master
         password:   password
         birthDate:  1985-07-08
         type:       ADMINISTRATOR
+        web:        http://sysadmin.rolz
 
 #Duration
 
@@ -56,65 +189,236 @@ durations:
     - &dur1 !!models.Duration
         id:    1
         name:  Freelance
-        
     - &dur2 !!models.Duration
         id:    2
         name:  Fixed period
-        
     - &dur3 !!models.Duration
         id:    3
         name:  Indefinite
-        
     - &dur4 !!models.Duration
         id:    4
         name:  Other
+
+#Provinces
+
+provinces:
+
+    - &prov1 !!models.Province
+        id:    1
+        name:  Álava
+    - &prov2 !!models.Province
+        id:    2
+        name:  Albacete
+    - &prov3 !!models.Province
+        id:    3
+        name:  Alicante
+    - &prov4 !!models.Province
+        id:    4
+        name:  Almería
+    - &prov5 !!models.Province
+        id:    5
+        name:  Asturias
+    - &prov6 !!models.Province
+        id:    6
+        name:  Avila
+    - &prov7 !!models.Province
+        id:    7
+        name:  Badajoz
+    - &prov8 !!models.Province
+        id:    8
+        name:  Barcelona
+    - &prov9 !!models.Province
+        id:    9
+        name:  Burgos
+    - &prov10 !!models.Province
+        id:    10
+        name:  Cáceres
+
+    - &prov11 !!models.Province
+        id:    11
+        name:  Cádiz
+    - &prov12 !!models.Province
+        id:    12
+        name:  Cantabria
+    - &prov13 !!models.Province
+        id:    13
+        name:  Castellón
+    - &prov14 !!models.Province
+        id:    14
+        name:  Ceuta
+    - &prov15 !!models.Province
+        id:    15
+        name:  Ciudad Real
+    - &prov16 !!models.Province
+        id:    16
+        name:  Córdoba
+    - &prov17 !!models.Province
+        id:    17
+        name:  Cuenca
+    - &prov18 !!models.Province
+        id:    18
+        name:  Girona
+    - &prov19 !!models.Province
+        id:    19
+        name:  Granada
+    - &prov20 !!models.Province
+        id:    20
+        name:  Guadalajara
+
+    - &prov21 !!models.Province
+        id:    21
+        name:  Guipúzcoa
+    - &prov22 !!models.Province
+        id:    22
+        name:  Huelva
+    - &prov23 !!models.Province
+        id:    23
+        name:  Huesca
+    - &prov24 !!models.Province
+        id:    24
+        name:  Illes Balears
+    - &prov25 !!models.Province
+        id:    25
+        name:  Jaén
+    - &prov26 !!models.Province
+        id:    26
+        name:  La Coruña
+    - &prov27 !!models.Province
+        id:    27
+        name:  La Rioja
+    - &prov28 !!models.Province
+        id:    28
+        name:  Las Palmas
+    - &prov29 !!models.Province
+        id:    29
+        name:  León
+    - &prov30 !!models.Province
+        id:    30
+        name:  LLeida
+
+    - &prov31 !!models.Province
+        id:    31
+        name:  Lugo
+    - &prov32 !!models.Province
+        id:    32
+        name:  Madrid
+    - &prov33 !!models.Province
+        id:    33
+        name:  Málaga
+    - &prov34 !!models.Province
+        id:    34
+        name:  Melilla
+    - &prov35 !!models.Province
+        id:    35
+        name:  Murcia
+    - &prov36 !!models.Province
+        id:    36
+        name:  Navarra
+    - &prov37 !!models.Province
+        id:    37
+        name:  Orense
+    - &prov38 !!models.Province
+        id:    38
+        name:  Palencia
+    - &prov39 !!models.Province
+        id:    39
+        name:  Pontevedra
+    - &prov40 !!models.Province
+        id:    40
+        name:  S.C. de Tenerife
+
+    - &prov41 !!models.Province
+        id:    41
+        name:  Salamanca
+    - &prov42 !!models.Province
+        id:    42
+        name:  Segovia
+    - &prov43 !!models.Province
+        id:    43
+        name:  Sevilla
+    - &prov44 !!models.Province
+        id:    44
+        name:  Soria
+    - &prov45 !!models.Province
+        id:    45
+        name:  Tarragona
+    - &prov46 !!models.Province
+        id:    46
+        name:  Teruel
+    - &prov47 !!models.Province
+        id:    47
+        name:  Toledo
+    - &prov48 !!models.Province
+        id:    48
+        name:  Valencia
+    - &prov49 !!models.Province
+        id:    49
+        name:  Valladolid
+
+    - &prov51 !!models.Province
+        id:    51
+        name:  Vizcaya
+    - &prov52 !!models.Province
+        id:    52
+        name:  Zamora
+    - &prov53 !!models.Province
+        id:    53
+        name:  Zaragoza
+        
+
 
 #JobOffers
 
 jobs:
 
     - !!models.JobOffer
-        title:       Job num1 
-        description: Description of job 1
+        title:       Java developer 
+        description: Junior Java EE developer with GWT, Spring and Hibernate
         numVacants:  2
+        sector:      *sec10
         duration:    *dur1
-        salary:      100€
-        emplacement: Girona
+        salary:      24.000€
+        emplacement: Granollers
+        province:    *prov8
         benefits:    free gym
-        expirationDate: 2013-11-30
+        worktype:    *wt1
+        publicationDate: 2013-10-11
+        expirationDate: 2013-01-30
         publisher:   *user2
         inscribed:   
             - *user3
             - *user4
         
     - !!models.JobOffer
-        title:       Job num2
-        description: Description of job 2
-        numVacants:  2
+        title:       PHP Junior developer
+        description: PHP junior developer with experience on Symphony framework and HTML5
+        numVacants:  1
         duration:    *dur2
-        salary:      10000€
-        emplacement: Granollers
+        sector:      *sec10
+        salary:      22.000€
+        emplacement: Barcelona
         benefits:    library free
-        expirationDate: 2014-11-30
+        worktype:    *wt2
+        publicationDate: 2013-10-11
+        expirationDate: 2013-01-30
         publisher:   *user2
         inscribed:   
             - *user3
-            - *user4
                                 
     - !!models.JobOffer
-        title:       Job num3
-        description: Description of job 3
-        numVacants:  2
+        title:       Java Teacher
+        description: Work as a professor teaching Java developers how to user Java EE frameworks
+        numVacants:  1
         duration:    *dur3
-        salary:      1000€
+        sector:      *sec10
+        salary:      150.000€
         emplacement: Sant Cugat
-        benefits:    nothing
-        expirationDate: 2014-11-30
+        benefits:    Bonus depending on results
+        worktype:    *wt1
+        publicationDate: 2013-08-11
+        expirationDate: 2013-02-30
         publisher:   *user2
         inscribed:   
             - *user1
             - *user4
-
-
-        
-      
+                  
