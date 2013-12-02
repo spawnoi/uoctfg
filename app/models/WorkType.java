@@ -1,10 +1,13 @@
 package models;
 
-import java.util.*;
-import javax.persistence.*;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
-import play.db.ebean.*;
-import play.data.validation.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+import play.data.validation.Constraints;
+import play.db.ebean.Model;
 
 
 @Entity
