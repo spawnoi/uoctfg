@@ -2,10 +2,15 @@ package controllers;
 
 import static play.data.Form.form;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.avaje.ebean.Expr;
+import com.avaje.ebean.Expression;
+
 import models.JobOffer;
+import models.SearchJob;
 import models.UserApp;
 import play.data.Form;
 import play.i18n.Messages;
@@ -23,8 +28,12 @@ public class Company extends Controller {
 	
     public static Result index() {
     	String titleMsg = Messages.get("home.title");
-    	List<JobOffer> listJobs = JobOffer.findAll();
-    	return ok(company.render(titleMsg, listJobs, companymenu.render()));
+    	List<JobOffer> list = new ArrayList<JobOffer>();
+		list.addAll(JobOffer.find().fetch("publisher").fetch("inscribed")
+				.fetch("duration").fetch("worktype").fetch("province").fetch("sector").where()
+				.eq("publisher.email", session().get("email"))
+				.findList());
+    	return ok(company.render(titleMsg, list, companymenu.render()));
     }
     
     public static Result addJob(){

@@ -14,6 +14,19 @@
               <li><a href="#contact">@Messages("menu.contact")</a></li>
 
             </ul>
+            
+            <div class="btn-group pull-right">
+			  <a class="btn dropdown-toggle btn-info" data-toggle="dropdown" href="#">
+			    Language
+			    <span class="caret"></span>
+			  </a>
+			  <ul class="dropdown-menu">
+			     <li><a href=#>CA</a></li>
+			     <li><a href=#>ES</a></li>
+			     <li><a href=#>EN</a></li>
+			  </ul>
+			</div>
+            
             @if(session.get("connected") == null) {
           	  <a href=@routes.Application.login() class="btn pull-right btn-info">@Messages("menu.sign")</a>
          	  <div class="btn-group pull-right">

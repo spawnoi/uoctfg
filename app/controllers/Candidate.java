@@ -42,9 +42,9 @@ public class Candidate extends Controller {
 	public static Result prepareSearchJob() {
 		Form<SearchJob> jobOfferForm = form(SearchJob.class);
 		List<JobOffer> list = new ArrayList<JobOffer>();
-		list.addAll(JobOffer.find().fetch("publisher").fetch("inscribed")
-				.where().ne("inscribed.email", session().get("email"))
-				.findList());
+		//list.addAll(JobOffer.find().fetch("publisher").fetch("inscribed")
+		//		.where().ne("inscribed.email", session().get("email"))
+		//		.findList());
 
 		return ok(searchJobs.render(jobOfferForm, candidatemenu.render(), list));
 	}
@@ -54,22 +54,33 @@ public class Candidate extends Controller {
 		List<JobOffer> list = new ArrayList<JobOffer>();
 		SearchJob job = jobStoreForm.get();
 
-		Expression duration = Expr.eq("1", "1");
+		Expression duration = Expr.eq("1", 1);
 		if (job.duration != null && job.duration.id != null)
 			duration = Expr.eq("duration.id", job.duration.id);
 
-		Expression sector = Expr.eq("1", "1");
+		Expression sector = Expr.eq("1", 1);
 		if (job.sector != null && job.sector.id != null)
 			sector = Expr.eq("sector.id", job.sector.id);
 		
-		Expression province = Expr.eq("1", "1");
+		Expression province = Expr.eq("1", 1);
 		if (job.province != null && job.province.id != null)
 			province = Expr.eq("province.id", job.province.id);
+		
+		Expression worktype = Expr.eq("1", 1);
+		if (job.worktype != null && job.worktype.id != null)
+			worktype = Expr.eq("worktype.id", job.worktype.id);
+		
+		Expression empl = Expr.eq("1", 1);
+		if(job.emplacement != null && !"".equals(job.emplacement)){
+			empl = Expr.ilike("emplacement", "%" + job.emplacement + "%");
+		}
 		
 		list.addAll(JobOffer.find().fetch("publisher").fetch("inscribed")
 				.fetch("duration").fetch("worktype").fetch("province").fetch("sector").where()
 				.ilike("title", "%" + job.title + "%")
+				.add(empl)
 				.add(duration)
+				.add(worktype)
 				.add(sector)
 				.add(province)
 				// .eq("inscribed.email", session().get("email"))
