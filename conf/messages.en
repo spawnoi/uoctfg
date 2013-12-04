@@ -79,7 +79,40 @@ logout=Logout
 jobs.published=Published jobs
 jobs.new=Publish new job
 
+jobs.nojobs=No job offers where found
+jobs.detail=Job offers details
+
+jobs.noenrolled=0 enrolled
+jobs.enrolled.total=Total enrolled:
+jobs.enrolled.count=Enrolled:
+
+
 company.area=Company area
 
 new.candidate=New candidate profile
 new.company=New company profile
+
+manage=Manage
+inscribed.view=View enrolled
+
+job.title=Title
+job.duration=Duration
+job.workType=Work type
+job.province=Province
+job.place=Emplacement
+job.salary=Salary
+job.numVac=Núm. vacancies
+job.sector=Sector
+job.benefits=Benefits
+job.inscription=Published
+job.desc=Description
+
+
+job.details=Job offer details
+job.inscribed.info=Enrolled information
+job.inscribed.zero=No enrolled has been found for this offer
+
+job.sector.def=-- Choose a sector --
+job.province.def=-- Choose a province --
+job.work.def=-- Choose a work type --
+job.duration.def=-- Choose a duration --

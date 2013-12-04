@@ -1,4 +1,5 @@
-home.title=App Título
+home.title=App JosepIA
+
 menu.about=Sobre
 menu.contact=Contacto
 menu.home=Inicio
@@ -80,8 +81,40 @@ logout=Desconecta
 jobs.published=Ofertas publicadas
 jobs.new=Publicar nueva oferta
 
+jobs.nojobs=No se han encontrado ofertas
+jobs.detail=Detalle de las ofertas
+
+jobs.noenrolled=0 inscritos
+jobs.enrolled.total=Total inscritos:
+jobs.enrolled.count=Inscritos:
+
+manage=Gestiona
+inscribed.view=Ver inscritos
+
 
 company.area=Area de empresa
 
 new.candidate=Nuevo perfil candidato
 new.company=Nuevo perfil empresa
+
+job.title=Título
+job.duration=Duración
+job.workType=Jornada
+job.province=Provincia
+job.place=Lugar
+job.salary=Salario
+job.numVac=Num. vacantes
+job.sector=Sector
+job.benefits=Beneficios
+job.inscription=Publicada
+job.desc=Descripción
+
+job.details=Detalles de la oferta
+job.inscribed.info=Información de los inscritos
+job.inscribed.zero=No se ha encontrado ningun inscrito para la oferta
+
+job.duration.def=-- Escoge una duración --
+job.province.def=-- Escoge una provincia --
+job.work.def=-- Escoge una jornada --
+job.sector.def=-- Escoge un sector --
+

@@ -6,7 +6,7 @@
 <ul class="breadcrumb">
   <li><a href="#">@Messages("company.area")</a> <span class="divider">/</span></li>
   <li><a href=@routes.Company.index()>@Messages("jobs.published")</a> <span class="divider">/</span></li>
-  <li class="active">Job details</li>
+  <li class="active">@Messages("job.details")</li>
  </ul>
  
   @if(flash.contains("success")) {
@@ -32,7 +32,7 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Job resume</th>
+                    <th>@Messages("job.details")</th>
                 </tr>
             </thead>
             <tbody>
@@ -41,12 +41,12 @@
                         <td>
                         	@if(job.inscribed != null){
 								  @if(job.inscribed.exists(x => x.email == session.get("email"))){
-								  	<span class="label pull-right">Total candidates inscribed: @job.inscribed.size</span>
+								  	<span class="label pull-right">@Messages("jobs.enrolled.total") @job.inscribed.size</span>
 								  }else{
-								 	 <span class="label pull-right label-info">inscribed: @job.inscribed.size</span>
+								 	 <span class="label pull-right label-info">@Messages("jobs.enrolled.count") @job.inscribed.size</span>
 								  }
                             } else {
-                                <span class="label pull-right label-info">0 inscribed</span>
+                                <span class="label pull-right label-info">@Messages("noenrolled")</span>
                             }
                             
                             <blockquote>
@@ -57,19 +57,19 @@
 							<table class="table table-condensed table-striped table-bordered">
 							  <tbody>
 							  	<tr>
-							      <td width="25%"><strong>Title</strong></td>
+							      <td width="25%"><strong>@Messages("job.title")</strong></td>
 							      <td width="25%">@job.title</td>
-							      <td width="25%"><strong>Vacants</strong></td>
+							      <td width="25%"><strong>@Messages("job.numVac")</strong></td>
 							      <td width="25%">@job.numVacants</td>
 							    </tr>
 							    <tr>
-							      <td><strong>Duration</strong></td>
+							      <td><strong>@Messages("job.duration")</strong></td>
 							      @if(job.duration != null){
 							      	<td>@job.duration.name</td>
 							      }else{
 							      	 <td>--</td>
 							      }
-							      <td><strong>Work type</strong></td>
+							      <td><strong>@Messages("job.workType")</strong></td>
 							      @if(job.worktype != null){
 							      	<td>@job.worktype.name</td>
 							      }else{
@@ -77,33 +77,33 @@
 							      }
 							    </tr>
 							    <tr>
-							     <td><strong>Province</strong></td>
+							     <td><strong>@Messages("job.province")</strong></td>
 							     @if(job.province != null){
 							      	<td>@job.province.name</td>
 							      }else{
 							      	 <td>--</td>
 							      }
-							     <td><strong>Emplacement</strong></td>
+							     <td><strong>@Messages("job.place")</strong></td>
 							      <td>@job.emplacement</td>
 							    </tr>
 							    <tr>
-							     <td><strong>Salary</strong></td>
+							     <td><strong>@Messages("job.salary")</strong></td>
 							     @if(job.salary != null){
 							      	<td>@job.salary</td>
 							      }else{
 							      	 <td>--</td>
 							      }
-							     <td><strong>Benefits</strong></td>
+							     <td><strong>@Messages("job.benefits")</strong></td>
 							     <td>@job.benefits</td>
 							    </tr>
 							    <tr>
-							     <td><strong>Sector</strong></td>
+							     <td><strong>@Messages("job.sector")</strong></td>
 							     @if(job.sector != null){
 							      	<td>@job.sector.name</td>
 							      }else{
 							      	 <td>--</td>
 							      }
-							     <td><strong>Inscription date</strong></td>
+							     <td><strong>@Messages("job.inscription")</strong></td>
 							     <td>
                           		  @if(job.publicationDate != null) {
                           	       @job.publicationDate.format("dd/MM/yyyy hh:mm")
@@ -130,14 +130,14 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Candidates information</th>
+                    <th>@Messages("job.inscribed.info")</th>
                     <th>@Messages("options")</th>
                 </tr>
             </thead>
             <tbody>
                 @if(job.inscribed.size() == 0 || job.inscribed == null) {
                     <tr>
-                        <td>No candidates</td>
+                        <td>@Messages("job.inscribed.zero")</td>
                         <td></td>
                     </tr>
                 }
@@ -154,19 +154,19 @@
 							<table class="table table-condensed table-striped table-bordered">
 							  <tbody>
 							  	<tr>
-							      <td width="25%"><strong>Name</strong></td>
+							      <td width="25%"><strong>@Messages("user.name")</strong></td>
 							      <td width="25%">@cand.name</td>
-							      <td width="25%"><strong>Email</strong></td>
+							      <td width="25%"><strong>@Messages("user.email")</strong></td>
 							      <td width="25%">@cand.email</td>
 							    </tr>
 							    <tr>
-							      <td><strong>Education</strong></td>
+							      <td><strong>@Messages("user.education")</strong></td>
 							      @if(cand.education != null){
 							      	<td>@cand.education</td>
 							      }else{
 							      	 <td>--</td>
 							      }
-							      <td><strong>Experience</strong></td>
+							      <td><strong>@Messages("user.experience")</strong></td>
 							      @if(cand.experience != null){
 							      	<td>@cand.experience</td>
 							      }else{
@@ -174,17 +174,17 @@
 							      }
 							    </tr>
 							    <tr>
-							     <td><strong>Languages</strong></td>
+							     <td><strong>@Messages("user.languages")</strong></td>
 							     @if(cand.languages != null){
 							      	<td>@cand.languages</td>
 							      }else{
 							      	 <td>--</td>
 							      }
-							     <td><strong>Projects</strong></td>
+							     <td><strong>@Messages("user.projects")</strong></td>
 							      <td>@cand.projects</td>
 							    </tr>
 							    <tr>
-							     <td><strong>Web</strong></td>
+							     <td><strong>@Messages("company.web")</strong></td>
 							     @if(cand.web != null){
 							      	<td>@cand.web</td>
 							      }else{
@@ -201,13 +201,13 @@
                            <td>
                             <div class="btn-group">
 							  <a class="btn dropdown-toggle btn" data-toggle="dropdown" href="#">
-							    Manage Offer
+							    @Messages("manage")
 							    <span class="caret"></span>
 							  </a>
 							  <ul class="dropdown-menu">
-							  	 <li><a href=@routes.Company.details(job.id)>View inscribed</a></li>
+							  	 <!-- li><a href=@routes.Company.details(job.id)>View inscribed</a></li>
 							     <li><a href=#>View details</a></li>
-							     <li><a href=#>Delete offer</a></li>
+							     <li><a href=#>Delete offer</a></li-->
 							  </ul>
 							  </div>
                         </td>

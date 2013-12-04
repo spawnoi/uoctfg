@@ -35,21 +35,21 @@
     <div class="span10">
     <div class="well well-small">
     <fieldset>
-    	<legend>New Job</legend>
+    	<legend>@Messages("jobs.new")</legend>
 	    @form(routes.Company.storeJob()) {
 	        
 	         	<div class="span5"> <!-- FIRST COLUMN -->
-				    @inputText(userForm("title"), '_label -> "Title")
+				    @inputText(userForm("title"), '_label -> Messages("job.title"))
 		            @textarea(
                 		userForm("description"), 
-                		'_label -> "Description", 'cols -> 50
+                		'_label -> Messages("job.desc"), 'cols -> 50
             		)
-		            @inputText(userForm("numVacants"), '_label -> "Vacants")
-		            @inputText(userForm("salary"), '_label -> "Salary")
+		            @inputText(userForm("numVacants"), '_label -> Messages("job.numVac"))
+		            @inputText(userForm("salary"), '_label -> Messages("job.salary"))
 		            @select(
 		                userForm("sector.id"), 
 		                options(Sector.options), 
-		                '_label -> "Sector", '_default -> "-- Choose a sector --",
+		                '_label -> Messages("job.sector"), '_default -> Messages("job.sector.def"),
 		                '_showConstraints -> false
 		            )
 				</div>
@@ -58,25 +58,25 @@
 					 @select(
 		                userForm("province.id"), 
 		                options(Province.options), 
-		                '_label -> "Province", '_default -> "-- Choose a province --",
+		                '_label -> Messages("job.province"), '_default -> Messages("job.province.def"),
 		                '_showConstraints -> false
 		             )
-					 @inputText(userForm("emplacement"), '_label -> "emplacement desc.")
+					 @inputText(userForm("emplacement"), '_label -> Messages("job.place"))
 					 @select(
 		                userForm("duration.id"), 
 		                options(Duration.options), 
-		                '_label -> "Duration", '_default -> "-- Choose a duration --",
+		                '_label -> Messages("job.duration"), '_default -> Messages("job.duration.def"),
 		                '_showConstraints -> false
 		             )
 		             @select(
 		                userForm("worktype.id"), 
 		                options(Worktype.options), 
-		                '_label -> "Work Type", '_default -> "-- Choose a work type --",
+		                '_label -> Messages("job.workType"), '_default -> Messages("job.work.def"),
 		                '_showConstraints -> false
 		             )
 		              @textarea(
                 		userForm("benefits"), 
-                		'_label -> "Benefits", 'cols -> 50
+                		'_label -> Messages("job.benefits"), 'cols -> 50
             		)
 				</div>
 	        
@@ -87,8 +87,8 @@
 		 		<div class="row-fluid">
 		 			<div class="span10">
 		 			 <div class="actions">
-		           		 <input type="submit" value="Publish Offer" class="btn primary"> or 
-		           		 <a href=@routes.Company.index() class="btn btn-primary">Cancel</a>
+		           		 <input type="submit" value=@Messages("save") class="btn "> 
+		           		 <a href=@routes.Company.index() class="btn">@Messages("cancel")</a>
 		        	</div>
 	 			</div>
 	 		</div>

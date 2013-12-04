@@ -51,6 +51,7 @@ company.sector=Sector
 company.web=Pàgina web
 
 
+
 ##New JobOffer
 
 userlist.title=Usuaris
@@ -83,12 +84,42 @@ logout=Desconecta''t
 jobs.published=Ofertes publicades
 jobs.new=Publicar nova oferta
 
+jobs.nojobs=No s'han trobat ofertes
+jobs.detail=Detall de les ofertes
+
+jobs.noenrolled=0 inscrits
+jobs.enrolled.total=Total inscrits:
+jobs.enrolled.count=Inscrits:
+
 company.area=Àrea d''empresa
 
 new.candidate=Nou perfil candidat
 new.company=Nou perfil empresa
 
 
+manage=Gestiona
+inscribed.view=Veure inscrits
+
+job.title=Títol
+job.duration=Durada
+job.workType=Jornada
+job.province=Província
+job.place=Emplaçament
+job.salary=Salari
+job.numVac=Núm. vacants
+job.sector=Sector
+job.benefits=Beneficis
+job.inscription=Publicada
+job.desc=Descripció
+
+
+job.sector.def=-- Escull unsector --
+job.province.def=-- Escull una província --
+job.duration.def=-- Escull una durada --
+job.work.def=-- Escull una jornada --
 
 
 
+job.details=Detalls de la oferta
+job.inscribed.info=Informació dels inscrits
+job.inscribed.zero=No s''ha trobat cap inscrit per la oferta
