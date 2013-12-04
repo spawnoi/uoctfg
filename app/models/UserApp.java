@@ -1,10 +1,12 @@
 package models;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Version;
 
 import play.data.format.Formats;
 import play.data.validation.Constraints;
@@ -69,6 +71,9 @@ public class UserApp extends Model {
 	public boolean isAdmin(){
 		return type == UserType.ADMINISTRATOR;
 	}
+	
+	//@Version
+    //public Timestamp lastUpdate;
 
 	
 // -- Parsing

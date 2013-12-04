@@ -3,19 +3,18 @@
 
 @main(message, menu) {
 
-
+<ul class="breadcrumb">
+  <li><a href="#">Company Area</a> <span class="divider">/</span></li>
+  <li><a href=@routes.Company.index()>Published jobs</a> <span class="divider">/</span></li>
+  <li class="active">Job details</li>
+ </ul>
+ 
   @if(flash.contains("success")) {
      	<div class="alert alert-success">
   			<button type="button" class="close" data-dismiss="alert">&times;</button>
   			<strong>Info!</strong> @flash.get("success")
 		</div>
       }
-      
-  <ul class="breadcrumb">
-  <li><a href="#">Company Area</a> <span class="divider">/</span></li>
-  <li><a href=@routes.Company.index()>Published jobs</a> <span class="divider">/</span></li>
-  <li class="active">Job details</li>
- </ul>
       
 <div class="row">
     <div class="span2">

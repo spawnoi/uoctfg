@@ -6,6 +6,8 @@
 GET     /                           controllers.Application.index()
 GET		/newUser					controllers.Application.newUser()
 POST    /newUser                  	controllers.Application.saveUser()
+GET		/updateUser					controllers.Application.prepareUser()
+POST	/updateUser					controllers.Application.updateUser()
 GET		/newCompUser				controllers.Application.newCompUser()
 POST    /newCompUser                controllers.Application.saveCompUser()
 

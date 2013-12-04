@@ -1,0 +1,66 @@
+@(userForm: Form[UserApp], menu: Html)
+
+@import helper._
+
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.render) } 
+
+@main("Edit user", menu) {
+
+	  @if(flash.contains("error")) {
+     	<div class="alert alert-error">
+  			<button type="button" class="close" data-dismiss="alert">&times;</button>
+  			<strong>Error!</strong> @flash.get("error")
+		</div>
+      }
+      
+    <div class="row-fluid">
+  	  <div class="span2">
+		    <ul class="nav nav-list">
+			  <li class="nav-header">Options</li>
+			  <li><a href=@routes.Candidate.index()>Applied jobs</a></li>
+			  <li><a href=@routes.Candidate.prepareSearchJob()>Search Jobs</a></li>
+			  <li class="nav-header">Profile</li>
+			  <li class="active"><a href=@routes.Application.prepareUser()>My Account</a></li>
+			</ul>
+	       
+	    </div>
+    	<div class="span10">
+    	<div class="well well-small">
+		    <fieldset>
+		    	<legend>Update account</legend>
+		    	
+    @form(routes.Application.updateUser()) {
+        
+            <div class="span5"> <!-- FIRST COLUMN -->
+		        @inputText(userForm("name"), '_label -> Messages("user.name"))
+		        @inputText(userForm("secName"), '_label -> Messages("user.secname"))
+		        @inputText(userForm("docId"), '_label -> Messages("user.dni"))
+		        @textarea(userForm("education"), '_label -> "education", 'rows -> 3, 'cols -> 50)
+			</div>
+			
+			<div class="span5"> <!-- SECOND COLUMN -->
+				
+		        @textarea(userForm("experience"), '_label -> "experience", 'rows -> 3, 'cols -> 50)
+		        @textarea(userForm("languages"), '_label -> "languages", 'rows -> 3, 'cols -> 50)
+		        @textarea(userForm("projects"), '_label -> "projects", 'rows -> 3, 'cols -> 50)
+			</div>
+			 
+			 <input type="hidden" name="email" value='userForm("email").value' >
+			 <input type="hidden" name="password" value='userForm("password").value'>
+			 
+         </fieldset>
+		        
+		       <br/>
+		       <br/>
+        <div class="actions">
+            <input type="submit" value="Update account" class="btn primary"> or 
+            <a href=@routes.Candidate.index() class="btn">Cancel</a>
+        </div>
+            </div>
+        
+    }
+    </div>
+    </div>
+
+    
+}

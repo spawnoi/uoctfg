@@ -7,17 +7,18 @@
 
 @main("New Job Offer", menu) {
     
+      <ul class="breadcrumb">
+	  <li><a href="#">Company Area</a> <span class="divider">/</span></li>
+	  <li class="active">New job</li>
+	 </ul>
+ 
      @if(flash.contains("error")) {
   		<div class="alert alert-error">
 			<button type="button" class="close" data-dismiss="alert">&times;</button>
 			<strong>Error!</strong> @flash.get("error")
 		</div>
   		 }
-    
-  <ul class="breadcrumb">
-  <li><a href="#">Company Area</a> <span class="divider">/</span></li>
-  <li class="active">New job</li>
- </ul>
+
  
     <!-- div class="container-fluid"-->
   	<div class="row-fluid">

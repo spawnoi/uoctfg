@@ -3,18 +3,24 @@
 
 @main(message, menu) {
 
+  <ul class="breadcrumb">
+  <li><a href="#">Company Area</a> <span class="divider">/</span></li>
+  <li class="active">Published jobs</li>
+ </ul>
 
-  @if(flash.contains("success")) {
+   @if(flash.contains("success")) {
      	<div class="alert alert-success">
   			<button type="button" class="close" data-dismiss="alert">&times;</button>
   			<strong>Info!</strong> @flash.get("success")
 		</div>
       }
-      
-  <ul class="breadcrumb">
-  <li><a href="#">Company Area</a> <span class="divider">/</span></li>
-  <li class="active">Published jobs</li>
- </ul>
+   
+    @if(flash.contains("updated")) {
+    	<div class="alert alert-success">
+ 			<button type="button" class="close" data-dismiss="alert">&times;</button>
+ 			<strong>Info!</strong> @flash.get("updated")
+	</div>
+     }
       
 <div class="row">
     <div class="span2">
@@ -23,6 +29,8 @@
 		  <li class="nav-header">Options</li>
 		  <li class="active"><a href=@routes.Company.index()>Published jobs</a></li>
 		  <li><a href=@routes.Company.addJob()>Add new job</a></li>
+		  <li class="nav-header">Profile</li>
+		  <li><a href=@routes.Application.prepareUser()>My Account</a></li>
 		</ul>
         
     </div>

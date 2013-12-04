@@ -7,13 +7,21 @@ import java.util.List;
 
 import models.CandidateUser;
 import models.CompanyUser;
+import models.JobOffer;
 import models.UserApp;
+import models.UserTypes;
+import play.api.templates.Html;
 import play.data.Form;
 import play.data.validation.ValidationError;
 import play.i18n.Messages;
 import play.mvc.Controller;
 import play.mvc.Result;
+import views.html.editcompany;
+import views.html.edituser;
 import views.html.mainmenu;
+import views.html.comp.companymenu;
+import views.html.comp.newJob;
+import views.html.user.candidatemenu;
 
 public class Application extends Controller {
 
@@ -47,7 +55,7 @@ public class Application extends Controller {
 					+ userAddForm.get().name);
 			flash("success", "Company " + userAddForm.get().name
 					+ " has been created");
-			
+
 			return redirect(routes.Company.index());
 		}
 	}
@@ -82,6 +90,62 @@ public class Application extends Controller {
 		}
 	}
 
+	public static Result prepareUser() {
+		Form<UserApp> userUpdForm = form(UserApp.class).fill(
+				UserApp.findByEmail(session().get("email")));
+		
+		
+		Html view = null;
+		if (userUpdForm.get().isCandidate()) {
+			view = edituser.render(userUpdForm, candidatemenu.render());
+		} else if (userUpdForm.get().isCompany()) {
+			view = editcompany.render(userUpdForm, candidatemenu.render());
+		} else {
+			view = views.html.index.render("Admin account", mainmenu.render());
+		}
+
+		return ok(view);
+	}
+
+	public static Result updateUser() {
+		Result res;
+		Form<UserApp> userUpdForm = form(UserApp.class).bindFromRequest();
+		if (userUpdForm.hasErrors()) {
+			flash("error", "Please correct errors above.");
+			Html view;
+			if (userUpdForm.get().isCandidate()) {
+				view = edituser.render(userUpdForm, candidatemenu.render());
+			} else if (userUpdForm.get().isCompany()) {
+				view = editcompany.render(userUpdForm, candidatemenu.render());
+			} else {
+				view = views.html.index.render("Admin account",
+						mainmenu.render());
+			}
+			res = badRequest(view);
+		} else {
+			
+			UserApp old = UserApp.findByEmail(session().get("email"));
+			UserApp userUpdated = userUpdForm.get();
+			userUpdated.email = old.email;
+			userUpdated.password= old.password;
+			userUpdated.update(old.id);
+			
+			res = redirect(routes.Application.index());
+			if (old.isCandidate()) {
+				res = redirect(routes.Candidate.index());
+			} else if (old.isCompany()) {
+				res = redirect(routes.Company.index());
+			} else {
+				res = redirect(routes.Admin.list(0, "name", "asc", ""));
+			}
+			
+			flash("updated", "Account updated!");
+
+		}
+
+		return res;
+	}
+
 	/**
 	 * Authentication methods
 	 * 
@@ -105,7 +169,7 @@ public class Application extends Controller {
 	 */
 	public static Result login() {
 		flash("success", "Please, Sign in");
-		//ready to login
+		// ready to login
 		return ok(views.html.login.render(form(Login.class), mainmenu.render()));
 	}
 
@@ -119,21 +183,20 @@ public class Application extends Controller {
 			return badRequest(views.html.login.render(loginForm,
 					mainmenu.render()));
 		} else {
-			
-			
+
 			UserApp user = UserApp.authenticate(loginForm.get().email,
 					loginForm.get().password);
 			if (user != null) {
 				session("email", user.getEmail());
-			    session("connected", ""+user.id);
-			    session("type", ""+user.getType());
-				
+				session("connected", "" + user.id);
+				session("type", "" + user.getType());
+
 				if (user.isCandidate()) {
 					return redirect(routes.Candidate.index());
 				} else if (user.isCompany()) {
 					return redirect(routes.Company.index());
-				
-				} else if(user.isAdmin()){
+
+				} else if (user.isAdmin()) {
 					return redirect(routes.Admin.list(0, "name", "asc", ""));
 				} else {
 					return redirect(routes.Application.index());

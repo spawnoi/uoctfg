@@ -12,6 +12,7 @@
             <ul class="nav">
               <li><a href=@routes.Company.index()>Published jobs</a></li>
               <li><a href=@routes.Company.addJob()>Add new offer</a></li>
+              
             </ul>
           
              @if(session.get("connected") == null) {
@@ -33,7 +34,7 @@
 				    <span class="caret"></span>
 				  </a>
 				  <ul class="dropdown-menu">
-				    <li><a href=#>My Account</a></li>
+				    <li><a href=@routes.Application.prepareUser()>My Account</a></li>
 	            	<li><a href=@routes.Application.logout() id="logout">Logout</a></li>
 				  </ul>
             	</div>
