@@ -1,4 +1,4 @@
-home.title=App JosepIA (CA)
+home.title=App JosepIA
 
 ##Menu information:
 menu.about=Sobre
@@ -36,8 +36,59 @@ user.repassword=Repeteix contrasenya
 user.dni=DNI
 user.bdate=Data naixement
 user.type=Tipus usuari
+user.education=Educació
+user.experience=Experiència
+user.languages=Idiomes
+user.projects=Projectes
+
+##Company
+company.name=Nom
+company.password=Contrasenya
+company.desc=Lema
+company.email=Email
+company.dni=NIF
+company.sector=Sector
+company.web=Pàgina web
 
 
 ##New JobOffer
 
 userlist.title=Usuaris
+
+
+#Lang
+lang=Idioma
+lang.ca=Català
+lang.es=Espanyol
+lang.en=Anglès
+
+#menus
+
+#buttons
+add=Afegeix
+update=Actualitza
+save=Desa
+cancel=Cancel·la
+
+
+#account
+account=El meu compte
+profile=Perfil
+account.update=Actualitza el compte personal
+
+options=Opcions
+logout=Desconecta''t
+
+#menus
+jobs.published=Ofertes publicades
+jobs.new=Publicar nova oferta
+
+company.area=Àrea d''empresa
+
+new.candidate=Nou perfil candidat
+new.company=Nou perfil empresa
+
+
+
+
+

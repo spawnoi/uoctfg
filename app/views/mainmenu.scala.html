@@ -17,13 +17,13 @@
             
             <div class="btn-group pull-right">
 			  <a class="btn dropdown-toggle btn-info" data-toggle="dropdown" href="#">
-			    Language
+			    @Messages("lang")
 			    <span class="caret"></span>
 			  </a>
 			  <ul class="dropdown-menu">
-			     <li><a href=#>CA</a></li>
-			     <li><a href=#>ES</a></li>
-			     <li><a href=#>EN</a></li>
+			     <li><a href=@routes.Application.setLang("ca")>@Messages("lang.ca")</a></li>
+			     <li><a href=@routes.Application.setLang("es")>@Messages("lang.es")</a></li>
+			     <li><a href=@routes.Application.setLang("en")>@Messages("lang.en")</a></li>
 			  </ul>
 			</div>
             
@@ -35,8 +35,8 @@
 			    <span class="caret"></span>
 			  </a>
 			  <ul class="dropdown-menu">
-			     <li><a href=@routes.Application.newUser()>New candidate</a></li>
-			     <li><a href=@routes.Application.newCompUser()>New enterprise</a></li>
+			     <li><a href=@routes.Application.newUser()>@Messages("new.candidate")</a></li>
+			     <li><a href=@routes.Application.newCompUser()>@Messages("new.company")</a></li>
 			  </ul>
 			  </div>
             } else {
@@ -47,17 +47,17 @@
 				    <span class="caret"></span>
 				  </a>
 				  <ul class="dropdown-menu">
-				   <li><a href=@routes.Application.prepareUser()>My Account</a></li>
+				   <li><a href=@routes.Application.prepareUser()>@Messages("account")</a></li>
 				     @if(session.get("type") == "CANDIDATE"){
 	            	<li><a href=@routes.Candidate.index()>My candidate area</a></li>
 	            	}
 	            	@if(session.get("type") == "ENTERPRISE"){
-	            	<li><a href=@routes.Company.index()>My company area</a></li>
+	            	<li><a href=@routes.Company.index()>@Messages("company.area")</a></li>
 	            	}
 	            	@if(session.get("type") == "ADMINISTRATOR"){
 	            	<li><a href=@routes.Admin.list(0,"name", "asc","")>My administrator area</a></li>
 	            	}
-	            	<li><a href=@routes.Application.logout() id="logout">Logout</a></li>
+	            	<li><a href=@routes.Application.logout() id="logout">@Messages("logout")</a></li>
 				  </ul>
             	</div>
          

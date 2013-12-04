@@ -1,4 +1,4 @@
-home.title=App Title (EN)
+home.title=App JosepIA
 menu.about=About
 menu.contact=Contact
 menu.home=Home
@@ -27,14 +27,59 @@ rightbox.title=Busques feina?
 rightbox.msg=Estas buscant feina? Necessites una oportunitat? Registra't i podras accedir a numeroses ofertes de feina en les quals hi pots encaixar.
 rightbox.button=Dona't d'alta
 
+##New User
 user.email=Email
-user.name=Nombre
-user.secname=Apellido
-user.password=ContraseÑa
-user.repassword=Repite contraseña
-user.dni=DNI
-user.bdate=Fecha nacimiento
-user.type=Tipo usuario
+user.name=Name
+user.secname=Surname
+user.password=Password
+user.repassword=Repeat password
+user.dni=Doc Id
+user.bdate=Birth Date
+user.type=User type
+user.education=Education
+user.experience=Experience
+user.languages=Languages
+user.projects=Projects
+
+
+##Company
+company.name=Name
+company.password=Password
+company.desc=Slogan
+company.email=Email
+company.dni=Document id
+company.sector=Sector
+company.web=Website
 
 
 userlist.title=Users
+
+#buttons
+add=Add
+update=Update
+save=Save
+cancel=Cancel
+
+#lang
+lang=Language
+lang.ca=Catalan
+lang.es=Spanish
+lang.en=English
+
+#account
+account=My account
+profile=Profile
+account.update=Update your personal account
+
+
+options=Options
+logout=Logout
+
+#menus
+jobs.published=Published jobs
+jobs.new=Publish new job
+
+company.area=Company area
+
+new.candidate=New candidate profile
+new.company=New company profile

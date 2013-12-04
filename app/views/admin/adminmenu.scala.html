@@ -22,8 +22,8 @@
 			    <span class="caret"></span>
 			  </a>
 			  <ul class="dropdown-menu">
-			     <li><a href=@routes.Application.newUser()>New candidate</a></li>
-			     <li><a href=@routes.Application.newCompUser()>New enterprise</a></li>
+			     <li><a href=@routes.Application.newUser()>@Messages("new.candidate")</a></li>
+			     <li><a href=@routes.Application.newCompUser()>@Messages("new.company")</a></li>
 			  </ul>
 			</div>
             } else {
@@ -34,7 +34,7 @@
 				  </a>
 				  <ul class="dropdown-menu">
 				    <li><a href=#>My Account</a></li>
-	            	<li><a href=@routes.Application.logout() id="logout">Logout</a></li>
+	            	<li><a href=@routes.Application.logout() id="logout">@Messages("logout")</a></li>
 				  </ul>
             	</div>
             }

@@ -7,9 +7,7 @@ import java.util.List;
 
 import models.CandidateUser;
 import models.CompanyUser;
-import models.JobOffer;
 import models.UserApp;
-import models.UserTypes;
 import play.api.templates.Html;
 import play.data.Form;
 import play.data.validation.ValidationError;
@@ -20,7 +18,6 @@ import views.html.editcompany;
 import views.html.edituser;
 import views.html.mainmenu;
 import views.html.comp.companymenu;
-import views.html.comp.newJob;
 import views.html.user.candidatemenu;
 
 public class Application extends Controller {
@@ -30,6 +27,19 @@ public class Application extends Controller {
 		return ok(views.html.index.render(titleMsg, mainmenu.render()));
 	}
 
+	public static Result setLang(String code) {
+		List<String> langCodes = new ArrayList<String>();
+		langCodes.add("es");
+		langCodes.add("en");
+		langCodes.add("ca");
+		if(langCodes.contains(code)){
+			changeLang(code);
+		}else{
+			changeLang("en");
+		}
+	    return redirect(routes.Application.index());
+	}
+	
 	public static Result newCompUser() {
 		Form<CompanyUser> userForm = form(CompanyUser.class);
 		return ok(views.html.newCompanyUser.render(userForm, mainmenu.render()));
@@ -99,7 +109,7 @@ public class Application extends Controller {
 		if (userUpdForm.get().isCandidate()) {
 			view = edituser.render(userUpdForm, candidatemenu.render());
 		} else if (userUpdForm.get().isCompany()) {
-			view = editcompany.render(userUpdForm, candidatemenu.render());
+			view = editcompany.render(userUpdForm, companymenu.render());
 		} else {
 			view = views.html.index.render("Admin account", mainmenu.render());
 		}
@@ -116,7 +126,7 @@ public class Application extends Controller {
 			if (userUpdForm.get().isCandidate()) {
 				view = edituser.render(userUpdForm, candidatemenu.render());
 			} else if (userUpdForm.get().isCompany()) {
-				view = editcompany.render(userUpdForm, candidatemenu.render());
+				view = editcompany.render(userUpdForm, companymenu.render());
 			} else {
 				view = views.html.index.render("Admin account",
 						mainmenu.render());

@@ -4,7 +4,7 @@
 
 @implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.render) } 
 
-@main("New Candidate", menu) {
+@main(Messages("new.candidate"), menu) {
 
 	  @if(flash.contains("error")) {
      	<div class="alert alert-error">
@@ -18,7 +18,7 @@
     	<div class="span10">
     	<div class="well well-small">
 		    <fieldset>
-		    	<legend>New candidate account</legend>
+		    	<legend>@Messages("new.candidate")</legend>
 		    	
     @form(routes.Application.saveUser()) {
         
@@ -31,10 +31,10 @@
 			
 			<div class="span5"> <!-- SECOND COLUMN -->
 				@inputText(userForm("docId"), '_label -> Messages("user.dni"))
-		        @inputText(userForm("education"), '_label -> "education")
-		        @textarea(userForm("experience"), '_label -> "experience", 'rows -> 3, 'cols -> 50)
-		        @textarea(userForm("languages"), '_label -> "languages")
-		        @textarea(userForm("projects"), '_label -> "projects")
+		        @inputText(userForm("education"), '_label -> Messages("user.education"))
+		        @textarea(userForm("experience"), '_label -> Messages("user.experience"), 'rows -> 3, 'cols -> 50)
+		        @textarea(userForm("languages"), '_label -> Messages("user.languages"))
+		        @textarea(userForm("projects"), '_label -> Messages("user.projects"))
 			</div>
 			  
          </fieldset>
@@ -42,8 +42,8 @@
 		       <br/>
 		       <br/>
         <div class="actions">
-            <input type="submit" value="Save account" class="btn primary"> or 
-            <a href=@routes.Application.index() class="btn">Cancel</a>
+            <input type="submit" value=@Messages("save") class="btn">  
+            <a href=@routes.Application.index() class="btn">@Messages("cancel")</a>
         </div>
             </div>
         

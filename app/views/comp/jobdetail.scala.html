@@ -4,8 +4,8 @@
 @main(message, menu) {
 
 <ul class="breadcrumb">
-  <li><a href="#">Company Area</a> <span class="divider">/</span></li>
-  <li><a href=@routes.Company.index()>Published jobs</a> <span class="divider">/</span></li>
+  <li><a href="#">@Messages("company.area")</a> <span class="divider">/</span></li>
+  <li><a href=@routes.Company.index()>@Messages("jobs.published")</a> <span class="divider">/</span></li>
   <li class="active">Job details</li>
  </ul>
  
@@ -20,9 +20,11 @@
     <div class="span2">
     
     <ul class="nav nav-list">
-		  <li class="nav-header">Options</li>
-		  <li><a href=@routes.Company.index()>Published jobs</a></li>
-		  <li><a href=@routes.Company.addJob()>Add new job</a></li>
+		  <li class="nav-header">@Messages("options")</li>
+		  <li><a href=@routes.Company.index()>@Messages("jobs.published")</a></li>
+		  <li><a href=@routes.Company.addJob()>@Messages("jobs.new")</a></li>
+		  <li class="nav-header">@Messages("profile")</li>
+		  <li><a href=@routes.Application.prepareUser()>@Messages("account")</a></li>
 		</ul>
         
     </div>
@@ -129,7 +131,7 @@
             <thead>
                 <tr>
                     <th>Candidates information</th>
-                    <th>Options</th>
+                    <th>@Messages("options")</th>
                 </tr>
             </thead>
             <tbody>

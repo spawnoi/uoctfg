@@ -10,8 +10,8 @@
           <a class="brand" href=@routes.Application.index()>@Messages("home.title")</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li><a href=@routes.Company.index()>Published jobs</a></li>
-              <li><a href=@routes.Company.addJob()>Add new offer</a></li>
+              <li><a href=@routes.Company.index()>@Messages("jobs.published")</a></li>
+              <li><a href=@routes.Company.addJob()>@Messages("jobs.new")</a></li>
               
             </ul>
           
@@ -23,8 +23,8 @@
 			    <span class="caret"></span>
 			  </a>
 			  <ul class="dropdown-menu">
-			     <li><a href=@routes.Application.newUser()>New candidate</a></li>
-			     <li><a href=@routes.Application.newCompUser()>New enterprise</a></li>
+			     <li><a href=@routes.Application.newUser()>@Messages("new.candidate")</a></li>
+			     <li><a href=@routes.Application.newCompUser()>@Messages("new.company")</a></li>
 			  </ul>
 			</div>
             } else {
@@ -34,8 +34,8 @@
 				    <span class="caret"></span>
 				  </a>
 				  <ul class="dropdown-menu">
-				    <li><a href=@routes.Application.prepareUser()>My Account</a></li>
-	            	<li><a href=@routes.Application.logout() id="logout">Logout</a></li>
+				    <li><a href=@routes.Application.prepareUser()>@Messages("account")</a></li>
+	            	<li><a href=@routes.Application.logout() id="logout">@Messages("logout")</a></li>
 				  </ul>
             	</div>
             }

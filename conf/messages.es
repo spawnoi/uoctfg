@@ -1,4 +1,4 @@
-home.title=App Título (ES)
+home.title=App Título
 menu.about=Sobre
 menu.contact=Contacto
 menu.home=Inicio
@@ -26,16 +26,62 @@ rightbox.title=Busques feina?
 rightbox.msg=Estas buscant feina? Necessites una oportunitat? Registra't i podras accedir a numeroses ofertes de feina en les quals hi pots encaixar.
 rightbox.button=Dona't d'alta
 
-##New User
+
+##Users
+user.name=Nombre
+user.secname=Apellido
+user.password=Contraseña
+user.repassword=Repite contraseña
+user.dni=DNI
 user.email=Email
-user.name=Name
-user.secname=Surname
-user.password=Password
-user.repassword=Repeat password
-user.dni=Doc Id
-user.bdate=Birth Date
-user.type=User type
+user.bdate=Fecha nacimiento
+user.type=Tipo usuario
+user.education=Educación
+user.experience=Experiencia
+user.languages=Idiomas
+user.projects=Proyectos
+
+##Company
+company.name=Nombre
+company.password=Contraseña
+company.desc=Lema
+company.email=Email
+company.dni=NIF
+company.sector=Sector
+company.web=Página web
 
 
 ##userlist
 userlist.title=Usuarios
+
+
+lang=Idioma
+lang.ca=Catalán
+lang.es=Español
+lang.en=Inglés
+
+
+#buttons
+add=Añade
+update=Actualiza
+save=Guarda
+cancel=Cancela
+
+
+#account
+account=Mi cuenta
+profile=Perfil
+account.update=Actualiza la cuenta personal
+
+options=Opciones
+logout=Desconecta
+
+#menus
+jobs.published=Ofertas publicadas
+jobs.new=Publicar nueva oferta
+
+
+company.area=Area de empresa
+
+new.candidate=Nuevo perfil candidato
+new.company=Nuevo perfil empresa
