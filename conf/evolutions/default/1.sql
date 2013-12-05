@@ -99,46 +99,42 @@ create sequence user_app_seq;
 
 create sequence worktype_seq;
 
-alter table job_offer add constraint fk_job_offer_duration_1 foreign key (duration_id) references duration (id) on delete restrict on update restrict;
+alter table job_offer add constraint fk_job_offer_duration_1 foreign key (duration_id) references duration (id);
 create index ix_job_offer_duration_1 on job_offer (duration_id);
-alter table job_offer add constraint fk_job_offer_worktype_2 foreign key (worktype_id) references worktype (id) on delete restrict on update restrict;
+alter table job_offer add constraint fk_job_offer_worktype_2 foreign key (worktype_id) references worktype (id);
 create index ix_job_offer_worktype_2 on job_offer (worktype_id);
-alter table job_offer add constraint fk_job_offer_province_3 foreign key (province_id) references province (id) on delete restrict on update restrict;
+alter table job_offer add constraint fk_job_offer_province_3 foreign key (province_id) references province (id);
 create index ix_job_offer_province_3 on job_offer (province_id);
-alter table job_offer add constraint fk_job_offer_sector_4 foreign key (sector_id) references sector (id) on delete restrict on update restrict;
+alter table job_offer add constraint fk_job_offer_sector_4 foreign key (sector_id) references sector (id);
 create index ix_job_offer_sector_4 on job_offer (sector_id);
-alter table job_offer add constraint fk_job_offer_publisher_5 foreign key (publisher_id) references user_app (id) on delete restrict on update restrict;
+alter table job_offer add constraint fk_job_offer_publisher_5 foreign key (publisher_id) references user_app (id);
 create index ix_job_offer_publisher_5 on job_offer (publisher_id);
 
 
 
-alter table job_offer_user_app add constraint fk_job_offer_user_app_job_off_01 foreign key (job_offer_id) references job_offer (id) on delete restrict on update restrict;
+alter table job_offer_user_app add constraint fk_job_offer_user_app_job_off_01 foreign key (job_offer_id) references job_offer (id);
 
-alter table job_offer_user_app add constraint fk_job_offer_user_app_user_ap_02 foreign key (user_app_id) references user_app (id) on delete restrict on update restrict;
+alter table job_offer_user_app add constraint fk_job_offer_user_app_user_ap_02 foreign key (user_app_id) references user_app (id);
 
 # --- !Downs
 
-SET REFERENTIAL_INTEGRITY FALSE;
+drop table if exists duration cascade;
 
-drop table if exists duration;
+drop table if exists experience_level cascade;
 
-drop table if exists experience_level;
+drop table if exists job_offer cascade;
 
-drop table if exists job_offer;
+drop table if exists job_offer_user_app cascade;
 
-drop table if exists job_offer_user_app;
+drop table if exists province cascade;
 
-drop table if exists province;
+drop table if exists sector cascade;
 
-drop table if exists sector;
+drop table if exists studies_level cascade;
 
-drop table if exists studies_level;
+drop table if exists user_app cascade;
 
-drop table if exists user_app;
-
-drop table if exists worktype;
-
-SET REFERENTIAL_INTEGRITY TRUE;
+drop table if exists worktype cascade;
 
 drop sequence if exists duration_seq;
 

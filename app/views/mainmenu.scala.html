@@ -28,7 +28,7 @@
 			</div>
             
             @if(session.get("connected") == null) {
-          	  <a href=@routes.Application.login() class="btn pull-right btn-info">@Messages("menu.sign")</a>
+          	  <a href=@routes.Application.login() class="btn pull-right btn-info">@Messages("menu.login")</a>
          	  <div class="btn-group pull-right">
 			  <a class="btn dropdown-toggle pull-right btn-info" data-toggle="dropdown" href="#">
 			    @Messages("leftbox.button")
@@ -49,14 +49,15 @@
 				  <ul class="dropdown-menu">
 				   <li><a href=@routes.Application.prepareUser()>@Messages("account")</a></li>
 				     @if(session.get("type") == "CANDIDATE"){
-	            	<li><a href=@routes.Candidate.index()>My candidate area</a></li>
+	            	<li><a href=@routes.Candidate.index()>@Messages("candidate.area")</a></li>
 	            	}
 	            	@if(session.get("type") == "ENTERPRISE"){
 	            	<li><a href=@routes.Company.index()>@Messages("company.area")</a></li>
 	            	}
 	            	@if(session.get("type") == "ADMINISTRATOR"){
-	            	<li><a href=@routes.Admin.list(0,"name", "asc","")>My administrator area</a></li>
+	            	<li><a href=@routes.Admin.list(0,"name", "asc","")>@Messages("admin.area")</a></li>
 	            	}
+	            	<li class="divider"></li>
 	            	<li><a href=@routes.Application.logout() id="logout">@Messages("logout")</a></li>
 				  </ul>
             	</div>

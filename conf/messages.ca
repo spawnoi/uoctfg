@@ -4,10 +4,10 @@ home.title=App JosepIA
 menu.about=Sobre
 menu.contact=Contacte
 menu.home=Inici
-menu.sign=Entra
 menu.plholder.mail=Email
 menu.plholder.pwd=Contrasenya
 menu.register=Registra''t
+menu.login=Inicia sessió
 
 ##Main container information:
 main.container.txt=Aquesta és una aplicació (en construcció) que es correspon amb el Treball Final de Grau de la UOC. App basada en Play! (Java) + Bootstrap + Hibernate + MySQL + Heroku (Netty server).
@@ -70,6 +70,7 @@ add=Afegeix
 update=Actualitza
 save=Desa
 cancel=Cancel·la
+search=Cerca
 
 
 #account
@@ -91,11 +92,18 @@ jobs.noenrolled=0 inscrits
 jobs.enrolled.total=Total inscrits:
 jobs.enrolled.count=Inscrits:
 
+inscribed.enrolled=Ofertes inscrites
+inscribed.search=Cercar ofertes
+
 company.area=Àrea d''empresa
+candidate.area=Àrea de candidat
+admin.area=Àrea d''administrador
 
 new.candidate=Nou perfil candidat
 new.company=Nou perfil empresa
 
+inscribed.enroll=Inscriu-te!
+inscribed.unenroll=Desinscriure''t
 
 manage=Gestiona
 inscribed.view=Veure inscrits
@@ -113,10 +121,11 @@ job.inscription=Publicada
 job.desc=Descripció
 
 
-job.sector.def=-- Escull unsector --
+job.sector.def=-- Escull un sector --
 job.province.def=-- Escull una província --
 job.duration.def=-- Escull una durada --
 job.work.def=-- Escull una jornada --
+
 
 
 

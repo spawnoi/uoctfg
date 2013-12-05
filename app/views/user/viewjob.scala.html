@@ -10,7 +10,7 @@
     @form(routes.Application.index()) {
         
         <fieldset>
-        	<legend>View job details</legend>
+        	<legend>@Messages("job.details")</legend>
         	
             @inputText(jobForm("name"), '_label -> "name", 'readonly -> "readonly")
             @inputText(jobForm("description"), '_label -> "Description", 'readonly -> "readonly")

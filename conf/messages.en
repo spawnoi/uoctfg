@@ -6,7 +6,7 @@ menu.sign=Sign in
 menu.plholder.mail=Email
 menu.plholder.pwd=Password
 menu.register=Sing up
-
+menu.login=Login
 
 ##Main container information:
 main.container.txt=What you are seeing is an App (under construcction) that belongs to the 'Treball Final de Grau de la UOC'. App based on Play! (Java) + Bootstrap + Hibernate + MySQL + Heroku (Netty server).
@@ -59,6 +59,7 @@ add=Add
 update=Update
 save=Save
 cancel=Cancel
+search=Search
 
 #lang
 lang=Language
@@ -82,18 +83,27 @@ jobs.new=Publish new job
 jobs.nojobs=No job offers where found
 jobs.detail=Job offers details
 
+inscribed.enroll=Enroll!
+inscribed.unenroll=Unenroll
+
 jobs.noenrolled=0 enrolled
 jobs.enrolled.total=Total enrolled:
 jobs.enrolled.count=Enrolled:
 
 
 company.area=Company area
+candidate.area=Candidate area
+admin.area=Administrator area
 
 new.candidate=New candidate profile
 new.company=New company profile
 
 manage=Manage
 inscribed.view=View enrolled
+
+inscribed.search=Search jobs
+
+inscribed.enrolled=Enrolled jobs
 
 job.title=Title
 job.duration=Duration

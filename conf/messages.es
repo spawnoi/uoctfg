@@ -7,6 +7,7 @@ menu.sign=Entra
 menu.plholder.mail=Email
 menu.plholder.pwd=Contraseña
 menu.register=Regístrate
+menu.login=Iniciar sessión
 
 
 ##Main container information:
@@ -67,6 +68,7 @@ add=Añade
 update=Actualiza
 save=Guarda
 cancel=Cancela
+search=Busca
 
 
 #account
@@ -91,11 +93,18 @@ jobs.enrolled.count=Inscritos:
 manage=Gestiona
 inscribed.view=Ver inscritos
 
+inscribed.enrolled=Ofertas inscritas
+inscribed.search=Buscar ofertas
 
 company.area=Area de empresa
+candidate.area=Area de candidato
+admin.area=Area de administrador
 
 new.candidate=Nuevo perfil candidato
 new.company=Nuevo perfil empresa
+
+inscribed.enroll=Inscríbete!
+inscribed.unenroll=Desinscríbete
 
 job.title=Título
 job.duration=Duración
