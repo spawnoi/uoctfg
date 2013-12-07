@@ -91,6 +91,7 @@ jobs.detail=Detall de les ofertes
 jobs.noenrolled=0 inscrits
 jobs.enrolled.total=Total inscrits:
 jobs.enrolled.count=Inscrits:
+jobs.enrolled.count2=Inscrits
 
 inscribed.enrolled=Ofertes inscrites
 inscribed.search=Cercar ofertes
@@ -119,7 +120,7 @@ job.sector=Sector
 job.benefits=Beneficis
 job.inscription=Publicada
 job.desc=Descripció
-
+job.expr=Expira
 
 job.sector.def=-- Escull un sector --
 job.province.def=-- Escull una província --
@@ -142,12 +143,18 @@ error.msg=Siusplau, verifica les dades introduïdes
 
 
 
+admin.cand=Gestiona candidats
+admin.enter=Gestiona empreses
+admin.job=Gestiona ofertes
+admin.filter=Filtra per nom
+admin.dashboard=Dashboard
+admin.previous=Previ
+admin.next=Següent
+admin.disp=Mostrant
+admin.to=a 
+admin.of=de
 
-
-
-
-
-
+general.nodata=No s''han trobat dades per mostrar
 
 
 

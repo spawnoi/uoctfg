@@ -1,0 +1,66 @@
+@(userForm: Form[UserApp], menu: Html)
+
+@import helper._
+
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.render) } 
+
+@main(Messages("account.update"), menu) {
+    
+     @if(flash.contains("error")) {
+  		<div class="alert alert-error">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<strong>Error!</strong> @flash.get("error")
+		</div>
+  		 }
+    
+	  	<div class="row-fluid">
+	  		<div class="span2">
+			<ul class="nav nav-list">
+				<li class="nav-header">@Messages("options")</li>
+				<li><a href=@routes.Admin.dashboard()>@Messages("admin.dashboard")</a></li>
+				<li><a href=@routes.Admin.list(0,"name", "asc","")>@Messages("admin.cand")</a></li>
+				<li><a href=@routes.Admin.listComp(0,"name", "asc","")>@Messages("admin.enter")</a></li>
+				<li><a href=@routes.Admin.listJobs(0,"title", "asc","")>@Messages("admin.job")</a></li>
+				<li class="nav-header">@Messages("profile")</li>
+				<li class="active"><a href=@routes.Application.prepareUser()>@Messages("account")</a></li>
+			</ul>
+		</div>
+	
+    	<div class="span10">
+        <div class="well well-small">
+    	
+		    <fieldset>
+		    	<legend>@Messages("account.update")</legend>
+		    	
+		    @form(routes.Application.updateUser()) {
+		        
+		         <div class="span5"> <!-- FIRST COLUMN -->
+		        @inputText(userForm("name"), '_label -> Messages("user.name"))
+		        @inputText(userForm("secName"), '_label -> Messages("user.secname"))
+		        </div>
+		        <div class="span5"> <!-- SECOND COLUMN -->
+		        @textarea(userForm("web"), '_label -> Messages("company.web"), 'rows -> 3, 'cols -> 50)
+		    	</div>
+		           
+		            
+			 <input type="hidden" name="email" value='email' >
+			 <input type="hidden" name="password" value='pwd'>
+		           
+		        </fieldset>
+		        
+		       <br/>
+		       <br/>
+		        <div class="actions">
+		            <input type="submit" value=@Messages("update") class="btn primary"> 
+           		    <a href=@routes.Company.index() class="btn">@Messages("cancel")</a>
+		        </div>
+		       </div>
+		       
+		      
+		        
+		        
+  			  }
+  			  </div>
+  			  </div>
+    
+}

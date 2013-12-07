@@ -22,7 +22,7 @@
     }
     
     // Generate the link
-    routes.Admin.list(newPage, sortBy, order, currentFilter)
+    routes.Admin.listComp(newPage, sortBy, order, currentFilter)
     
 }
 
@@ -42,15 +42,14 @@
       <ul class="nav nav-list">
 		  <li class="nav-header">@Messages("options")</li>
 		  <li><a href=@routes.Admin.dashboard()>@Messages("admin.dashboard")</a></li>
-		  <li class="active"><a href=@routes.Admin.list(0,"name", "asc","")>@Messages("admin.cand")</a></li>
-		  <li><a href=@routes.Admin.listComp(0,"name", "asc","")>@Messages("admin.enter")</a></li>
+		  <li><a href=@routes.Admin.list(0,"name", "asc","")>@Messages("admin.cand")</a></li>
+		  <li class="active"><a href=@routes.Admin.listComp(0,"name", "asc","")>@Messages("admin.enter")</a></li>
 		  <li><a href=@routes.Admin.listJobs(0,"title", "asc","")>@Messages("admin.job")</a></li>
 		  <li class="nav-header">@Messages("profile")</li>
 		  <li><a href=@routes.Application.prepareUser()>@Messages("account")</a></li>
 		</ul>
     </div>
     <div class="span10">
-    <!-- h1 id="homeTitle">@Messages("userlist.title", currentPage.getTotalRowCount)</h1 -->
 
     @if(flash.containsKey("success")) {
         <div class="alert-message warning">
@@ -60,7 +59,7 @@
 
 	<fieldset>
 	
-		<legend>@Messages("admin.cand")</legend>
+		<legend>@Messages("admin.enter")</legend>
 		
     <div id="actions">
         
@@ -111,7 +110,7 @@
                                 @userApp.birthDate.format("dd MMM yyyy")
                             }
                         </td>
-                        <td><a class="btn success" id="add" href="">Delete</a></td>
+                        <td>--</td>
                       
                     </tr>
                 }

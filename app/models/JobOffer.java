@@ -17,6 +17,7 @@ import play.data.validation.Constraints;
 import play.db.ebean.Model;
 
 import com.avaje.ebean.Ebean;
+import com.avaje.ebean.Page;
 
 /**
  * Computer entity managed by Ebean
@@ -55,10 +56,10 @@ public class JobOffer extends Model {
 	@ManyToOne
 	public Sector sector;
 
-	@Formats.DateTime(pattern = "yyyy-MM-dd")
+	@Formats.DateTime(pattern = "dd/MM/yyyy")
 	public Date publicationDate;
 
-	@Formats.DateTime(pattern = "yyyy-MM-dd")
+	@Formats.DateTime(pattern = "dd/MM/yyyy")
 	public Date expirationDate;
 
 	@OneToOne(fetch = FetchType.EAGER)
@@ -93,6 +94,16 @@ public class JobOffer extends Model {
 		// return find.all();
 	}
 
+	 public static Page<JobOffer> page(int page, int pageSize, String sortBy, String order, String filter) {
+	        return 
+	            find().where()
+	                .ilike("title", "%" + filter + "%")
+	                .orderBy(sortBy + " " + order)
+	                .findPagingList(pageSize)
+	                .setFetchAhead(false)
+	                .getPage(page);
+	    }
+	
 	/**
 	 * Retrieve a JobOffer from Id.
 	 */

@@ -55,7 +55,7 @@
 	            	<li><a href=@routes.Company.index()>@Messages("company.area")</a></li>
 	            	}
 	            	@if(session.get("type") == "ADMINISTRATOR"){
-	            	<li><a href=@routes.Admin.list(0,"name", "asc","")>@Messages("admin.area")</a></li>
+	            	<li><a href=@routes.Admin.dashboard()>@Messages("admin.area")</a></li>
 	            	}
 	            	<li class="divider"></li>
 	            	<li><a href=@routes.Application.logout() id="logout">@Messages("logout")</a></li>

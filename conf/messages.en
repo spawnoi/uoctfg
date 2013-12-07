@@ -89,6 +89,7 @@ inscribed.unenroll=Unenroll
 jobs.noenrolled=0 enrolled
 jobs.enrolled.total=Total enrolled:
 jobs.enrolled.count=Enrolled:
+jobs.enrolled.count2=Enrolled
 
 
 company.area=Company area
@@ -116,7 +117,7 @@ job.sector=Sector
 job.benefits=Benefits
 job.inscription=Published
 job.desc=Description
-
+job.expr=Expiration
 
 job.details=Job offer details
 job.inscribed.info=Enrolled information
@@ -132,3 +133,16 @@ logout.msg=You've been logged out
 login.error=Invalid user or password
 login.please=Please, Login
 error.msg=Please correct errors above
+
+admin.cand=Manage candidates
+admin.enter=Manage enterprises
+admin.job=Manage jobs
+admin.filter=Filter by name
+admin.dashboard=Dashboard
+admin.previous=Previous
+admin.next=Next
+admin.disp=Displaying
+admin.to=to
+admin.of=of
+
+general.nodata=No data to show

@@ -10,8 +10,10 @@
           <a class="brand" href=@routes.Application.index()>@Messages("home.title")</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href=#>Manage users</a></li>
-              <li><a href=#>Manage jobs</a></li>
+               <li><a href=@routes.Admin.dashboard()>@Messages("admin.dashboard")</a></li>
+               <li><a href=@routes.Admin.list(0,"name", "asc","")>@Messages("admin.cand")</a></li>
+               <li><a href=@routes.Admin.listComp(0,"name", "asc","")>@Messages("admin.enter")</a></li>
+               <li><a href=@routes.Admin.listJobs(0,"title", "asc","")>@Messages("admin.job")</a></li>
             </ul>
           
              @if(session.get("connected") == null) {
@@ -33,7 +35,7 @@
 				    <span class="caret"></span>
 				  </a>
 				  <ul class="dropdown-menu">
-				    <li><a href=#>My Account</a></li>
+				    <li><a href=@routes.Application.prepareUser()>@Messages("account")</a></li>
 				    <li class="divider"></li>
 	            	<li><a href=@routes.Application.logout() id="logout">@Messages("logout")</a></li>
 				  </ul>

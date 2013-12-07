@@ -89,6 +89,7 @@ jobs.detail=Detalle de las ofertas
 jobs.noenrolled=0 inscritos
 jobs.enrolled.total=Total inscritos:
 jobs.enrolled.count=Inscritos:
+jobs.enrolled.count2=Inscritos
 
 manage=Gestiona
 inscribed.view=Ver inscritos
@@ -117,6 +118,7 @@ job.sector=Sector
 job.benefits=Beneficios
 job.inscription=Publicada
 job.desc=Descripción
+job.expr=Expira
 
 job.details=Detalles de la oferta
 job.inscribed.info=Información de los inscritos
@@ -131,4 +133,18 @@ logout.msg=Has cerrado sessión correctamente
 login.error=Usuario o password incorrectos
 login.please=Porfavor, inicia sessión
 error.msg=Porfavor, verifica los datos introducidos
+
+admin.cand=Gestiona candidatos
+admin.enter=Gestiona empresas
+admin.job=Gestiona ofertas
+admin.filter=Filtrar por nombre
+admin.dashboard=Dashboard
+admin.previous=Previo
+admin.next=Siguiente
+admin.disp=Mostrando
+admin.to=a
+admin.of=de
+
+general.nodata=No se han encontrado datos
+
 

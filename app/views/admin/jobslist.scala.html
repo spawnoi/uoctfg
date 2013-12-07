@@ -1,4 +1,4 @@
-@(currentPage: com.avaje.ebean.Page[UserApp], currentSortBy: String, currentOrder: String, currentFilter: String, message: String, menu: Html)
+@(currentPage: com.avaje.ebean.Page[JobOffer], currentSortBy: String, currentOrder: String, currentFilter: String, message: String, menu: Html)
 
 @****************************************
 * Helper generating navigation links    *
@@ -22,7 +22,7 @@
     }
     
     // Generate the link
-    routes.Admin.list(newPage, sortBy, order, currentFilter)
+    routes.Admin.listJobs(newPage, sortBy, order, currentFilter)
     
 }
 
@@ -42,15 +42,14 @@
       <ul class="nav nav-list">
 		  <li class="nav-header">@Messages("options")</li>
 		  <li><a href=@routes.Admin.dashboard()>@Messages("admin.dashboard")</a></li>
-		  <li class="active"><a href=@routes.Admin.list(0,"name", "asc","")>@Messages("admin.cand")</a></li>
+		  <li><a href=@routes.Admin.list(0,"name", "asc","")>@Messages("admin.cand")</a></li>
 		  <li><a href=@routes.Admin.listComp(0,"name", "asc","")>@Messages("admin.enter")</a></li>
-		  <li><a href=@routes.Admin.listJobs(0,"title", "asc","")>@Messages("admin.job")</a></li>
+		  <li class="active"><a href=@routes.Admin.listJobs(0,"title", "asc","")>@Messages("admin.job")</a></li>
 		  <li class="nav-header">@Messages("profile")</li>
 		  <li><a href=@routes.Application.prepareUser()>@Messages("account")</a></li>
 		</ul>
     </div>
     <div class="span10">
-    <!-- h1 id="homeTitle">@Messages("userlist.title", currentPage.getTotalRowCount)</h1 -->
 
     @if(flash.containsKey("success")) {
         <div class="alert-message warning">
@@ -60,11 +59,11 @@
 
 	<fieldset>
 	
-		<legend>@Messages("admin.cand")</legend>
+		<legend>@Messages("admin.job")</legend>
 		
     <div id="actions">
         
-        <form action="@link(0, "name")" method="GET">
+        <form action="@link(0, "title")" method="GET">
             <input type="search" id="searchbox" name="f" value="@currentFilter" placeholder=@Messages("admin.filter")>
             <input type="submit" id="searchsubmit" value=@Messages("admin.filter") class="btn primary">
         </form>
@@ -82,36 +81,37 @@
         <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="table">
             <thead>
                 <tr>
-                    @header("name", Messages("user.name"))
-                    @header("secName", Messages("user.secname"))
-                    @header("email", Messages("user.email"))
-                    @header("docId", Messages("user.dni"))
-                    @header("birthDate", Messages("user.bdate"))
+                    @header("title", Messages("job.title"))
+                    @header("numVacants", Messages("job.numVac"))
+                    <th>@Messages("jobs.enrolled.count2")</th>
+                    @header("publicationDate", Messages("job.inscription"))
+                    @header("expirationDate", Messages("job.expr"))
                     <th>@Messages("options")</th>
                 </tr>
             </thead>
             <tbody>
 
-                @for(userApp <- currentPage.getList) {
+                @for(job <- currentPage.getList) {
                     <tr>
-                        <td>@userApp.name</td>
-                        <td>@userApp.secName</td>
-                          <td>
-                            @if(userApp.email == null) {
-                                <em>-</em>
-                            } else {
-                                @userApp.email
-                            }
-                        </td>
-                        <td>@userApp.docId</td>
+                        <td>@job.title</td>
+                        <td>@job.numVacants</td>
+                          
+                        <td>@job.inscribed.size()</td>
                         <td>
-                            @if(userApp.birthDate == null) {
+                            @if(job.publicationDate == null) {
                                 <em>-</em>
                             } else {
-                                @userApp.birthDate.format("dd MMM yyyy")
+                                @job.publicationDate.format("dd MMM yyyy")
                             }
                         </td>
-                        <td><a class="btn success" id="add" href="">Delete</a></td>
+                        <td>
+                            @if(job.expirationDate == null) {
+                                <em>-</em>
+                            } else {
+                                @job.expirationDate.format("dd MMM yyyy")
+                            }
+                        </td>
+                        <td>--</td>
                       
                     </tr>
                 }

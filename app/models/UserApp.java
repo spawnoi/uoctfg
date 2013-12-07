@@ -143,12 +143,33 @@ public class UserApp extends Model {
         return find.where().eq("id", id).findUnique();
     }
     
+    /**
+     * Page for Candidate users
+     * @param page
+     * @param pageSize
+     * @param sortBy
+     * @param order
+     * @param filter
+     * @return
+     */
     public static Page<UserApp> page(int page, int pageSize, String sortBy, String order, String filter) {
         return 
             find.where()
                 .ilike("name", "%" + filter + "%")
+                .eq("type", 0)
                 .orderBy(sortBy + " " + order)
-                //.fetch("company")
+                .findPagingList(pageSize)
+                .setFetchAhead(false)
+                .getPage(page);
+    }
+    
+    
+    public static Page<UserApp> pageComp(int page, int pageSize, String sortBy, String order, String filter) {
+        return 
+            find.where()
+                .ilike("name", "%" + filter + "%")
+                .eq("type", 1)
+                .orderBy(sortBy + " " + order)
                 .findPagingList(pageSize)
                 .setFetchAhead(false)
                 .getPage(page);

@@ -7,6 +7,7 @@ import java.util.List;
 
 import models.CandidateUser;
 import models.CompanyUser;
+import models.JobOffer;
 import models.UserApp;
 import play.api.templates.Html;
 import play.data.Form;
@@ -14,9 +15,12 @@ import play.data.validation.ValidationError;
 import play.i18n.Messages;
 import play.mvc.Controller;
 import play.mvc.Result;
+import views.html.editadmin;
 import views.html.editcompany;
 import views.html.edituser;
 import views.html.mainmenu;
+import views.html.admin.adminmenu;
+import views.html.admin.dashboard;
 import views.html.comp.companymenu;
 import views.html.user.candidatemenu;
 
@@ -106,6 +110,8 @@ public class Application extends Controller {
 			view = edituser.render(userUpdForm, candidatemenu.render());
 		} else if (userUpdForm.get().isCompany()) {
 			view = editcompany.render(userUpdForm, companymenu.render());
+		}else if(userUpdForm.get().isAdmin()){
+			view = editadmin.render(userUpdForm, adminmenu.render());
 		} else {
 			view = views.html.index.render(Messages.get("account.update"), mainmenu.render());
 		}
@@ -123,6 +129,8 @@ public class Application extends Controller {
 				view = edituser.render(userUpdForm, candidatemenu.render());
 			} else if (userUpdForm.get().isCompany()) {
 				view = editcompany.render(userUpdForm, companymenu.render());
+			}else if(userUpdForm.get().isAdmin()){
+				view = editadmin.render(userUpdForm, adminmenu.render());
 			} else {
 				view = views.html.index.render(Messages.get("account.update"),
 						mainmenu.render());
@@ -142,9 +150,12 @@ public class Application extends Controller {
 			} else if (old.isCompany()) {
 				res = redirect(routes.Company.index());
 			} else {
-				res = redirect(routes.Admin.list(0, "name", "asc", ""));
+				Integer numJobs = JobOffer.find().findRowCount();
+				Integer numCand = UserApp.find.where().eq("type", 0).findRowCount();
+				Integer numComp = UserApp.find.where().eq("type", 1).findRowCount();
+				res =  ok(views.html.admin.dashboard.render("Admin dashboard",
+						adminmenu.render(), numJobs, numCand, numComp));
 			}
-			
 			flash("updated", "Account updated!");
 
 		}
