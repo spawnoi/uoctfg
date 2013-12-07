@@ -127,3 +127,8 @@ job.province.def=-- Escoge una provincia --
 job.work.def=-- Escoge una jornada --
 job.sector.def=-- Escoge un sector --
 
+logout.msg=Has cerrado sessión correctamente
+login.error=Usuario o password incorrectos
+login.please=Porfavor, inicia sessión
+error.msg=Porfavor, verifica los datos introducidos
+

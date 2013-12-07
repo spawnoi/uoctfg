@@ -132,3 +132,26 @@ job.work.def=-- Escull una jornada --
 job.details=Detalls de la oferta
 job.inscribed.info=Informació dels inscrits
 job.inscribed.zero=No s''ha trobat cap inscrit per la oferta
+
+
+
+logout.msg=Has tancat sessió correctament
+login.error=Usuari o password incorrecte
+login.please=Siusplau, inicia sessió
+error.msg=Siusplau, verifica les dades introduïdes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

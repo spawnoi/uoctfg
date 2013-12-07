@@ -49,7 +49,7 @@ public class Application extends Controller {
 		Form<CompanyUser> userAddForm = form(CompanyUser.class)
 				.bindFromRequest();
 		if (userAddForm.hasErrors()) {
-			flash("error", "Please correct errors above.");
+			flash("error", Messages.get("error.msg"));
 			return badRequest(views.html.newCompanyUser.render(userAddForm,
 					mainmenu.render()));
 		} else if (UserApp.findByEmail(userAddForm.get().getEmail()) != null) {
@@ -60,7 +60,7 @@ public class Application extends Controller {
 		} else {
 			UserApp user = UserApp.makeInstance(userAddForm.get());
 			user.save();
-			flash("success", "Company account instance created/edited: " + user);
+			flash("success", "Company account instance created/edited: " + user.name);
 			System.out.println("userAddForm.get().name: "
 					+ userAddForm.get().name);
 			flash("success", "Company " + userAddForm.get().name
@@ -79,7 +79,7 @@ public class Application extends Controller {
 		Form<CandidateUser> userAddForm = form(CandidateUser.class)
 				.bindFromRequest();
 		if (userAddForm.hasErrors()) {
-			flash("error", "Please correct errors above.");
+			flash("error", Messages.get("error.msg"));
 			return badRequest(views.html.newUser.render(userAddForm,
 					mainmenu.render()));
 		} else if (UserApp.findByEmail(userAddForm.get().getEmail()) != null) {
@@ -90,11 +90,7 @@ public class Application extends Controller {
 		} else {
 			UserApp user = UserApp.makeInstance(userAddForm.get());
 			user.save();
-			flash("success", "Candidate instance created/edited: " + user);
-			System.out.println("userAddForm.get().name: "
-					+ userAddForm.get().name);
-			flash("success", "Candidate " + userAddForm.get().name
-					+ " has been created");
+			flash("success", "Candidate instance created: " + user.name);
 
 			return redirect(routes.Application.login());
 		}
@@ -111,7 +107,7 @@ public class Application extends Controller {
 		} else if (userUpdForm.get().isCompany()) {
 			view = editcompany.render(userUpdForm, companymenu.render());
 		} else {
-			view = views.html.index.render("Admin account", mainmenu.render());
+			view = views.html.index.render(Messages.get("account.update"), mainmenu.render());
 		}
 
 		return ok(view);
@@ -121,14 +117,14 @@ public class Application extends Controller {
 		Result res;
 		Form<UserApp> userUpdForm = form(UserApp.class).bindFromRequest();
 		if (userUpdForm.hasErrors()) {
-			flash("error", "Please correct errors above.");
+			flash("error", Messages.get("error.msg"));
 			Html view;
 			if (userUpdForm.get().isCandidate()) {
 				view = edituser.render(userUpdForm, candidatemenu.render());
 			} else if (userUpdForm.get().isCompany()) {
 				view = editcompany.render(userUpdForm, companymenu.render());
 			} else {
-				view = views.html.index.render("Admin account",
+				view = views.html.index.render(Messages.get("account.update"),
 						mainmenu.render());
 			}
 			res = badRequest(view);
@@ -168,7 +164,7 @@ public class Application extends Controller {
 			List<ValidationError> errors = new ArrayList<ValidationError>();
 			if (UserApp.authenticate(email, password) == null) {
 				errors.add(new ValidationError("email",
-						"Invalid user or password."));
+						Messages.get("login.error")));
 			}
 			return errors.isEmpty() ? null : errors;
 		}
@@ -178,7 +174,7 @@ public class Application extends Controller {
 	 * Login page.
 	 */
 	public static Result login() {
-		flash("success", "Please, Sign in");
+		flash("success", Messages.get("login.please"));
 		// ready to login
 		return ok(views.html.login.render(form(Login.class), mainmenu.render()));
 	}
@@ -189,7 +185,7 @@ public class Application extends Controller {
 	public static Result authenticate() {
 		Form<Login> loginForm = form(Login.class).bindFromRequest();
 		if (loginForm.hasErrors()) {
-			flash("error", "Invalid user or password.");
+			flash("error", Messages.get("login.error"));
 			return badRequest(views.html.login.render(loginForm,
 					mainmenu.render()));
 		} else {
@@ -223,7 +219,7 @@ public class Application extends Controller {
 	 */
 	public static Result logout() {
 		session().clear();
-		flash("success", "You've been logged out");
+		flash("success", Messages.get("logout.msg"));
 		return redirect(routes.Application.index());
 	}
 }

@@ -126,3 +126,9 @@ job.sector.def=-- Choose a sector --
 job.province.def=-- Choose a province --
 job.work.def=-- Choose a work type --
 job.duration.def=-- Choose a duration --
+
+
+logout.msg=You've been logged out
+login.error=Invalid user or password
+login.please=Please, Login
+error.msg=Please correct errors above
