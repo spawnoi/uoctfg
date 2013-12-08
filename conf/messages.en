@@ -60,6 +60,7 @@ update=Update
 save=Save
 cancel=Cancel
 search=Search
+delete=Delete
 
 #lang
 lang=Language
@@ -133,6 +134,10 @@ logout.msg=You've been logged out
 login.error=Invalid user or password
 login.please=Please, Login
 error.msg=Please correct errors above
+
+admin.cand1=Candidate management
+admin.enter1=Enterprise management
+admin.job1=Job management
 
 admin.cand=Manage candidates
 admin.enter=Manage enterprises

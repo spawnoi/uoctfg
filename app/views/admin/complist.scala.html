@@ -36,7 +36,19 @@
 }
 
 @main(message, menu) {
-      
+     
+     <ul class="breadcrumb">
+	  <li><a href="#">@Messages("admin.area")</a> <span class="divider">/</span></li>
+	  <li class="active">@Messages("admin.enter")</li>
+	 </ul>
+	 
+	 @if(flash.contains("success")) {
+     	<div class="alert alert-success">
+  			<button type="button" class="close" data-dismiss="alert">&times;</button>
+  			<strong>Info!</strong> @flash.get("success")
+		</div>
+      }
+	 
    <div class="row">
     <div class="span2">
       <ul class="nav nav-list">
@@ -50,12 +62,6 @@
 		</ul>
     </div>
     <div class="span10">
-
-    @if(flash.containsKey("success")) {
-        <div class="alert-message warning">
-            <strong>Done!</strong> @flash.get("success")
-        </div>
-    } 
 
 	<fieldset>
 	
@@ -82,10 +88,10 @@
             <thead>
                 <tr>
                     @header("name", Messages("user.name"))
-                    @header("secName", Messages("user.secname"))
+                    @header("docId", Messages("company.dni"))
                     @header("email", Messages("user.email"))
-                    @header("docId", Messages("user.dni"))
-                    @header("birthDate", Messages("user.bdate"))
+                    @header("sector", Messages("company.sector"))
+                    @header("web", Messages("company.web"))
                     <th>@Messages("options")</th>
                 </tr>
             </thead>
@@ -94,7 +100,7 @@
                 @for(userApp <- currentPage.getList) {
                     <tr>
                         <td>@userApp.name</td>
-                        <td>@userApp.secName</td>
+                        <td>@userApp.docId</td>
                           <td>
                             @if(userApp.email == null) {
                                 <em>-</em>
@@ -102,16 +108,10 @@
                                 @userApp.email
                             }
                         </td>
-                        <td>@userApp.docId</td>
-                        <td>
-                            @if(userApp.birthDate == null) {
-                                <em>-</em>
-                            } else {
-                                @userApp.birthDate.format("dd MMM yyyy")
-                            }
-                        </td>
-                        <td>--</td>
-                      
+                        <td>@userApp.sector</td>
+                        <td>@userApp.web</td>
+                        
+                        <td><a href=@routes.Admin.prepareComp(userApp.id) class="btn">@Messages("update")</a></td>
                     </tr>
                 }
 

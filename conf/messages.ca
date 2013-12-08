@@ -71,6 +71,7 @@ update=Actualitza
 save=Desa
 cancel=Cancel·la
 search=Cerca
+delete=Elimina
 
 
 #account
@@ -142,6 +143,9 @@ login.please=Siusplau, inicia sessió
 error.msg=Siusplau, verifica les dades introduïdes
 
 
+admin.cand1=Gestiona candidat
+admin.enter1=Gestiona empresa
+admin.job1=Gestiona oferta
 
 admin.cand=Gestiona candidats
 admin.enter=Gestiona empreses

@@ -36,6 +36,18 @@
 }
 
 @main(message, menu) {
+
+   <ul class="breadcrumb">
+	  <li><a href="#">@Messages("admin.area")</a> <span class="divider">/</span></li>
+	  <li class="active">@Messages("admin.cand")</li>
+	 </ul>
+	 
+     @if(flash.contains("success")) {
+     	<div class="alert alert-success">
+  			<button type="button" class="close" data-dismiss="alert">&times;</button>
+  			<strong>Info!</strong> @flash.get("success")
+		</div>
+      }
       
    <div class="row">
     <div class="span2">
@@ -50,7 +62,6 @@
 		</ul>
     </div>
     <div class="span10">
-    <!-- h1 id="homeTitle">@Messages("userlist.title", currentPage.getTotalRowCount)</h1 -->
 
     @if(flash.containsKey("success")) {
         <div class="alert-message warning">
@@ -110,8 +121,20 @@
                             } else {
                                 @userApp.birthDate.format("dd MMM yyyy")
                             }
+                        <td>
+                            <div class="btn-group">
+							  <a class="btn dropdown-toggle btn" data-toggle="dropdown" href="#">
+							    @Messages("manage")
+							    <span class="caret"></span>
+							  </a>
+							  <ul class="dropdown-menu">
+							  	 <li><a href=@routes.Admin.delete(userApp.id)>@Messages("delete")</a></li>
+							  	 <li><a href=@routes.Admin.prepareCandidate(userApp.id)>@Messages("update")</a></li>
+							     <!-- li><a href=#>View details</a></li-->
+							     <!-- li><a href=#>Delete offer</a></li-->
+							  </ul>
+							  </div>
                         </td>
-                        <td><a class="btn success" id="add" href="">Delete</a></td>
                       
                     </tr>
                 }

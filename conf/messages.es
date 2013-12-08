@@ -69,7 +69,7 @@ update=Actualiza
 save=Guarda
 cancel=Cancela
 search=Busca
-
+delete=Elimina
 
 #account
 account=Mi cuenta
@@ -133,6 +133,11 @@ logout.msg=Has cerrado sessión correctamente
 login.error=Usuario o password incorrectos
 login.please=Porfavor, inicia sessión
 error.msg=Porfavor, verifica los datos introducidos
+
+
+admin.cand1=Gestiona candidato
+admin.enter1=Gestiona empresa
+admin.job1=Gestiona ofertaa
 
 admin.cand=Gestiona candidatos
 admin.enter=Gestiona empresas

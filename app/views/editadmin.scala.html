@@ -5,6 +5,12 @@
 @implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.render) } 
 
 @main(Messages("account.update"), menu) {
+
+   <ul class="breadcrumb">
+	  <li><a href="#">@Messages("admin.area")</a> <span class="divider">/</span></li>
+	  <li class="active">@Messages("account")</li>
+	 </ul>
+	 
     
      @if(flash.contains("error")) {
   		<div class="alert alert-error">
@@ -52,7 +58,7 @@
 		       <br/>
 		        <div class="actions">
 		            <input type="submit" value=@Messages("update") class="btn primary"> 
-           		    <a href=@routes.Company.index() class="btn">@Messages("cancel")</a>
+           		    <a href=@routes.Admin.dashboard() class="btn">@Messages("cancel")</a>
 		        </div>
 		       </div>
 		       

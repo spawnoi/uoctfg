@@ -36,6 +36,19 @@
 }
 
 @main(message, menu) {
+    
+   <ul class="breadcrumb">
+	  <li><a href="#">@Messages("admin.area")</a> <span class="divider">/</span></li>
+	  <li class="active">@Messages("admin.job")</li>
+	 </ul>
+	 
+      @if(flash.contains("success")) {
+     	<div class="alert alert-success">
+  			<button type="button" class="close" data-dismiss="alert">&times;</button>
+  			<strong>Info!</strong> @flash.get("success")
+		</div>
+      }
+
       
    <div class="row">
     <div class="span2">
@@ -51,11 +64,6 @@
     </div>
     <div class="span10">
 
-    @if(flash.containsKey("success")) {
-        <div class="alert-message warning">
-            <strong>Done!</strong> @flash.get("success")
-        </div>
-    } 
 
 	<fieldset>
 	
@@ -111,7 +119,7 @@
                                 @job.expirationDate.format("dd MMM yyyy")
                             }
                         </td>
-                        <td>--</td>
+                        <td><a href=@routes.Admin.deleteJob(job.id) class="btn">@Messages("delete")</a></td>
                       
                     </tr>
                 }
