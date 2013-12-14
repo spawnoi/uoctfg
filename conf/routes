@@ -11,6 +11,7 @@ POST	/updateUser					controllers.Application.updateUser()
 GET		/newCompUser				controllers.Application.newCompUser()
 POST    /newCompUser                controllers.Application.saveCompUser()
 GET 	/:id/setLang				controllers.Application.setLang(id: String)
+GET 	/contact					controllers.Application.contact()
 
 # Authentication
 GET     /login                      controllers.Application.login()

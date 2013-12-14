@@ -1,44 +1,93 @@
-@(message: String, menu: Html)
+@(message: String, menu: Html) @main(message, menu) {
 
-@main(message, menu) {
+@if(flash.contains("success")) {
+<div class="alert alert-success">
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<strong>Info!</strong> @flash.get("success")
+</div>
+}
 
-     @if(flash.contains("success")) {
-     	<div class="alert alert-success">
-  			<button type="button" class="close" data-dismiss="alert">&times;</button>
-  			<strong>Info!</strong> @flash.get("success")
-		</div>
-      }
-            
-    <div class="container">
-
-      <!-- Main hero unit for a primary marketing message or call to action -->
-      <div class="hero-unit">
-        <h1>@Messages("home.title")!</h1>
-        <p>@Messages("main.container.txt")</p>
-        <p><a href=@routes.Application.login() class="btn btn-primary btn-large">Log In &raquo;</a></p>
+ <div id="myCarousel" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="item">
+            <img src="@routes.Assets.at("images/slide-01.jpg")" alt="">
+            <div class="container">
+              <div class="carousel-caption">
+              	<br/><br/><br/>
+                <h1>@Messages("leftbox.title")</h1>
+                <p class="lead">@Messages("leftbox.msg")</p>
+                <a class="btn btn-large btn-primary"
+                  href=@routes.Application.newUser()>@Messages("leftbox.button")</a>
+              </div>
+            </div>
+          </div>
+          <div class="item active">
+            <img src="@routes.Assets.at("images/slide-02.jpg")" alt="">
+            <div class="container">
+              <div class="carousel-caption">
+              	<br/><br/><br/>
+                <h1>@Messages("centralbox.title")</h1>
+                <p class="lead">@Messages("centralbox.msg")</p>
+                <a class="btn btn-large btn-primary"
+                  href=@routes.Application.newCompUser()>@Messages("centralbox.button")</a>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="@routes.Assets.at("images/slide-03.jpg")" alt="">
+            <div class="container">
+              <div class="carousel-caption">
+              	<br/><br/><br/>
+                <h1>@Messages("rightbox.title")</h1>
+                <p class="lead">@Messages("rightbox.msg")</p>
+                <a class="btn btn-large btn-primary"
+                  href=@routes.Application.login()>@Messages("rightbox.button")</a>
+              </div>
+            </div>
+          </div>
+        </div>
+     <a class="left carousel-control"
+          href="http://getbootstrap.com/2.3.2/examples/carousel.html#myCarousel"
+          data-slide="prev">@Messages("row.left")</a> <a class="right carousel-control"
+          href="http://getbootstrap.com/2.3.2/examples/carousel.html#myCarousel"
+          data-slide="next">@Messages("row.right")</a>
       </div>
 
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="span4">
-          <h2>@Messages("leftbox.title")</h2>
-          <p>@Messages("leftbox.msg") </p>
-          <p><a class="btn" href=@routes.Application.newUser()>@Messages("leftbox.button") &raquo;</a></p>
-        </div>
-        <div class="span4">
-          <h2>@Messages("centralbox.title")</h2>
-          <p>@Messages("centralbox.msg") </p>
-          <p><a class="btn" href=@routes.Application.newCompUser()>@Messages("centralbox.button") &raquo;</a></p>
-       </div>
-        <div class="span4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-        </div>
+	 <div class="container marketing">
+    <div class="row">
+      <div class="span4">
+        <img class="img-circle" data-src="holder.js/140x140" alt="140x140"
+          style="width: 140px; height: 140px;"
+          src="@routes.Assets.at("images/cand.jpeg")">
+        <h2>@Messages("leftbox.title")</h2>
+        <p>@Messages("leftbox.msg")</p>
+        <p>
+          <a class="btn" href=@routes.Application.newUser()>@Messages("leftbox.button")</a>
+        </p>
       </div>
-      
-      
-    </div> <!-- /container -->
-
+      <div class="span4">
+        <img class="img-circle" data-src="holder.js/140x140" alt="140x140"
+          style="width: 140px; height: 140px;"
+          src="@routes.Assets.at("images/comp.jpg")">
+         <h2>@Messages("centralbox.title")</h2>
+         <p>@Messages("centralbox.msg")</p>
+        <p>
+          <a class="btn" href=@routes.Application.newCompUser()>@Messages("centralbox.button")</a>
+        </p>
+      </div>
+      <div class="span4">
+        <img class="img-circle" data-src="holder.js/140x140" alt="140x140"
+          style="width: 140px; height: 140px;"
+          src="@routes.Assets.at("images/keys.jpeg")">
+        <h2>@Messages("rightbox.title")</h2>
+        <p>@Messages("rightbox.msg")</p>
+        <p>
+          <a class="btn"
+            href=@routes.Application.login()>@Messages("rightbox.button")</a>
+        </p>
+      </div>
+    </div>
+    </div>
+	<br/><br/><br/>
 
 }

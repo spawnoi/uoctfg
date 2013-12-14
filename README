@@ -1,4 +1,38 @@
-This is your new Play application
+TheJobBoard App 
 =====================================
 
-This file will be packaged with your application, when using `play dist`.
+This is the Degree Final Project of Bachelor Degree in Computing Engineering.
+
+Online: http://arcane-basin-9824.herokuapp.com/
+
+Developed using the next tools/languages/frameworks:
+
+Languages:
+   	- Java
+  	- Scala
+   	- HTML5
+   	- CSS3
+
+Frameworks
+	- Twitter Bootstrap
+	- Play Framework 
+    	* MVC
+    	* Ebeans Persistence
+    	* i18n
+    	* Views Engine
+    	* REST
+
+Persistence
+   	- Ebeans
+   	- PostgreSQL
+
+Deploy
+   	- Heroku
+
+Repo management
+   	- Git
+   	- GitHub
+
+IDES:
+  - Eclipse
+  - SublimeText 2

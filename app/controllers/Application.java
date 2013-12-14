@@ -44,6 +44,10 @@ public class Application extends Controller {
 	    return redirect(routes.Application.index());
 	}
 	
+	public static Result contact(){
+		return ok(views.html.contact.render(Messages.get("menu.contact"), mainmenu.render()));
+	}
+	
 	public static Result newCompUser() {
 		Form<CompanyUser> userForm = form(CompanyUser.class);
 		return ok(views.html.newCompanyUser.render(userForm, mainmenu.render()));
@@ -214,7 +218,7 @@ public class Application extends Controller {
 					return redirect(routes.Company.index());
 
 				} else if (user.isAdmin()) {
-					return redirect(routes.Admin.list(0, "name", "asc", ""));
+					return redirect(routes.Admin.dashboard());
 				} else {
 					return redirect(routes.Application.index());
 				}

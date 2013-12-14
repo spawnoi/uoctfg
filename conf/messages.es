@@ -1,5 +1,4 @@
-home.title=App JosepIA
-
+home.title=TheJobBoard
 menu.about=Sobre
 menu.contact=Contacto
 menu.home=Inicio
@@ -24,9 +23,10 @@ centralbox.msg=¿Necesitas personal para tu empresa? Regístrate, publica tus of
 centralbox.button=Regístrate
 
 ##Right box 
-rightbox.title=Busques feina?
-rightbox.msg=Estas buscant feina? Necessites una oportunitat? Registra't i podras accedir a numeroses ofertes de feina en les quals hi pots encaixar.
-rightbox.button=Dona't d'alta
+rightbox.title=Inicia sesión!
+rightbox.msg=Si ya tines tu cuenta creada, inicia sesión a la aplicación y encuentra lo que necesitas. ¡Te estamos esperando!
+rightbox.button=Inicia sesión
+
 
 
 ##Users
@@ -147,9 +147,32 @@ admin.dashboard=Dashboard
 admin.previous=Previo
 admin.next=Siguiente
 admin.disp=Mostrando
-admin.to=a
-admin.of=de
+admin.to=. a .
+admin.of=. de .
 
 general.nodata=No se han encontrado datos
+
+job.created.ok=La oferta de trabajo se ha guardado correctamente
+job.inscribed.ok=Estás suscrito a la oferta de trabajo
+job.inscribed.rev=Ya no estás suscrito a la oferta de trabajo
+
+contact.go=Explora
+contact.github.title=Código fuente
+contact.github.desc=Observa el código fuente de este sitio en GitHub
+contact.linked.title=Connecta!
+contact.linked.desc=Pertenece a mi red profesional en LinkedIn
+contact.twt.title=Sígueme
+contact.twt.desc=Sígueme en twitter y haz RT!  (@spawnoi)
+contact.wp.title=Mi sitio web
+contact.wp.desc=Visita mi sitio web donde publico cosas sobre desarrollo
+
+footer.part1=Trabajo de Final de Grado
+footer.part2=de Ingenieria Informática (Ing. Software) a 
+footer.part3=Desarrollado por
+
+row.left=‹
+row.right=›
+
+contact.me=Contacta conmigo por qualquiera de las opciones!
 
 

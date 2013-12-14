@@ -1,4 +1,4 @@
-home.title=App JosepIA
+home.title=TheJobBoard
 
 ##Menu information:
 menu.about=Sobre
@@ -17,15 +17,17 @@ leftbox.title=Buscant feina?
 leftbox.msg=Estas buscant feina? Necessites una oportunitat? Registra''t i podras accedir a numeroses ofertes de feina en les quals hi pots encaixar.
 leftbox.button=Dona''t d''alta
 
-##Central box
-centralbox.title=Cercant treballadors?
-centralbox.msg=Necessites personal per la teva empresa? Registra''t, publica les teves ofertes i troba el candidat ideal que necessites.
-centralbox.button=Dona''t d''alta
 
 ##Right box 
-rightbox.title=Busques feina?
-rightbox.msg=Estas buscant feina? Necessites una oportunitat? Registra''t i podras accedir a numeroses ofertes de feina en les quals hi pots encaixar.
-rightbox.button=Dona''t d''alta
+centralbox.title=Busques treballadors?
+centralbox.msg=Necessites personal per la teva empresa? Registra''t, publica les teves ofertes i troba els candidats que millor s'adapten al teu lloc.
+centralbox.button=Dona''t d''alta
+
+
+##Central box
+rightbox.title=Inicia sessió!
+rightbox.msg=Si ja tens el teu compte creat i actiu, inicia sessió a l''aplicació i troba tot el que necessites. T''hi estem esperant!
+rightbox.button=Inicia sessió
 
 ##New User
 user.email=Email
@@ -155,14 +157,37 @@ admin.dashboard=Dashboard
 admin.previous=Previ
 admin.next=Següent
 admin.disp=Mostrant
-admin.to=a 
-admin.of=de
+admin.to=. a .
+admin.of=. de .
 
 general.nodata=No s''han trobat dades per mostrar
 
 
+job.created.ok=L'oferta de feina s'ha desat correctament
+
+job.inscribed.ok=Estàs subscrit a la oferta de treball
+job.inscribed.rev=Ja no estàs subscrit a la oferta de treball
 
 
+#contact:
+
+contact.go=Explora
+contact.github.title=Codi font
+contact.github.desc=Observa el codi font d''aquest lloc a GitHub
+contact.linked.title=Connecta!
+contact.linked.desc=Sigues part de la meva xarxa professional a LinkedIn
+contact.twt.title=Segueix-me!
+contact.twt.desc=Segueix-me a twitter i fes RT! (@spawnoi)
+contact.wp.title=El meu web
+contact.wp.desc=Visita el meu lloc web sobre coses de desenvolupament
 
 
+footer.part1=Treball Final de Grau
+footer.part2=d''Enginyeria Informàtica (Eng. Programari) a 
+footer.part3=Desenvolupat per
+
+row.left=‹
+row.right=›
+
+contact.me=Contacta amb mi per qualsevol d''aquests mitjans!
 

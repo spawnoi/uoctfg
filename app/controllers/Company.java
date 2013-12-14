@@ -6,12 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.avaje.ebean.Expr;
-import com.avaje.ebean.Expression;
-
 import models.JobOffer;
-import models.SearchJob;
-import models.UserApp;
 import play.data.Form;
 import play.i18n.Messages;
 import play.mvc.Controller;
@@ -44,38 +39,23 @@ public class Company extends Controller {
     public static Result storeJob(){
     	Form<JobOffer> jobStoreForm = form(JobOffer.class).bindFromRequest();
 		if (jobStoreForm.hasErrors()) {
-			flash("error", "Wrong or missing data!");
+			flash("error", Messages.get("error.msg"));
 			return badRequest(newJob.render(jobStoreForm, companymenu.render()));
 		}
 		JobOffer job = jobStoreForm.get();
 		job.publicationDate = new Date();
 		//job.save();
 		String companyId = session().get("connected");
-		JobOffer stored = JobOffer.create(job, new Long(companyId));
+		JobOffer.create(job, new Long(companyId));
 		
-		System.out.println("Job Offer stored id: " + stored.id);
-		flash("success", "Job Offer " + jobStoreForm.get().title + " has been created");
+		flash("success", Messages.get("job.created.ok"));
 
 		return redirect(routes.Company.index());
     }
     
     public static Result details(Long id){
     	JobOffer job = JobOffer.findById(id);
-    	return ok(jobdetail.render("Job detail", job, companymenu.render()));
+    	return ok(jobdetail.render(Messages.get("job.details"), job, companymenu.render()));
     }
-    /*
-    public static Result add() {
-        //if(Secured.isMemberOf(project)) {
-            Form<JobOffer> taskForm = form(JobOffer.class).bindFromRequest();
-            if(taskForm.hasErrors()) {
-                return badRequest();
-            } else {
-                return ok(item.render(JobOffer.create(taskForm.get(), "userCompanyMail"))
-                );
-            }
-       // } else {
-       //     return forbidden();
-       // }
-    } 
-    */
+    
 }

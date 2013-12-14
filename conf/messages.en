@@ -1,4 +1,4 @@
-home.title=App JosepIA
+home.title=TheJobBoard
 menu.about=About
 menu.contact=Contact
 menu.home=Home
@@ -23,9 +23,10 @@ centralbox.button=Sign up
 
 
 ##Right box 
-rightbox.title=Busques feina?
-rightbox.msg=Estas buscant feina? Necessites una oportunitat? Registra't i podras accedir a numeroses ofertes de feina en les quals hi pots encaixar.
-rightbox.button=Dona't d'alta
+rightbox.title=Login now!
+rightbox.msg=If you already have an active account, login now and find what you need. We are waiting for you!
+rightbox.button=Login
+
 
 ##New User
 user.email=Email
@@ -147,7 +148,33 @@ admin.dashboard=Dashboard
 admin.previous=Previous
 admin.next=Next
 admin.disp=Displaying
-admin.to=to
-admin.of=of
+admin.to=. to .
+admin.of=. of .
 
 general.nodata=No data to show
+
+job.created.ok=The job offer was created successfully
+
+job.inscribed.ok=You are now enrolled to the job offer
+job.inscribed.rev=You are now not enrolled to the job offer
+
+contact.go=Explore
+contact.github.title=Source code
+contact.github.desc=View all this site source code on GitHub
+contact.linked.title=Connect!
+contact.linked.desc=Get inside my professional net at LinkedIn
+contact.twt.title=Follow me!
+contact.twt.desc=Follow me on twitter and RT!  (@spawnoi)
+contact.wp.title=My web site
+contact.wp.desc=Visit my web site where I publish some developing stuff
+
+footer.part1=Degree final project
+footer.part2=of Bachelor Degree in Computing Engineering at 
+footer.part3=Developed by
+
+row.left=‹
+row.right=›
+
+contact.me=Contact me with any of these options!
+
+
