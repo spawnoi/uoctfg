@@ -78,19 +78,14 @@ public class Application extends Controller {
 			return badRequest(views.html.newCompanyUser.render(userAddForm,
 					mainmenu.render()));
 		} else if (UserApp.findByEmail(userAddForm.get().getEmail()) != null) {
-			flash("error", "This e-mail already exists!");
+			flash("error", Messages.get("mail.exists"));
 			return badRequest(views.html.newCompanyUser.render(userAddForm,
 					mainmenu.render()));
 
 		} else {
 			UserApp user = UserApp.makeInstance(userAddForm.get());
 			user.save();
-			flash("success", "Company account instance created/edited: "
-					+ user.name);
-			System.out.println("userAddForm.get().name: "
-					+ userAddForm.get().name);
-			flash("success", "Company " + userAddForm.get().name
-					+ " has been created");
+			flash("success", Messages.get("acc.created"));
 
 			return redirect(routes.Company.index());
 		}
@@ -119,14 +114,14 @@ public class Application extends Controller {
 			return badRequest(views.html.newUser.render(userAddForm,
 					mainmenu.render()));
 		} else if (UserApp.findByEmail(userAddForm.get().getEmail()) != null) {
-			flash("error", "This e-mail already exists!");
+			flash("error", Messages.get("mail.exists"));
 			return badRequest(views.html.newUser.render(userAddForm,
 					mainmenu.render()));
 
 		} else {
 			UserApp user = UserApp.makeInstance(userAddForm.get());
 			user.save();
-			flash("success", "Candidate instance created: " + user.name);
+			flash("success", Messages.get("acc.created"));
 
 			return redirect(routes.Application.login());
 		}
@@ -194,10 +189,10 @@ public class Application extends Controller {
 						.findRowCount();
 				Integer numComp = UserApp.find.where().eq("type", 1)
 						.findRowCount();
-				res = ok(views.html.admin.dashboard.render("Admin dashboard",
+				res = ok(views.html.admin.dashboard.render(Messages.get("admin.dashboard"),
 						adminmenu.render(), numJobs, numCand, numComp));
 			}
-			flash("updated", "Account updated!");
+			flash("updated", Messages.get("acc.updated"));
 
 		}
 

@@ -234,3 +234,12 @@ mark.title2.txt=Utilitzant aquesta aplicació podràs publicar les ofertes de fe
 mark.title3.1=Accedeix en qualsevol moment.
 mark.title3.2=Aplicació multi-dispositiu
 mark.title3.txt=Aquesta aplicació és accessible des de qualsevol dispositiu amb connexió a internet. Estigues assabentat en tot moment del que passa dins la xarxa. A més, és segura i ningú podrà veure les teves dades personals.
+
+
+mail.exists=Aquest e-mail ja existeix!
+acc.created=El perfil d'usuari s''ha creat correctament
+acc.updated=El perfil d'usuari s''ha actualitzat correctament
+
+
+
+

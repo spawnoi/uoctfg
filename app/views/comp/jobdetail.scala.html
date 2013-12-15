@@ -131,14 +131,12 @@
             <thead>
                 <tr>
                     <th>@Messages("job.inscribed.info")</th>
-                    <th>@Messages("options")</th>
                 </tr>
             </thead>
             <tbody>
                 @if(job.inscribed.size() == 0 || job.inscribed == null) {
                     <tr>
                         <td>@Messages("job.inscribed.zero")</td>
-                        <td></td>
                     </tr>
                 }
                 @for(cand <- job.inscribed) {
@@ -197,19 +195,6 @@
 							</table>
 	
 						
-                        </td>
-                           <td>
-                            <div class="btn-group">
-							  <a class="btn dropdown-toggle btn" data-toggle="dropdown" href="#">
-							    @Messages("manage")
-							    <span class="caret"></span>
-							  </a>
-							  <ul class="dropdown-menu">
-							  	 <!-- li><a href=@routes.Company.details(job.id)>View inscribed</a></li>
-							     <li><a href=#>View details</a></li>
-							     <li><a href=#>Delete offer</a></li-->
-							  </ul>
-							  </div>
                         </td>
                     </tr>
                 }

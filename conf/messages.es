@@ -216,3 +216,8 @@ mark.title3.1=Accede en qualquier momento.
 mark.title3.2=Aplicación multi-dispositivo
 mark.title3.txt=Ésta aplicación es accesible desde qualquier dispositivo con conexión a internet. Podrás estar siempre informado de todo lo que pasa en tu red. I es una aplicación segura y nadie podrá ver tus datos personales. 
 
+mail.exists=Éste e-mail ya existe!
+acc.created=El perfil de usuario se ha creado correctament
+acc.updated=El perfil de usuario se ha actualizado correctament
+
+

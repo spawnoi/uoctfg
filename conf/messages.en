@@ -216,3 +216,8 @@ mark.title2.txt=Using this application you can publish your job offers.Then the 
 mark.title3.1=Access anytime.
 mark.title3.2=Multi-device application.
 mark.title3.txt=This application is accessible from any device with an Internet connection. Be aware at all times what is happening within the network. It is secure and no one can see your personal information.
+
+
+mail.exists=This e-mail already exists!
+acc.created=The user account has been created successfully
+acc.updated=The user account has been updated successfully
