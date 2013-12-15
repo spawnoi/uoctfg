@@ -174,7 +174,7 @@ admin.of=. de .
 general.nodata=No s''han trobat dades per mostrar
 
 
-job.created.ok=L'oferta de feina s'ha desat correctament
+job.created.ok=L''oferta de feina s'ha desat correctament
 
 job.inscribed.ok=Estàs subscrit a la oferta de treball
 job.inscribed.rev=Ja no estàs subscrit a la oferta de treball
@@ -196,6 +196,13 @@ contact.wp.desc=Visita el meu lloc web sobre coses de desenvolupament
 footer.part1=Treball Final de Grau
 footer.part2=d''Enginyeria Informàtica (Eng. Programari) a 
 footer.part3=Desenvolupat per
+
+admin.job.del=L''oferta s''ha eliminat correctament
+
+admin.cand.del=El candidat s'ha eliminat correctament
+
+
+
 
 row.left=‹
 row.right=›

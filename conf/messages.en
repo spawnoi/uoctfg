@@ -221,3 +221,12 @@ mark.title3.txt=This application is accessible from any device with an Internet 
 mail.exists=This e-mail already exists!
 acc.created=The user account has been created successfully
 acc.updated=The user account has been updated successfully
+
+admin.job.del=The job offer has been deleted successfully
+admin.cand.del=The candidate has been deleted successfully
+
+
+
+admin.job.del=La oferta se ha eliminado correctamente
+admin.cand.del=El candidato se ha eliminado correctamente
+

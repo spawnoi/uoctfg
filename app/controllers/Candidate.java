@@ -113,7 +113,7 @@ public class Candidate extends Controller {
 	public static Result viewJob(Long id) {
 		Form<JobOffer> jobForm = form(JobOffer.class).fill(
 				JobOffer.findById(id));
-		return ok(viewjob.render("View Job details", candidatemenu.render(),
+		return ok(viewjob.render(Messages.get("job.details"), candidatemenu.render(),
 				id, jobForm));
 	}
 

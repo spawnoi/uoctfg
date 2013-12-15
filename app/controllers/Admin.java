@@ -98,7 +98,7 @@ public class Admin extends Controller {
 	public static Result delete(Long id) {
 		UserApp user = UserApp.findById(id);
 		user.delete();
-		flash("success", "UserApp [ " + user.name + " ]has been deleted");
+		flash("success", Messages.get("admin.cand.del"));
 		return GO_ADMIN_HOME;
 	}
 
@@ -127,7 +127,7 @@ public class Admin extends Controller {
 
 			res = GO_ADMIN_HOME;
 
-			flash("success", "Account updated!");
+			flash("success", Messages.get("acc.updated"));
 		}
 		return res;
 	}
@@ -156,7 +156,7 @@ public class Admin extends Controller {
 
 			res = GO_ENTER_HOME;
 
-			flash("success", "Account updated!");
+			flash("success", Messages.get("acc.updated"));
 		}
 		return res;
 
@@ -165,7 +165,7 @@ public class Admin extends Controller {
 	public static Result deleteJob(Long id) {
 		JobOffer job = JobOffer.findById(id);
 		job.delete();
-		flash("success", "UserApp [ " + job.title + " ]has been deleted");
+		flash("success",Messages.get("admin.job.del"));
 		return GO_JOBS_HOME;
 	}
 
@@ -184,7 +184,7 @@ public class Admin extends Controller {
 		Integer numJobs = JobOffer.find().findRowCount();
 		Integer numCand = UserApp.find.where().eq("type", 0).findRowCount();
 		Integer numComp = UserApp.find.where().eq("type", 1).findRowCount();
-		return ok(views.html.admin.dashboard.render("Admin dashboard",
+		return ok(views.html.admin.dashboard.render(Messages.get("admin.dashboard"),
 				adminmenu.render(), numJobs, numCand, numComp));
 		}
 	}
