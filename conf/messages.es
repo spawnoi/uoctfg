@@ -1,4 +1,4 @@
-home.title=TheJobBoard
+home.title=The Job Board
 menu.about=Sobre
 menu.contact=Contacto
 menu.home=Inicio
@@ -142,6 +142,15 @@ admin.job1=Gestiona ofertaa
 admin.cand=Gestiona candidatos
 admin.enter=Gestiona empresas
 admin.job=Gestiona ofertas
+
+admin.cand.act=Candidatos
+admin.enter.act=Empresas
+admin.job.act=Ofertas
+
+admin.cand.txt=Accede a la gestión de candidatos donde podras actualizar o elmininarlos datos incorrectos de los candidatos
+admin.enter.txt=Accede a la gestion de empresas donde podras observar todas las activas y modificar o adaptar sus datos 
+admin.job.txt=Accede a la gestion de ofertas de trabajo, observalas en un listado y elimina las ofertas que ya estén expiradas
+
 admin.filter=Filtrar por nombre
 admin.dashboard=Dashboard
 admin.previous=Previo
@@ -174,5 +183,36 @@ row.left=‹
 row.right=›
 
 contact.me=Contacta conmigo por qualquiera de las opciones!
+tech.me=Ésta aplicación se ha desarrollado usando las siguientes tecnologias!
+tech.all=Tecnologías
 
+tech.name=Nombre
+tech.type=Tipo
+tech.info=Información
+
+tech.prog=Lenguage de Programación
+tech.mark=Marcage HTML
+tech.css=Diseño web
+tech.boot=Front-end responsive web framework
+tech.play=MVC REST Web framework
+tech.ebeans=Capa Persistencia
+tech.db=Motor de base de datos
+tech.git=Sist. distribuido repositorio de codigo
+tech.github=Gestión de repositioros públicos
+tech.heroku=Cloud computing
+
+restricted.area=No tienes permisos para acceder a ésta área. Porfavor, inicia sesión
+
+
+mark.title1.1=¿Necesitas un nuevo trabajo?
+mark.title1.2=Encuentra ofertas interesantes.
+mark.title1.txt=Con esta aplicación podras encontrar ofertas de trabajo usando un buscador con diferentes opciones de búsqueda. Una vez encontrada tu oferta, inscríbete y la empresa contactará contigo.
+
+mark.title2.1=¿Necesitas más trabajadores?
+mark.title2.2=Publica las ofertes.
+mark.title2.txt=Utilizando ésta aplicación podrás publicar las ofertas de tus puestos de trabajo y los candidatos podrán inscribirse en ellas. Podrás realizar un seguimiento desde tu área privada.
+
+mark.title3.1=Accede en qualquier momento.
+mark.title3.2=Aplicación multi-dispositivo
+mark.title3.txt=Ésta aplicación es accesible desde qualquier dispositivo con conexión a internet. Podrás estar siempre informado de todo lo que pasa en tu red. I es una aplicación segura y nadie podrá ver tus datos personales. 
 

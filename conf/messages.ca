@@ -1,4 +1,4 @@
-home.title=TheJobBoard
+home.title=The Job Board
 
 ##Menu information:
 menu.about=Sobre
@@ -152,6 +152,17 @@ admin.job1=Gestiona oferta
 admin.cand=Gestiona candidats
 admin.enter=Gestiona empreses
 admin.job=Gestiona ofertes
+
+admin.cand.act=Candidats
+admin.enter.act=Empreses
+admin.job.act=Ofertes
+
+admin.cand.txt=Accedeix a la gestió de candidats on podràs actualitzar les dades o eliminar els candidats incorrectes
+admin.enter.txt=Accedeix a la gestió d''empreses on podràs observar totes les empreses i modificar o adaptar-ne les dades 
+admin.job.txt=Accedeix a la gestió d''ofertes de treball, observa-les a partir d''un llistat i elimina les ofertes expirades
+
+
+
 admin.filter=Filtra per nom
 admin.dashboard=Dashboard
 admin.previous=Previ
@@ -190,4 +201,36 @@ row.left=‹
 row.right=›
 
 contact.me=Contacta amb mi per qualsevol d''aquests mitjans!
+tech.me=Aquesta aplicació s''ha desenvolupat amb les següents tecnologies!
+tech.all=Tecnologies
 
+
+tech.name=Nom
+tech.type=Tipus
+tech.info=Informació
+
+tech.prog=Llenguatge de Programació
+tech.mark=Marcatge HTML
+tech.css=Disseny web
+tech.boot=Front-end responsive web framework
+tech.play=MVC REST Web framework
+tech.ebeans=Capa Persistència
+tech.db=Motor de base de dades
+tech.git=Sist. distribuit repositori de codi
+tech.github=Gestió de repositoris publics
+tech.heroku=Cloud computing
+
+restricted.area=No tens permisos per accedir a aquesta àrea. Siusplau, inicia sessió
+
+
+mark.title1.1=Necessites una nova feina?
+mark.title1.2=Troba ofertes interessants.
+mark.title1.txt=Amb aquesta aplicació podràs trobar ofertes de feina utilitzant un buscador amb diversos criteris de cerca. Un cop trobada la oferta podràs inscriure''t-hi i l''empresa podrà contactar amb tu.
+
+mark.title2.1=Necessites més treballadors?
+mark.title2.2=Publica les ofertes.
+mark.title2.txt=Utilitzant aquesta aplicació podràs publicar les ofertes de feina dels teus lloc de treball i els candidats s''hi podràn inscriure. Podràs fer el seguiment dels candidats des de la teva àrea privada.
+
+mark.title3.1=Accedeix en qualsevol moment.
+mark.title3.2=Aplicació multi-dispositiu
+mark.title3.txt=Aquesta aplicació és accessible des de qualsevol dispositiu amb connexió a internet. Estigues assabentat en tot moment del que passa dins la xarxa. A més, és segura i ningú podrà veure les teves dades personals.

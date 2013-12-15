@@ -1,4 +1,4 @@
-home.title=TheJobBoard
+home.title=The Job Board
 menu.about=About
 menu.contact=Contact
 menu.home=Home
@@ -143,6 +143,15 @@ admin.job1=Job management
 admin.cand=Manage candidates
 admin.enter=Manage enterprises
 admin.job=Manage jobs
+
+admin.cand.act=Candidates
+admin.enter.act=Companies
+admin.job.act=Job offers
+
+admin.cand.txt=Access to candidates management where you can update or delete the incorrect data
+admin.enter.txt=Access to companies management where you can watch all active and modify the data
+admin.job.txt=Access to job offer''s management, watch them and delete de ones that are expired
+
 admin.filter=Filter by name
 admin.dashboard=Dashboard
 admin.previous=Previous
@@ -176,5 +185,34 @@ row.left=‹
 row.right=›
 
 contact.me=Contact me with any of these options!
+tech.me=This application has ben developed using all these technologies!
+tech.all=Technologies
 
+tech.name=Tech name
+tech.type=Type
+tech.info=Information
 
+tech.prog=Programming Language
+tech.mark=HTML Markup
+tech.css=Web design
+tech.boot=Front-end responsive web framework
+tech.play=MVC REST Web framework
+tech.ebeans=Persistence Layer
+tech.db=Data Base
+tech.git=Distributed source code system
+tech.github=Public repositories management
+tech.heroku=Cloud computing
+
+restricted.area=You don''t have permission to access this area. Please login
+
+mark.title1.1=Need a new job?
+mark.title1.2=Find exiting offers.
+mark.title1.txt=With this application you can find job vacancies using a search engine with multiple search criteria. Once enrolled to an offer the company will contact you.
+
+mark.title2.1=Need more employees?
+mark.title2.2=Publish your yob offers.
+mark.title2.txt=Using this application you can publish your job offers.Then the offers are accessible to the candidates. You can track candidates from your private area.
+
+mark.title3.1=Access anytime.
+mark.title3.2=Multi-device application.
+mark.title3.txt=This application is accessible from any device with an Internet connection. Be aware at all times what is happening within the network. It is secure and no one can see your personal information.

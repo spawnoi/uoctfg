@@ -36,21 +36,38 @@ public class Application extends Controller {
 		langCodes.add("es");
 		langCodes.add("en");
 		langCodes.add("ca");
-		if(langCodes.contains(code)){
+		if (langCodes.contains(code)) {
 			changeLang(code);
-		}else{
+		} else {
 			changeLang("en");
 		}
-	    return redirect(routes.Application.index());
+		return redirect(routes.Application.index());
 	}
-	
-	public static Result contact(){
-		return ok(views.html.contact.render(Messages.get("menu.contact"), mainmenu.render()));
+
+	public static Result tech() {
+		return ok(views.html.tech.render(Messages.get("tech.all"),
+				mainmenu.render()));
 	}
-	
+
+	public static Result contact() {
+		return ok(views.html.contact.render(Messages.get("menu.contact"),
+				mainmenu.render()));
+	}
+
 	public static Result newCompUser() {
-		Form<CompanyUser> userForm = form(CompanyUser.class);
-		return ok(views.html.newCompanyUser.render(userForm, mainmenu.render()));
+		if (session().get("type") != null) {
+			if (session().get("type").equals("ENTERPRISE")) {
+				return redirect(routes.Company.index());
+			} else if (session().get("type").equals("CANDIDATE")) {
+				return redirect(routes.Candidate.index());
+			} else {
+				return redirect(routes.Admin.dashboard());
+			}
+		} else {
+			Form<CompanyUser> userForm = form(CompanyUser.class);
+			return ok(views.html.newCompanyUser.render(userForm,
+					mainmenu.render()));
+		}
 	}
 
 	public static Result saveCompUser() {
@@ -68,7 +85,8 @@ public class Application extends Controller {
 		} else {
 			UserApp user = UserApp.makeInstance(userAddForm.get());
 			user.save();
-			flash("success", "Company account instance created/edited: " + user.name);
+			flash("success", "Company account instance created/edited: "
+					+ user.name);
 			System.out.println("userAddForm.get().name: "
 					+ userAddForm.get().name);
 			flash("success", "Company " + userAddForm.get().name
@@ -79,8 +97,18 @@ public class Application extends Controller {
 	}
 
 	public static Result newUser() {
-		Form<CandidateUser> userForm = form(CandidateUser.class);
-		return ok(views.html.newUser.render(userForm, mainmenu.render()));
+		if (session().get("type") != null) {
+			if (session().get("type").equals("ENTERPRISE")) {
+				return redirect(routes.Company.index());
+			} else if (session().get("type").equals("CANDIDATE")) {
+				return redirect(routes.Candidate.index());
+			} else {
+				return redirect(routes.Admin.dashboard());
+			}
+		} else {
+			Form<CandidateUser> userForm = form(CandidateUser.class);
+			return ok(views.html.newUser.render(userForm, mainmenu.render()));
+		}
 	}
 
 	public static Result saveUser() {
@@ -105,22 +133,29 @@ public class Application extends Controller {
 	}
 
 	public static Result prepareUser() {
-		Form<UserApp> userUpdForm = form(UserApp.class).fill(
-				UserApp.findByEmail(session().get("email")));
-		
-		
-		Html view = null;
-		if (userUpdForm.get().isCandidate()) {
-			view = edituser.render(userUpdForm, candidatemenu.render());
-		} else if (userUpdForm.get().isCompany()) {
-			view = editcompany.render(userUpdForm, companymenu.render());
-		}else if(userUpdForm.get().isAdmin()){
-			view = editadmin.render(userUpdForm, adminmenu.render());
-		} else {
-			view = views.html.index.render(Messages.get("account.update"), mainmenu.render());
-		}
+		if (session().get("type") == null) {
+			flash("error", Messages.get("restricted.area"));
+			return ok(views.html.login.render(form(Login.class),
+					mainmenu.render()));
 
-		return ok(view);
+		} else {
+			Form<UserApp> userUpdForm = form(UserApp.class).fill(
+					UserApp.findByEmail(session().get("email")));
+
+			Html view = null;
+			if (userUpdForm.get().isCandidate()) {
+				view = edituser.render(userUpdForm, candidatemenu.render());
+			} else if (userUpdForm.get().isCompany()) {
+				view = editcompany.render(userUpdForm, companymenu.render());
+			} else if (userUpdForm.get().isAdmin()) {
+				view = editadmin.render(userUpdForm, adminmenu.render());
+			} else {
+				view = views.html.index.render(Messages.get("account.update"),
+						mainmenu.render());
+			}
+
+			return ok(view);
+		}
 	}
 
 	public static Result updateUser() {
@@ -133,7 +168,7 @@ public class Application extends Controller {
 				view = edituser.render(userUpdForm, candidatemenu.render());
 			} else if (userUpdForm.get().isCompany()) {
 				view = editcompany.render(userUpdForm, companymenu.render());
-			}else if(userUpdForm.get().isAdmin()){
+			} else if (userUpdForm.get().isAdmin()) {
 				view = editadmin.render(userUpdForm, adminmenu.render());
 			} else {
 				view = views.html.index.render(Messages.get("account.update"),
@@ -141,13 +176,13 @@ public class Application extends Controller {
 			}
 			res = badRequest(view);
 		} else {
-			
+
 			UserApp old = UserApp.findByEmail(session().get("email"));
 			UserApp userUpdated = userUpdForm.get();
 			userUpdated.email = old.email;
-			userUpdated.password= old.password;
+			userUpdated.password = old.password;
 			userUpdated.update(old.id);
-			
+
 			res = redirect(routes.Application.index());
 			if (old.isCandidate()) {
 				res = redirect(routes.Candidate.index());
@@ -155,9 +190,11 @@ public class Application extends Controller {
 				res = redirect(routes.Company.index());
 			} else {
 				Integer numJobs = JobOffer.find().findRowCount();
-				Integer numCand = UserApp.find.where().eq("type", 0).findRowCount();
-				Integer numComp = UserApp.find.where().eq("type", 1).findRowCount();
-				res =  ok(views.html.admin.dashboard.render("Admin dashboard",
+				Integer numCand = UserApp.find.where().eq("type", 0)
+						.findRowCount();
+				Integer numComp = UserApp.find.where().eq("type", 1)
+						.findRowCount();
+				res = ok(views.html.admin.dashboard.render("Admin dashboard",
 						adminmenu.render(), numJobs, numCand, numComp));
 			}
 			flash("updated", "Account updated!");
@@ -178,8 +215,8 @@ public class Application extends Controller {
 		public List<ValidationError> validate() {
 			List<ValidationError> errors = new ArrayList<ValidationError>();
 			if (UserApp.authenticate(email, password) == null) {
-				errors.add(new ValidationError("email",
-						Messages.get("login.error")));
+				errors.add(new ValidationError("email", Messages
+						.get("login.error")));
 			}
 			return errors.isEmpty() ? null : errors;
 		}
@@ -189,9 +226,21 @@ public class Application extends Controller {
 	 * Login page.
 	 */
 	public static Result login() {
-		flash("success", Messages.get("login.please"));
-		// ready to login
-		return ok(views.html.login.render(form(Login.class), mainmenu.render()));
+		// Already logged
+		if (session().get("type") != null) {
+			if (session().get("type").equals("ENTERPRISE")) {
+				return redirect(routes.Company.index());
+			} else if (session().get("type").equals("CANDIDATE")) {
+				return redirect(routes.Candidate.index());
+			} else {
+				return redirect(routes.Admin.dashboard());
+			}
+		} else {
+			flash("success", Messages.get("login.please"));
+			// ready to login
+			return ok(views.html.login.render(form(Login.class),
+					mainmenu.render()));
+		}
 	}
 
 	/**

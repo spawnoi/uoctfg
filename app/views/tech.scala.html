@@ -1,0 +1,78 @@
+@(message: String, menu: Html) 
+
+@main(message, menu) {
+
+<blockquote>
+  <p>@Messages("tech.me")</p>
+</blockquote>
+
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>@Messages("tech.name")</th>
+      <th>@Messages("tech.type")</th>
+      <th>@Messages("tech.info")</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Java</td>
+      <td>@Messages("tech.prog")</td>
+      <td><a href="http://java.com">http://java.com</a></td>
+    </tr>
+     <tr>
+      <td>Scala</td>
+      <td>@Messages("tech.prog")</td>
+      <td><a href="http://www.scala-lang.org/">http://www.scala-lang.org/</a></td>
+    </tr>
+     <tr>
+      <td>HTML5</td>
+      <td>@Messages("tech.mark")</td>
+      <td><a href="http://www.html5rocks.com/en/">http://www.html5rocks.com/en/</a></td>
+    </tr>
+     <tr>
+      <td>CSS3</td>
+      <td>@Messages("tech.css")</td>
+      <td><a href="http://www.w3schools.com/css/">http://www.w3schools.com/css/</a></td>
+    </tr>
+     <tr>
+      <td>Twitter Bootstrap 2.3.2</td>
+      <td>@Messages("tech.boot")</td>
+      <td><a href="http://getbootstrap.com/2.3.2/">http://getbootstrap.com/2.3.2/</a></td>
+    </tr>
+     <tr>
+      <td>Play Framework</td>
+      <td>@Messages("tech.play")</td>
+      <td><a href="http://www.playframework.com/">http://www.playframework.com/</a></td>
+    </tr>
+     <tr>
+      <td>EBeans</td>
+      <td>@Messages("tech.ebeans")</td>
+      <td><a href="http://www.avaje.org/">http://www.avaje.org/</a></td>
+    </tr>
+     <tr>
+      <td>PostgreSQL</td>
+      <td>@Messages("tech.db")</td>
+      <td><a href="http://www.postgresql.org/">http://www.postgresql.org/</a></td>
+    </tr>
+     <tr>
+      <td>Heroku</td>
+      <td>@Messages("tech.heroku")</td>
+      <td><a href="https://www.heroku.com/">https://www.heroku.com/</a></td>
+    </tr>
+     <tr>
+      <td>Git</td>
+      <td>@Messages("tech.git")</td>
+      <td><a href="http://git-scm.com/">http://git-scm.com/</a></td>
+    </tr>
+     <tr>
+      <td>GitHub</td>
+      <td>@Messages("tech.github")</td>
+      <td><a href="http://github.com">http://github.com</a></td>
+    </tr>
+    
+  </tbody>
+</table>
+
+}
